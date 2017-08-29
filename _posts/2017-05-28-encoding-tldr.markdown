@@ -14,7 +14,7 @@ Encoding is a process of converting one representation to another.
 
 Unicode is a REALLY big table with 1 114 112 code points, but it is not encoding by itself, it is the standard.
 
-UTF-16 and UTF-8 are variable-length encodings. It means that if character may be represented with 1 byte, then 1 byte only will be used, it character needs 3 bytes, then suprise suprise the 3 bytes will be used.
+UTF-16 and UTF-8 are variable-length encodings. It means that if character may be represented with 1 byte, then 1 byte only will be used, if character needs 3 bytes, then suprise suprise, 3 bytes will be used.
 
 If your text is garbled there is only one reason for this - you are using wrong encoding!
 
