@@ -76,6 +76,8 @@ Also you can notice a huge difference in consumed RAM (tested files with functio
     ~ $ php yield_test.php
     2Mb
 {% endhighlight %}
+_later on I found out that the paragraph below is almost the same as in the "couroutines" article by Nikita Popov. Does it mean I understood it that good or I just subconsciously stole it?_
+
 It happens because the `yieldArray()` is not executed fully, instead it returns `Generator` instance when it stumbles on the first `yield` keyword.
 Returned generator has a "state" and "remembers" current state of the function, more on that later. 
 
@@ -144,6 +146,7 @@ to be continued ...
 I will update this article with coroutine examples.
 
 **Used materials:**   
+[Cooperative multitasking using coroutines (in PHP!)](ihttps://nikic.github.io/2012/12/22/Cooperative-multitasking-using-coroutines-in-PHP.html)
 [What Generators Can Do For You](http://blog.ircmaxell.com/2012/07/what-generators-can-do-for-you.html)   
 [Generators in action](https://habrahabr.ru/post/189796/)    
 [man](http://php.net/manual/en/language.generators.syntax.php)   
