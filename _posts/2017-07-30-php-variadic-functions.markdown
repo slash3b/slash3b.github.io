@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2017-07-30
-Title: PHP variadic functions
+Title: "PHP variadic functions"
 ---
 So at first what is a variadic function ? A variadic function is a function that accepts a variable number of arguments, that is it!
 
