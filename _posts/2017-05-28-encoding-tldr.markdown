@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2017-05-28
-title: "Encoging tl:dr"
+title: "Encoging tl;dr"
 ---
 Well, this is my own version of TLDR for an amazing post by [David C. Zentgraf](https://twitter.com/deceze). As a self-starter I always struggle to find a good source of information which would give me ample view on the subject and the post writtend by David revealed the whole world of encoding to me.
 
