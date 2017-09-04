@@ -9,7 +9,7 @@ _A little disclaimer: this is just a short self-initialized-probably-never-relea
 Today at work I was silly enough not to ask help from my colleagues, I've decided to deal with the problem myself and came up with a shitty solution.   
 During code review horrible hackery was revaled and I was taugh to live a simple life.
 
-Lets consider the following - there are tow tables:
+Lets consider the following - there are two tables:
 
     SELECT * FROM docs
 
@@ -30,7 +30,8 @@ Lets consider the following - there are tow tables:
     |  6 |      2 |          10 |  Sixth |
 
 
-And what we need is to select all docs with docvalues where `property_id` is 9, thus we inted to get NULL result for those who does not have corresponding record in the docvalues. Right?   
+And what we need is to select all docs with docvalues where `property_id` is 9, thus we intend to get NULL result for those who does not have corresponding record in the docvalues. Right?   
+
 So the first mumbling query is the trivial one:
 
     SELECT docs.id, property_id, value FROM docs
@@ -49,7 +50,7 @@ So there is actually a neat solution and it looks like this:
     SELECT docs.id, property_id, value FROM docs
         LEFT JOIN docvalues 
             ON docvalues.doc_id = docs.id 
-            AND docvalues.property_id = 9
+            AND docvalues.property_id = 9;
 
     | id | property_id |  value |
     |----|-------------|--------|
