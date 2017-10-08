@@ -40,3 +40,7 @@ Convert callables to Closures with Closure::fromCallable()
 Asynchronous signal handling   
 HTTP/2 server push support in ext/curl  
 
+### Changes introduced in 7.2
+
+New cryptographic extension - Sodium  
+password_hash will support Argon2 hashing algorithm
