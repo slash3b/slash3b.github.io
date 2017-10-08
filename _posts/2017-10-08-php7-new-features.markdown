@@ -44,3 +44,5 @@ HTTP/2 server push support in ext/curl
 
 New cryptographic extension - Sodium  
 password_hash will support Argon2 hashing algorithm
+object as type hint and return type
+Parameter Type Widening
