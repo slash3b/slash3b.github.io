@@ -41,8 +41,6 @@ So in case post variable does not exists or it is null, we'll get the value afte
 
 Will return 0 in case variables are equal, -1 if $b is more\equal to the be and 1 if vise versa.
 
-**Constant array using define()**  
-
 **Anonymous classes:**  
 {% highlight PHP %}
     new class extends SomeOtherClass
@@ -72,16 +70,42 @@ Now unserialize have an optional option `allowed_classes` for better security:
 Interestingly enough, in case we pass some other class we will get instance of `__PHP_Incomplete_Class`
 
 **IntlChar**  
+Intl extension received new class IntlChar, it holds a number of useful method to work with unicode characters.  
+For instance `charAge` which lets you have a Unicode version when this character was introduced, or `charName` 
+which well, lets you get char name and etc.
+
 **Expectation**  
+It is `assert` enhancement, previously you could use it like this:
+{% highlight PHP %}
+    var_dump(assert('true !== false'));
+{% endhighlight %}
+which would be validated to true or false roughly speaking. But in PHP7 `assert()` is a language construct so the first parameter - assertion can be an expression and the second parameter can be now of type `throwable` so we can throw Exception.
+
 **Group use declaration**  
+We can them like this:
+{% highlight PHP %}
+    use some\namespace\{ClassA, ClassB, ClassC as C};
+{% endhighlight %}
+Though it kind of contradicts with [PSR-4](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md#2-specification) which does not allow grouping.
+
 **Generator return expressions**  
+With new Generator function `getReturn()` we may retrieve the final expression like this:
+{% highlight PHP %}
+    $gen = (function(){
+        yield 1;
+        return 'The end' . PHP_EOL;
+    })();
+{% endhighlight %}
+Only when generator is done yielding values, we can use `$gen->getReturn()` and see the final result. Pretty handy!
+
 **Generator delegation**   
-    with yeild from  
-**Two new functions for CSPRNG**  
+The generator can do `yield from` and suck in other generator, array or any Traversable object.
 
 **Things deprecated:**  
+{: style="color:red;" }
 - PHP 4 style constructors
 - Static calls to non-static methods
+- calling `assert()` with string argument
 - password_hash() salt option
 
 
