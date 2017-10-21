@@ -41,8 +41,9 @@ So in case post variable does not exists or it is null, we'll get the value afte
 
 Will return 0 in case variables are equal, -1 if $b is more\equal to the be and 1 if vise versa.
 
-**Constant array using define()** 
-**Anonymous classesi**  
+**Constant array using define()**  
+
+**Anonymous classes:**  
 {% highlight PHP %}
     new class extends SomeOtherClass
     {}
@@ -56,8 +57,20 @@ So yeah, it's an old plain class which can extend, implement and etc.
 Will output 桹 
 
 **Closure::call**  
+Shorthand way to get everything you need from the class.  
+Could we say we do not need Reflection any more ?
+{% highlight PHP %}
+    class A {private $x = 42;} 
+    print (function(){ return $this->x;})->call(new A); 
+{% endhighlight %}
 
 **Filtered unserialize function**  
+Now unserialize have an optional option `allowed_classes` for better security:
+{% highlight PHP %}
+    unserialize($some_string, ['allowed_classes' => ['MyA', 'MyB']]);
+{% endhighlight %}
+Interestingly enough, in case we pass some other class we will get instance of `__PHP_Incomplete_Class`
+
 **IntlChar**  
 **Expectation**  
 **Group use declaration**  
