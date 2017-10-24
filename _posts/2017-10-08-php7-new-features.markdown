@@ -161,20 +161,23 @@ Catch block may now have multiple exceptions specified with pipe `|` character l
     ["name" => $name, "id" => $id] = $data[0];
 {% endhighlight %}
 
+**Support for negative string offsets**  
 
 
-Support for negative string offsets  
-Support for AEAD in ext/openssl   
-Convert callables to Closures with Closure::fromCallable()   
-Asynchronous signal handling   
-HTTP/2 server push support in ext/curl  
+**Support for AEAD in ext/openssl**   
+
+
+**Convert callables to Closures with Closure::fromCallable()**   
+
+
+**Asynchronous signal handling**  
+
+
+**HTTP/2 server push support in ext/curl**  
+
 
 **Things deprecated:**  
 {: style="color:red;" }
-- PHP 4 style constructors
-- Static calls to non-static methods
-- calling `assert()` with string argument
-- password_hash() salt option
 
 
 ### Changes introduced in 7.2
