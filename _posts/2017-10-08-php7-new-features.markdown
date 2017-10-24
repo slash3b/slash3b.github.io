@@ -1,7 +1,7 @@
 ---
 layout: post
 date:   2017-10-08
-title: "New features in PHP tl;dr"
+title: "New features in PHP 7+"
 ---
 Sorry, this is Work In Progress article but I need it to be published.
 
@@ -111,18 +111,71 @@ The generator can do `yield from` and suck in other generator, array or any Trav
 
 ## Changes introduced in 7.1
 
-Nullable types  
-Void functions  
-Symmetric array destructuring  
-Class constant visibility  
-iterable pseudo-type  
-Multi catch exception handling  
-Support for keys in list() or in [] array desctucuring   
+**Nullable types**  
+Nullable type meand that along with specified type we can pass or return NULL.  
+Here is quite silly but legit example.
+{% highlight PHP %}
+    function a(?string $line): ?string
+    {
+        return $line;
+    }
+{% endhighlight %}
+
+**Void functions**   
+New return type `void` that is used in case we omit `return` or we do `return;`
+
+**Symmetric array destructuring**   
+Means that now along with classical `list()` we can do this:
+{% highlight PHP %}
+    $data = ['blah', 'ping-pong'];
+    [$first, $second] = $data;
+{% endhighlight %}
+`$first` will be created and equal to 'blah' and `$second` will be equal to'ping-pong',
+hence the name - _symmetric array destructturing_ : )
+
+**Class constant visibility**  
+Well, constants can now be `private`, `protected` and `public`
+
+**iterable pseudo-type**  
+New return type, similar to `callable()` - `iterable`  
+Of course it can be user for array or object implemeting `Traversable` interface
+
+**Multi catch exception handling**  
+Catch block may now have multiple exceptions specified with pipe `|` character like this
+{% highlight PHP %}
+    ...
+    } catch( LigicException | RuntimeException $e) {
+    ...
+{% endhighlight %}
+
+**Support for keys in list() or in [] array desctucuring**   
+`list` and symmetric array destructuring support keys, so we can do it like this:
+{% highlight PHP %}
+    $data = [
+        ["id" => 1, "name" => 'Tom'],
+        ["id" => 2, "name" => 'Fred'],
+    ];
+
+    list("name" => $name, "id" => $id) = $data[0];
+
+    ["name" => $name, "id" => $id] = $data[0];
+{% endhighlight %}
+
+
+
 Support for negative string offsets  
 Support for AEAD in ext/openssl   
 Convert callables to Closures with Closure::fromCallable()   
 Asynchronous signal handling   
 HTTP/2 server push support in ext/curl  
+
+**Things deprecated:**  
+{: style="color:red;" }
+- PHP 4 style constructors
+- Static calls to non-static methods
+- calling `assert()` with string argument
+- password_hash() salt option
+
 
 ### Changes introduced in 7.2
 
