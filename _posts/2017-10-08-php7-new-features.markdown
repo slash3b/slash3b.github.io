@@ -112,7 +112,7 @@ The generator can do `yield from` and suck in other generator, array or any Trav
 ## Changes introduced in 7.1
 
 **Nullable types**  
-Nullable type meand that along with specified type we can pass or return NULL.  
+Nullable type means that along with specified type we can pass or return NULL.  
 Here is quite silly but legit example.
 {% highlight PHP %}
     function a(?string $line): ?string
@@ -162,10 +162,8 @@ Catch block may now have multiple exceptions specified with pipe `|` character l
 {% endhighlight %}
 
 **Support for negative string offsets**  
-
-
-**Support for AEAD in ext/openssl**   
-
+With negative offset we can do `var_dump("testy"[-1]);` and receive y letter.  
+Also all [string manipulation function](http://php.net/manual/en/book.strings.php) are able to use negative offset as well.
 
 **Convert callables to Closures with Closure::fromCallable()**   
 
@@ -178,11 +176,60 @@ Catch block may now have multiple exceptions specified with pipe `|` character l
 
 **Things deprecated:**  
 {: style="color:red;" }
-
+- extension ext/mcrypt
+- the _e_ pattern modifier is deprecated for the mb_ereg_replace() and mb_eregi_replace() functions.
 
 ### Changes introduced in 7.2
 
-New cryptographic extension - Sodium  
-password_hash will support Argon2 hashing algorithm
-object as type hint and return type
-Parameter Type Widening
+**New object type**  
+It can be used as type hint and as return type as well:
+{% highlight PHP %}
+    function(object $obj): object {
+        return new SplFileInfo();
+    }
+{% endhighlight %}
+**Extension loading by name**  
+No need to write extension name along with file extension, _.so_ in Unix case.  
+
+**Abstract method override**   
+Now we are able to create child abstact class and override parent's abstract methods:
+
+{% highlight PHP %}
+    abstract class A
+    {
+        abstract function test(string $s);
+    }
+    abstract class B extends A
+    {
+        abstract function test($s) : int;
+    }
+{% endhighlight %}
+
+**password_hash will support Argon2 hashing algorithm**  
+All `password_...`functions have a bunch of ARGON2 constants available to them.
+
+**New cryptographic extension - Sodium**    
+
+
+**object as type hint and return type**  
+**Parameter Type Widening**  
+As far as I understood it is hard to call it widening, I'd call it anarchy ))
+Probably this is not that funny as I think it is.
+
+{% highlight PHP %}
+    
+{% endhighlight %}
+
+**Trailing comma is alowed in grouped namespaces**  
+
+
+**Things deprecated:**  
+{: style="color:red;" }
+- unquoted strings in php7.2+ will emir E_WARNING instead of E_NOTICE
+- `__autload()` deprecated in favor of superior `spl_autoload_register()`
+- useless `(unset)` cast
+- `create_function()`
+- using `parse_str()` function without second argument
+- `each()` function due to slowness
+- `assert()` with string argument
+
