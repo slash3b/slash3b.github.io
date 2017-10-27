@@ -3,7 +3,10 @@ layout: post
 date:   2017-10-08
 title: "New features in PHP 7+"
 ---
-Sorry, this is Work In Progress article but I need it to be published.
+
+This post server as a reminder, it is so easy to forget things nowadays. So here you go all in one list of PHP 7+ new features.
+Beware though, it is not 100% full, but 85-90% I think, I did omit some not-so-important features. I would be so glad if this article helped to save your time.
+
 
 ## Changes introduced in 7.0
 
@@ -108,7 +111,6 @@ The generator can do `yield from` and suck in other generator, array or any Trav
 - calling `assert()` with string argument
 - password_hash() salt option
 
-
 ## Changes introduced in 7.1
 
 **Nullable types**  
@@ -210,18 +212,23 @@ All `password_...`functions have a bunch of ARGON2 constants available to them.
 
 **New cryptographic extension - Sodium**    
 
-
 **object as type hint and return type**  
+
 **Parameter Type Widening**  
-As far as I understood it is hard to call it widening, I'd call it anarchy ))
-Probably this is not that funny as I think it is.
 
 {% highlight PHP %}
-    
+    interface A
+    {
+            public function Test(array $input);
+    }
+
+    class B implements A
+    {
+            public function Test($input){}
+    }
 {% endhighlight %}
 
 **Trailing comma is alowed in grouped namespaces**  
-
 
 **Things deprecated:**  
 {: style="color:red;" }
@@ -231,5 +238,18 @@ Probably this is not that funny as I think it is.
 - `create_function()`
 - using `parse_str()` function without second argument
 - `each()` function due to slowness
-- `assert()` with string argument
+- `assert()` with string argument 
+
+### Changes introduced in 7.3   
+
+&#9642; **JSON throw on error**    
+As fourth parameter `json_decode()` and `json_encode` functions receive bitmask of JSON decode options.  
+`JSON_THROW_ON_ERROR` will be added to these options, it wont change behavior of `json_last_error()` and `json_last_error_msg()`.
+With that additional option `json_decode()` and `json_encode` functions will throw `JsonException`.
+
+
+**Things deprecated:**   
+{: style="color:red;" }
+- not yet
+
 
