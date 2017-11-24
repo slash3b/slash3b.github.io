@@ -4,9 +4,9 @@ date:   2017-10-08
 title: "New features in PHP 7+"
 ---
 
-This post server as a reminder, it is so easy to forget things nowadays. So here you go all in one list of PHP 7+ new features.
-Beware though, it is not 100% full, but 85-90% I think, I did omit some not-so-important features. I would be so glad if this article helped to save your time.
+This post serves as a reminder, it is so easy to forget things nowadays. So here you go all in one list of PHP 7+ new features.
 
+Beware though, it is not 100% full, but 85-90% I think, I did omit some not-so-important features. I would be so glad if this article helped to save your time.
 
 ## Changes introduced in 7.0
 
