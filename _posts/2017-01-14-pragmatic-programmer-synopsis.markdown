@@ -2,7 +2,8 @@
 layout: post
 date: 2017-01-14
 updated: 2017-02-19
-Title: Pragmatic Programmer synopsis
+comments: true
+title: Pragmatic Programmer synopsis
 ---
 
 Here are all the tips from the book Pragmatic Programmer. It was published in October, 1999 and since then became one the best known books about software engineering.

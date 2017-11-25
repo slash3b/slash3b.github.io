@@ -1,6 +1,7 @@
 ---
 layout: post
 date:   2016-12-11
+comments: true
 title: Amazing GIT for seasoned developer.
 updated: 09-01-2017
 ---

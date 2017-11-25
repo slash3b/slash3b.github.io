@@ -1,6 +1,7 @@
 ---
 layout: post
 date:   2017-10-08
+comments: true
 title: "New features in PHP 7+"
 ---
 

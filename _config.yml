@@ -18,7 +18,7 @@ description: > # this means to ignore newlines until "baseurl:"
         Hi there! I'm Ilya. Welcome to my blog, here I occasionally write
         about programming, mostly about PHP.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://slash3b.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: slash3b
 github_username:  slash3b
 

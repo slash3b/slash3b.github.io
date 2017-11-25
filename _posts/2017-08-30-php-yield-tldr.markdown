@@ -1,6 +1,7 @@
 ---
 layout: post
 date:   2017-08-30
+comments: true
 title: "PHP yield tl;dr"
 ---
 _If you would like to run some php code samples, your own machine is fine, but I would recomment you to use [3v4l.org](3v4l.org) as a way to execute the code with ~200 different PHP version. That is pretty awesome._

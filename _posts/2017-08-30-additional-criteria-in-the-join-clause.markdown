@@ -1,6 +1,7 @@
 ---
 layout: post
 date:   2017-09-04
+comments: true
 title: "Discovery of an advanced JOIN clause in MySQL"
 ---
 
