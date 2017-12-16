@@ -1,0 +1,26 @@
+<svg width="508" height="136" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+
+ <g>
+  <title>background</title>
+  <rect x="-1" y="-1" width="510" height="138" id="canvas_background" fill="none"/>
+  <g id="canvasGrid" display="none">
+   <rect id="svg_2" width="100%" height="100%" x="0" y="0" stroke-width="0" fill="url(#gridpattern)"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse fill="#fff" stroke="#000" stroke-width="5.5" cx="73.5" cy="67.5" id="svg_1" rx="42" ry="42"/>
+  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" cx="142.5" cy="21.5" id="svg_3"/>
+  <ellipse fill="#fff" stroke="#000" stroke-width="1.5" cx="190.5" cy="126" id="svg_4" ry="0.5"/>
+  <text fill="#000000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="54.498921" y="96.880225" id="svg_8" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" transform="matrix(1.010413750932665,0,0,0.9678167777118256,-11.94398014117779,-19.600660164222596) " stroke="#000">client</text>
+  <ellipse fill="#fff" stroke="#000" stroke-width="5.5" cx="256.5" cy="65.5" id="svg_36" rx="42" ry="42"/>
+  <ellipse fill="#fff" stroke="#000" stroke-width="5.5" cx="439.5" cy="64.5" id="svg_11" rx="42" ry="42"/>
+  <line fill="none" stroke-width="5.5" stroke-opacity="null" fill-opacity="null" x1="117.524135" y1="64.165095" x2="212.498013" y2="65.165095" id="svg_37" stroke-linejoin="null" stroke-linecap="null" transform="rotate(0.252005010843277 165.01107788085943,64.66510009765388) " stroke="#000"/>
+  <line fill="none" stroke-width="5.5" stroke-opacity="null" fill-opacity="null" x1="300.524135" y1="63.165095" x2="395.498013" y2="64.165095" id="svg_18" stroke-linejoin="null" stroke-linecap="null" transform="rotate(-0.7101577520370483 348.0110778808573,63.66510009765389) " stroke="#000"/>
+  <text fill="#000000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="82.5" y="80.5" id="svg_29" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" stroke="#000"/>
+  <text fill="#000000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="227.884538" y="38.812502" id="svg_38" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" stroke="#000" transform="matrix(0.6740791201591492,0,0,0.695652186870575,70.88779136538506,43.36956337094307) ">/graphQl</text>
+  <text fill="#000000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="499.366022" y="37.375002" id="svg_30" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" stroke="#000" transform="matrix(0.6740791201591492,0,0,0.695652186870575,70.88779136538506,43.36956337094307) ">DB layer</text>
+  <text fill="#000000" stroke-width="0" stroke-opacity="null" fill-opacity="null" x="-204.743893" y="176.662601" id="svg_34" font-size="24" font-family="Helvetica, Arial, sans-serif" text-anchor="start" xml:space="preserve" transform="rotate(0.05284276604652405 162.51345825195128,57.08084869386121) matrix(0.45206300245412123,0,0,0.4619511990022431,236.98730534421378,-21.74679127359144) " stroke="#000">request</text>
+ </g>
+</svg>
