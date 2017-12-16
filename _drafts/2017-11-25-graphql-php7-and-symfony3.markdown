@@ -19,8 +19,12 @@ The objects correspond to mathematical abstractions called vertices and each of 
 
 Graphs are used to represent many real life objects "cases" such as network connections, relations between different object/peoples and etc.
 
-## GraphQL
-In a nut shell graphQL it is a declarative query language that allows us to query for the data we need, it also tends to be a replacement for REST api. Thanks to this language single query can access multiple resources at once, thus making GraphQL faster and more efficient.    
+## What is GraphQL and why is it called that way ?
+> GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data.    
+
+> GraphQL is a query language that traverses your data graph to produce a query result tree.   
+
+GraphQL is a declarative query language that allows us to query for the data we need, it also tends to be a replacement for REST api. Thanks to this language single query can access multiple resources at once, thus making GraphQL faster and more efficient.    
 
 <img height="70%" width="70%" align="left" style="margin-right: 20px;" src="/assets/images/simplified_restful_request_model.svg"> 
 Here is a simple REST request model, whenever we need to fetch/modify data we need to query appropriate endpoint, which may lead us, if it is the 3-rd level of REST,   
@@ -35,8 +39,17 @@ GraphQL uses type system to describe underluing data we can work with and ensure
 So finally it looks something like this(gif stolen from the [graphql.org](http://graphql.org/)):
 <img src="/assets/images/t01c93357a8f0c51329.gif"> 
 
+<br><br>
 ## "Hello GraphQL" example with Symfony
 Lets start!  
+
+ GraphQL implementation is organized around a schema.
+
+Query (Read)
+
+Mutation (Write)
+
+Subscription (Server-side events)
 
 We are going to use Symfony the GraphQL recommended PHP package - [webonyx/graphql-php](https://github.com/webonyx/graphql-php).
 
@@ -145,9 +158,41 @@ And when you send request with curl you will get silly but perfectly valid respo
 ## Real life example ?
 
 Lets go for something more real but still not that difficult.
-I do have a small pet project, it is a simple catalog of websites that devoted to noise ge
-It has the following little database:
-.. bla blah
+I do have a small pet project, it is a simple catalog of websites that devoted to noise generators.
+It has the following tables :
+```
+mysql> desc noises;
++-------------+--------------+------+-----+---------+----------------+
+| Field       | Type         | Null | Key | Default | Extra          |
++-------------+--------------+------+-----+---------+----------------+
+| id          | int(11)      | NO   | PRI | NULL    | auto_increment |
+| title       | varchar(100) | NO   |     | NULL    |                |
+| img         | varchar(200) | NO   |     | NULL    |                |
+| description | longtext     | NO   |     | NULL    |                |
+| url         | longtext     | NO   |     | NULL    |                |
++-------------+--------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+
+mysql> desc users;
++-----------------------+--------------+------+-----+---------+-------+
+| Field                 | Type         | Null | Key | Default | Extra |
++-----------------------+--------------+------+-----+---------+-------+
+| id                    | char(36)     | NO   | PRI | NULL    |       |
+| username              | varchar(180) | NO   |     | NULL    |       |
+| username_canonical    | varchar(180) | NO   | UNI | NULL    |       |
+| email                 | varchar(180) | NO   |     | NULL    |       |
+| email_canonical       | varchar(180) | NO   | UNI | NULL    |       |
+| enabled               | tinyint(1)   | NO   |     | NULL    |       |
+| salt                  | varchar(255) | YES  |     | NULL    |       |
+| password              | varchar(255) | NO   |     | NULL    |       |
+| last_login            | datetime     | YES  |     | NULL    |       |
+| confirmation_token    | varchar(180) | YES  | UNI | NULL    |       |
+| password_requested_at | datetime     | YES  |     | NULL    |       |
+| roles                 | longtext     | NO   |     | NULL    |       |
++-----------------------+--------------+------+-----+---------+-------+
+12 rows in set (0.00 sec)
+```
+
 
 So lets create a read-only GraphQL endpoint that will allow us to query records in the noise table:
 
@@ -164,12 +209,16 @@ I thought I can get by without ready-made solution [owerblog/graphql-bundle](htt
 
 
 
+### Consi:
+<div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-parent="false" data-embed-live="false" data-embed-uuid="d9ca904a-9fe4-4528-a251-192208fd9a73" data-embed-created="2017-12-02T08:25:27.545Z"><a href="https://www.reddit.com/r/reactjs/comments/4h2rm6/graphql_overhyped/d2n5r9j/">Comment</a> from discussion <a href="https://www.reddit.com/r/reactjs/comments/4h2rm6/graphql_overhyped/">GraphQL Overhyped?</a>.</div><script async src="https://www.redditstatic.com/comment-embed.js"></scripit>
 
-
-
+<div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-parent="false" data-embed-live="false" data-embed-uuid="6332761d-64d0-4c5a-8f67-f59bba177ba0" data-embed-created="2017-12-02T09:09:07.994Z"><a href="https://www.reddit.com/r/reactjs/comments/4h2rm6/graphql_overhyped/d2n8a54/">Comment</a> from discussion <a href="https://www.reddit.com/r/reactjs/comments/4h2rm6/graphql_overhyped/">GraphQL Overhyped?</a>.</div><script async src="https://www.redditstatic.com/comment-embed.js"></script>
 
 GraphQL itself has a plethora of info to study
 
 ### Resources:  
-attp://webonyx.github.io/graphql-php
+http://webonyx.github.io/graphql-php
+https://dev-blog.apollodata.com/the-concepts-of-graphql-bc68bd819be3
+https://symfony.fi/entry/adding-a-graphql-api-to-your-symfony-flex-app
+
 
