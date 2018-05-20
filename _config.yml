@@ -15,8 +15,8 @@
 # in the templates via {{ site.myvariable }}.
 title: Ilya Tribusean
 description: > # this means to ignore newlines until "baseurl:"
-        Hi there! I'm Ilya. Welcome to my blog, here I occasionally write
-        about programming, mostly about PHP.
+        Hi there! I'm Ilya. Welcome to my blog, here I occasionally shitpost
+        about programming, sort of. I use this place as notes to myself.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://slash3b.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: slash3b
