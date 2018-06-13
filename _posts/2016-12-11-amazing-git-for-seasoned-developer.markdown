@@ -1,9 +1,8 @@
 ---
 layout: post
-date:   2016-12-11
+date:   2018-06-13
 comments: true
 title: Amazing GIT for seasoned developer.
-updated: 09-01-2017
 ---
 
 At first, like so many others I didn't use git to full extent, the tool belt of `git add, git commit, git push, git pull` 
@@ -23,6 +22,12 @@ If you want to trace fuction history you may use:
 git log -L  :funcname:src/AdminBundle/Controller/AccountController.php
 {% endhighlight %}
 In my case this worked for class definition but not for methods within, the thing is that GIT doesn't know a thing about function declaration in the given language. GIT has a set of predefined regular expressions for some languages so we can fix this issue with this one-liner in your repo - `echo '*.php diff=php' >> .gitattributes`. Thus GIT will know PHP better, given line affects git diff command and diff output will be more correct.
+
+There is also a slightly different approach to this - you can use so called "pickaxe" filter `-S`
+{% highlight bash %}
+git log -S function_name
+{% endhighlight %}
+It will show commits that contain addition or removal of the given function name. With this filter you can trace back all "evolution" of the function. Note that in case function has some generic name you may end up with ambiguous data.  
 
 Another interesting command will display all commit names grouped and counted by contributors:
 {% highlight bash %}
@@ -94,3 +99,7 @@ Once you get lost commit SHA you can checkout it or create some 'recovery-branch
 There is another powerfull command `git fsck --full` which checks git database for intergrity.
 
 Do you have something to add ? Please comment below.
+
+Links:
+
+[git caret and tilde different](http://www.paulboxley.com/blog/2011/06/git-caret-and-tilde)
