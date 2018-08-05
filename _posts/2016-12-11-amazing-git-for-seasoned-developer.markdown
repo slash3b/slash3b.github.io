@@ -74,6 +74,10 @@ To tell git what files are binary you have to edit .gitattributes file and add e
 
 With GIT hooks you can establish whatever policy you can dream of, just do remember that git hooks files can not be distributed on project clone, you have to store them in the repository in some folder and then copy to the .git folder with some makefile or anythig else.
 
+I was always curious what are those signs that appear in the files in case of a conflict `<<<<<<<<`, `=========`, and `>>>>>>>>`. These are the conflict markers, and the code between `<<<<<<<<` and `=========` is what you have right now. The other half ending in `>>>>>>>>` is what came to you from the server or another branch.
+
+`git branch --merged` shows all the branches that were merged, you can use `--no-merged` as well.
+
 Lets turn to more adavanced stuff.
 In short all commands in git can be divided in two groups:
  - the ones you use every day, e.g. `git add`, `git commit` and etc. are called 'porcelain'
