@@ -7,7 +7,7 @@ title: "HTTP versions difference"
 
 Here is the differences between HTTP versions with comments in plain english.
 
-## HTTP1.0 capabilities:  
+## HTTP 1.0 capabilities:  
 
 
 * Request may consist of multiple newline separated header fields.
@@ -26,7 +26,7 @@ Since that version, HTTP started to support caching, multipart messages, contenc
 
 Read more in [RFC 1945](https://tools.ietf.org/html/rfc1945)
 
-## HTTP1.1 features:
+## HTTP 1.1 features:
 
 * Persistent connections to allow connection reuse
 
@@ -37,7 +37,7 @@ Read more in [RFC 1945](https://tools.ietf.org/html/rfc1945)
 
 Read more in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)
 
-## HTTP2 features:
+## HTTP 2 features:
 
 * Data compression of HTTP headers
 
@@ -52,7 +52,7 @@ One of the coolest features, improves speed significantly, decreases number of c
 
 Read more in [RFC 2068](https://tools.ietf.org/html/rfc2068)
 
-## HTTP3 features:
+## HTTP 3 features:
 
 One of the problems of HTTP2 is that it is still using TCP protocol, so in case a single packet is dropped/lost the entire connection stops and waits for this packet. This is called 'TCP head of line blocking'
 
