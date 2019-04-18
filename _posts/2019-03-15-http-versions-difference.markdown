@@ -19,9 +19,9 @@ Here is the differences between HTTP versions with comments in plain english.
 So basically since this version it is not hypertext but hypermedia protocol.
 
 * The connection between server and client is closed after every request.  
-One of the main drawbacks of this protocol version, in my opinion.
+One of the main drawbacks of this protocol version.
 
-Since that version, HTTP started to support caching, multipart messages, contenct encoding, authorization and much more.
+Since that version, HTTP started to support caching, multipart messages, content encoding, authorization and much more.
 
 Read more in [RFC 1945](https://tools.ietf.org/html/rfc1945)
 
@@ -73,3 +73,4 @@ Resources used:
 [High Performance Browser Networking](https://hpbn.co)  
 [QUICK internet draft](https://quicwg.org/base-drafts/draft-ietf-quic-http.html)  
 [HTTP3 explained](https://http3-explained.haxx.se/)
+[HTTP encoding/compression](https://en.wikipedia.org/wiki/HTTP_compression)
