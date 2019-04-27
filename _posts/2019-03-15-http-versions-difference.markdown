@@ -74,3 +74,4 @@ Resources used:
 [QUICK internet draft](https://quicwg.org/base-drafts/draft-ietf-quic-http.html)  
 [HTTP3 explained](https://http3-explained.haxx.se/)
 [HTTP encoding/compression](https://en.wikipedia.org/wiki/HTTP_compression)
+[HTTP3. It is all about the transport!](https://speakerdeck.com/bitone/3)
