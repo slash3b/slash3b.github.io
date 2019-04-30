@@ -9,7 +9,6 @@ Here is the differences between HTTP versions with comments in plain english.
 
 ## HTTP 1.0 capabilities:  
 
-
 * Request may consist of multiple newline separated header fields.
 
 * Response object is prefixed with a response status line.
@@ -20,15 +19,15 @@ Here is the differences between HTTP versions with comments in plain english.
 So basically since this version it is not hypertext but hypermedia protocol.
 
 * The connection between server and client is closed after every request.  
-One of the main drawbacks of this protocol version, in my opinion.
+One of the main drawbacks of this protocol version.
 
-Since that version, HTTP started to support caching, multipart messages, contenct encoding, authorization and much more.
+Since that version, HTTP started to support caching, multipart messages, content encoding, authorization and much more.
 
 Read more in [RFC 1945](https://tools.ietf.org/html/rfc1945)
 
 ## HTTP 1.1 features:
 
-* Persistent connections to allow connection reuse
+* Persistent connections to allow connection reuse. This one significantly increases performance, three way handshake and slow start are happening only in the beginning, not on every request like it used to be with 1.0 version.
 
 * Chunked transfer encoding to allow response streaming
 
@@ -74,3 +73,5 @@ Resources used:
 [High Performance Browser Networking](https://hpbn.co)  
 [QUICK internet draft](https://quicwg.org/base-drafts/draft-ietf-quic-http.html)  
 [HTTP3 explained](https://http3-explained.haxx.se/)
+[HTTP encoding/compression](https://en.wikipedia.org/wiki/HTTP_compression)
+[HTTP3. It is all about the transport!](https://speakerdeck.com/bitone/3)
