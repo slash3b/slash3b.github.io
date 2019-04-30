@@ -2,13 +2,14 @@
 layout: post
 date:   2019-04-13
 comments: true
-title: "Composition vs. Inheritance in PHP tl;dr opinionated version"
+title: "Composition vs. Inheritance in PHP, tl;dr version"
 ---
 
 After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:
 
 
-Inheritance is just another way to inherit other classes. Basically you do not inherit class directly but get it injected into the consttuctor in via setter method. For instance:  
+Inheritance is just another way to inherit other classes. 
+Basically you do not inherit class directly but get it injected into the consttuctor or via setter method. For instance:  
 
 Typical inheritance:
 {%highlight php%}
