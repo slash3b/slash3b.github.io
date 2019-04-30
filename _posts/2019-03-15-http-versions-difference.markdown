@@ -27,11 +27,11 @@ Read more in [RFC 1945](https://tools.ietf.org/html/rfc1945)
 
 ## HTTP 1.1 features:
 
-* Persistent connections to allow connection reuse. This one significantly increases performance, three way handshake and slow start are happening only in the beginning, not on every request like it used to be with 1.0 version.
+* Persistent connections to allow connection reuse. This one significantly increases performance, three way handshake and slow start are happening only in the beginning, not on every request like it used to be with 1.0 version. Persistent connection even when it is not being used is sutained by client via sending empty packets.
 
-* Chunked transfer encoding to allow response streaming
+* Chunked transfer encoding to allow response streaming. What is awesome about it is that you do not have to wait until your content is being generated, you can send it right away in chunks. Imagine to able to send your users a lengthy video file rigth away while this file is being generated at the same ime. The end of stream is done by special termination chunk which has length equal to 0.
 
-* Request pipelining to allow parallel request processing
+* Request pipelining to allow parallel request processing. This feature allows to queue all requests not on client side but on server side(response queue). With this we send all requests at once, and get responses whenever they are ready. Thats a bit shady description, check additional infor [here](https://hpbn.co/http1x/). 
 
 
 Read more in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)
