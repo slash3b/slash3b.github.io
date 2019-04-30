@@ -26,7 +26,7 @@ class Violin extends MusicalInstrument
 
 {%endhighlight%}
 
-In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi inheritance, you can not inherit from muptiple classes simultaneously and sometimes you do *not* want to inherit everything from parent class. That is where composition helps. For example:
+In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from muptiple classes simultaneously and sometimes you do **not** want to inherit everything from parent class. That is when composition helps. For example:
 
 
 {%highlight php%}
@@ -36,7 +36,7 @@ class MusicalIntstrument
     ...
 }
 
-class Violin extends MusicalInstrument
+class Violin
 {
     // typed properties will be available in PHP 7.4
     private MusicalInstrument $instrument;
