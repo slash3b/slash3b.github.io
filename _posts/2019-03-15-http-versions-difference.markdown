@@ -1,6 +1,7 @@
 ---
 layout: post
 date:   2019-03-15
+updated: 2019-05-01
 comments: true
 title: "HTTP versions difference"
 ---
@@ -37,8 +38,9 @@ Read more in [RFC 1945](https://tools.ietf.org/html/rfc1945)
 Read more in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)
 
 ## HTTP 2 features:
+HTTP 2 was born out of SPDY protocol developed in Google. All the speed that comes with HTTP2 comes from *binary framing layer*, in other words in HTTP 1.x all comuunication is done in plaintext but in HTTP 2 it is done in binary.
 
-* Data compression of HTTP headers
+* Data compression of HTTP headers. This is truly awesome feature! Imagine you send multiple requests with almost the same headers, the difference could be only in that you ask each time different resource. So HTTP 2 use only that difference in headers and do not sent the same headers on and on again. This is called "compression of HTTP headers".
 
 * HTTP/2 Server Push
 

@@ -8,8 +8,15 @@ layout: default
     <p class="post-meta">
       <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
         {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
-        {{ page.date | date: date_format }}
+        Published: {{ page.date | date: date_format }}
       </time>
+      {% if page.updated %}
+        <br><time datetime="{{ page.updated | date_to_xmlschema }}" itemprop="dateUpdated">
+            {% assign date_format = site.minima.date_format | default: "%b %-d, %Y" %}
+            Updated: {{ page.updated | date: date_format }}
+        </time>
+
+      {% endif %}
       {% if page.author %}
         • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
       {% endif %}</p>
