@@ -6,8 +6,10 @@ title: "Active record vs. Data Mapper"
 ---
 
 In Object-oriented programming we often need to persist object to the database for later retrieval. For that to work smart people invented Object-Relation Mapper that does object to db conversion and vise versa. Such ORM object are usually called _entities_ and are passed around in application and are subject to CRUD operations.  
- 
-Active record and Data Mapper are ORM patterns or better to say paradigms.
+
+ORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.   
++ DBAL abstracts Quering language details of different databases and supports many databases at once. Theoretically you can switch seamlessly from one database to another, though I never heard of practical execution of this feature.
++ _Active record_ and _Data Mapper_ are Data Access Layer patterns or better to say paradigms.
 
 ORM advantages:
 - Most of the time you do not have to write SQL, ORM does that for you behind the scenes
@@ -28,7 +30,7 @@ access, and adds domain logic on that data. Object carries both data and behavio
 My interpretaion in plain english:  
 > Active Record implies that an entity represents a table from database and each 
 instance of an entity represents one row from the table, also that entity contains 
-not only data *but* also all methods/operations to deal with that data. So it 
+not only data **but** also all methods/operations to deal with that data. So it 
 typically contains CRUD methods like `save()`, `delete()`, `update()`, `find()` and etc.   
 
 Examples of AR:
@@ -40,7 +42,7 @@ Examples of AR:
 
 Older version of Doctrine ORM did follow Active Record pattern and an entity was created and saved this way:
 {% highlight php %}
-
+<?php
 $user = new User();
 $user->name = "john";
 $user->password = "doe";
@@ -81,12 +83,12 @@ That is a long definition and it definitely says something but I need a bit more
 
 For instance here an example of Doctine2 Entity:
 
+{% highlight php %}
+<?php
 // src/Entity/Product.php
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
-{% highlight php %}
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -159,5 +161,5 @@ Resources used:
 [Martin Fowler Data Mapper](https://martinfowler.com/eaaCatalog/dataMapper.html)    
 [wiki page for DataMapper](https://en.wikipedia.org/wiki/Data_mapper_pattern)   
 [entity example with Symfony and Doctrine](https://symfony.com/doc/current/doctrine.html#creating-an-entity-class)  
-
-
+[active record antipattern](https://www.mehdi-khalili.com/orm-anti-patterns-part-1-active-record)
+[ar-vs-data_mapper](https://medium.com/oceanize-geeks/the-active-record-and-data-mappers-of-orm-pattern-eefb8262b7bb)   
