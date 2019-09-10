@@ -32,7 +32,8 @@ Read more in [RFC 1945](https://tools.ietf.org/html/rfc1945)
 
 * Chunked transfer encoding to allow response streaming. What is awesome about it is that you do not have to wait until your content is being generated, you can send it right away in chunks. Imagine to able to send your users a lengthy video file rigth away while this file is being generated at the same ime. The end of stream is done by special termination chunk which has length equal to 0.
 
-* Request pipelining to allow parallel request processing. This feature allows to queue all requests not on client side but on server side(response queue). With this we send all requests at once, and get responses whenever they are ready. Thats a bit shady description, check additional infor [here](https://hpbn.co/http1x/). 
+* Request pipelining to allow parallel request processing. I struggled to understand what is piplining is but after I read this [zine](https://github.com/lrlna/sketchin/blob/master/zines/http2.md) by amazing Irina I think I have an explanation. Imagine transporter line for the baggage in the airport, each baggage is your request that uses the same connection(transporter line). You send it all at once and expect from the other side in the same sequence. HOL problem can be easily pictured here — one of the packages is stuck then the whole line is blocked!       
+ Check additional info [here](https://hpbn.co/http1x/). 
 
 
 Read more in [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)
