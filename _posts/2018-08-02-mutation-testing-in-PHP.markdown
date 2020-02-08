@@ -5,7 +5,11 @@ comments: true
 title: Mutation testing in PHP
 ---
 
-Today at my job I did an internal presentation on mutation testing in PHP. Here is the presentation:
+Today at my job I did an internal presentation on mutation testing in PHP. 
+
+<img src="/assets/images/infection_presentation.jpg">   
+
+Here is the presentation:
 
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT-UcEE3Y6YwRb6FLX3Q1Ep7_TMJEFVPm816lHYw6-cyWs-mX23wk0VufYGwD1tZ9oR9r16Kv4YJQBV/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
