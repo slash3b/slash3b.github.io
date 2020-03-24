@@ -2,8 +2,15 @@
 layout: post
 date:   2020-04-11
 comments: true
-title: "DDIA"
+title: "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems"
 ---
+
+Designing Data-Intensive Applications by Martin Kleppmann is an amazing journey into the world of distributed systems. It is a must read, especially if you are like me — self-taught programmer. I think it will be usefull even if you do not plan to work with distributed systems, it is just interesting per se.   
+I really learned a lot, than you Martin!   
+
+I have a feeling like I managed to digest and remember like 5% not more of the information, and the book contains a lot of good stuff, I mean **a lot**. So for myself I decided to get table of book contents and augment it with little hints and notes that will be helpful in case I want to remember something quickly. 
+
+
 
 **Table of Contents**
 
@@ -23,7 +30,11 @@ title: "DDIA"
     - Operability: Making Life Easy for Operations
     - Simplicity: Managing Complexity
     - Evolvability: Making Change Easy
-  - Summary
+  - Summary   
+    ```
+    summary asfasdfklj;asdlkf jasdf 
+    sadf asdf .asdf .asd.f .asd.f .sda
+    ```
 - 2\. Data Models and Query Languages
   - Relational Model Versus Document Model
     - The Birth of NoSQL
@@ -207,3 +218,9 @@ title: "DDIA"
   - Summary
 - Glossary
 - Index
+
+
+Resourse:   
+[Design Data Intesive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable-ebook/dp/B06XPJML5D/ref=sr_1_1?crid=24WFQ31Q3MIOA&dchild=1&keywords=design+data+intensive+applications&qid=1585083016&sprefix=design+data+in%2Caps%2C277&sr=8-1) 
+
+
