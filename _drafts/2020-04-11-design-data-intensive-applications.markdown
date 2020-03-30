@@ -10,6 +10,8 @@ I really learned a lot, than you Martin!
 
 I have a feeling like I managed to digest and remember like 5% not more of the information, and the book contains a lot of good stuff, I mean **a lot**. So for myself I decided to get table of book contents and augment it with little hints and notes that will be helpful in case I want to remember something quickly. 
 
+> Computing is pop culture. [...] Pop culture holds a disdain for history. Pop culture is all about identity and feeling like you're participating. It has nothing to do with cooperation, the past or the furute — it's living in the present. I think the same is true of most people who write code for money. They have no idea where [their culture came from].
+> Alan Kay, in interview with Dr. Dobb's journal(2012) 
 
 
 **Table of Contents**
@@ -31,10 +33,17 @@ I have a feeling like I managed to digest and remember like 5% not more of the i
     - Simplicity: Managing Complexity
     - Evolvability: Making Change Easy
   - Summary   
-    ```
-    summary asfasdfklj;asdlkf jasdf 
-    sadf asdf .asdf .asd.f .asd.f .sda
-    ```
+
+#### Highlights and exerpts:   
+Many applications today are data-intensive and not compute-intensive. Scalability is the term we use to describe a system's ability to cope with increased load. Load paramenters — e.g. requests per second, number of simultaneous user online, the ration of reads to writes in a database. Percentiles — e.g. with a sorted list of responses, you can see that if the 95th percentile response time is 1.5 seconds, that means 95 out of 100 requests take less than 1.5 seconds and 5 out of 100 requests take 1.5 seconds or more. Percentiles are used in Service Level Objectives and Service Level Agreements. 
+ - Making a system simpler does not necessarily mean reducing its functionality; it can also mean removing accidental complexity. Reliability means making systems work correctly, even when faults occur. 
+ - Scalability means having strategies for keeping performance good, even when load increases.
+ - Maintainability it's about making life better for the engineering and operations teams who need to work with the system.
+
+---   
+<br>   
+
+
 - 2\. Data Models and Query Languages
   - Relational Model Versus Document Model
     - The Birth of NoSQL
@@ -52,6 +61,20 @@ I have a feeling like I managed to digest and remember like 5% not more of the i
     - Triple-Stores and SPARQL
     - The Foundation: Datalog
   - Summary
+
+#### Highlights and exerpts:   
+It ... seems likely that in ther foreseeable future relational databases will continue to be used alongside a broad viriety  of nonrelational datastore — an idea that is called *polyglot persistence*.   
+... However if your application does use many-to-many relations, the document model becomes less appealing.   
+When you most likely have many interconnected entities, where everything migh relate to everything — graph database is a good choice.  
+
+Storage engines can be divided in two categories:  
+ - optimized for transaction processing — OLTP, a.k.a. Online Transaction Processing. This is where typical CRUD lives and thrives.  
+ - optimized for analytics — OLAP, a.k.a. Online Analytical Processing.  
+
+---   
+<br>   
+
+
 - 3\. Storage and Retrieval
   - Data Structures That Power Your Database
     - Hash Indexes
@@ -80,6 +103,21 @@ I have a feeling like I managed to digest and remember like 5% not more of the i
     - Dataflow Through Services: REST and RPC
     - Message-Passing Dataflow
   - Summary
+
+#### Highlights and exerpts:   
+...rolling upgrades allow new versions of a service to be released without downtime, thus encouraging frequent small releases over rare big releases and make deployments less risky — allowing faulty releases to be detected and rolled back before they affect a large number of users.    
+Several data encoding formats were discussed:  
+ - language specific encoding
+ - textual formats like XML, JSON or CSV
+ - binary schema-driven formats like Avro, Thrift or Protocol Buffers allow quick and efficient encoding
+
+Several modes of dataflow:
+ - database — communication between processes happens by writing and reading from db, probably the most simple approach
+ - RPC and REST APIs
+ - asynchronous message passing using message brokers or actors, e.g. RabbitMQ
+
+---   
+<br>   
 
 **II. Distributed Data**
 - 5\. Replication
