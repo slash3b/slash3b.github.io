@@ -1,0 +1,23 @@
+Assembly programm usually divided into sections.
+
+Each section has its use, e.g.
+`.text` holds instructions
+`.data` is for global variables
+**labels** are just readable names and addresses  
+_star label is the **entry point** and it should be declared global with
+`global _start`   
+Assembly language consists of commands, which are directly mapped into machine code
+
+
+write a value into either register or memory
+
+Each system call has a unique number. To perform it
+1. The rax register has to hold system call’s number;
+2. The following registers should hold its arguments: rdi, rsi, rdx, r10, r8, and r9.
+System call cannot accept more than six arguments.
+3. Execute syscall instruction
+
+
+
+
+labels are justddO
