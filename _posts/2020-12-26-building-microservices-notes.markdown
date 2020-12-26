@@ -1,5 +1,11 @@
------------------------
-Chapter 3 notes. How to model services.
+---
+layout: post
+date:   2020-12-26
+comments: true
+title: Notes on Building Microservices by Sam Newman 
+---
+
+#### Chapter 3 notes. How to model services.
 
 What makes a good service:
 - loose coupling
@@ -8,13 +14,13 @@ What makes a good service:
 Loose coupling means a change to one service should not require a change in another service. Tight coupling might means
 "chatty" communication, or wrong integration style was chosen that binds services tightly.
 
-High cohesion — we want related behaviour to be in the same service, and unrelated behaviour to live in another
+High cohesion — we want related behavior to be in the same service, and unrelated behavior to live in another
 service.
 
-Bounded context helps with twose two aspects of a good service. Todo: to learn more about bounded context.
+Bounded context helps with those two aspects of a good service. Todo: to learn more about bounded context.  
 
------------------------
-Chapter 4 notes. Integration.
+#### Chapter 4 notes. Integration.
+
 Avoid database sharing between services at all cost. It becomes an api available to all services. A change for one server most likely break other services/clients.
 
 There are two modes of communications: request/response and event-based, or a.k.a. synchronous and asynchronous communication. 
@@ -40,8 +46,7 @@ Versioning.
   Like blue-green deployment. That is actually hard.
 
 
------------------------
-Chapter 5 notes. Splitting the monolith.
+#### Chapter 5 notes. Splitting the monolith.
 
 A seam is a part of your code base that can be isolated and treated independently not affecting other code. 
 Seams help to recognize service boundaries.
@@ -74,8 +79,7 @@ keep an eye on a several independently launched transaction.
 Two-phase commit is classic example of distributed transaction. First "transaction manager" asks every unit if it is ready to 
 proceede with transaction. Second step is when everybody is ready manager commands to start transaction.
 
------------------------
-Chapter 6 notes. Deployment. 
+#### Chapter 6 notes. Deployment. 
 
 CI makes sure that new code integrates with existing code. CI should runs test to verify this and builds an artifact(s) as a 
 final stage of new code integration. 
@@ -100,9 +104,7 @@ In general LXC is faster then hypervisor-solutions, it is more transparent and e
 
 Having a uniform interface to deploy is vital. Capistrano, ansistrano, boto for aws, and many other tools exist to hepl you with deployment. 
 
-
------------------------
-Chapter 7 notes. Testing. 
+#### Chapter 7 notes. Testing. 
 
 Unit tests. Are very fast and let us know if our functionality is good.  
 Service tests. Are disigned to bypass user interface and test services directly. In order to test a service we have to stub all of its dependencies and use its public interface to test the service. I'd personally call these integration testing and we are testing how one service integratest with another.  
@@ -124,8 +126,7 @@ MTTR — mean time to repair
 _Nonfunctional requirements_ is an umbrella term that describes system properties — how many users system can hold, what is the maximum acceptable page latency, how accessible is a service/web page, how secure your product should be.  
 
 
------------------------
-Chapter 8 notes. Monitoring. 
+#### Chapter 8 notes. Monitoring. 
 
 For a monolith you need this kind of monitoring: 
 - monitor the host itself. CPU, memory, network and etc
@@ -145,8 +146,7 @@ In a distributed system, in case of an error we want to have a chain of call to 
 a stack trace help us to see what stack was like before error happened. One helpful trick is to use _corellation ID_. Idea is simple, you generate a unique ID for a call and then this id is passed to all underlying calls. That id might be stored in logs. 
 
 
------------------------
-Chapter 9 notes. Security. 
+#### Chapter 9 notes. Security. 
 
 SSO — single sign on. 
 
@@ -167,11 +167,7 @@ Defence in depth.
 Use firewalls, have a good logging so you can detect if somebody is abusing the system. 
 But make sure you do not leak sensitive information in your log records. Patch your software regularly. 
 
------------------------
-Chapter 10 notes. Conway's law and system design. 
-
------------------------
-Chapter 11 notes. Microservices at scale. 
+#### Chapter 11 notes. Microservices at scale. 
 
 Distributed system will have all sort of different failures eventually. You have to be prepared for this.   
 
@@ -207,9 +203,9 @@ ETag is fucking amazing.
 
 Cache poisoning. Example about all users having `Expires: never` header, which happened due to some bug. There is no way to nuke that cache from server side. THe only solution they came up with — change URL so user will receive proper headers.  
 
-**Autoscaling**
+Autoscaling.
 
-**CAP Theorem** You can not have consistency, availability and partition tolerance at the same time.  
+CAP Theorem. You can not have consistency, availability and partition tolerance at the same time.  
 
 Consistency is a system feature that lets me do the same call for different parts of a system and always get the same response.  
 Availability means that every requests receives a response. 
