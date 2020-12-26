@@ -127,6 +127,113 @@ _Nonfunctional requirements_ is an umbrella term that describes system propertie
 -----------------------
 Chapter 8 notes. Monitoring. 
 
+For a monolith you need this kind of monitoring: 
+- monitor the host itself. CPU, memory, network and etc
+- have to have an access to logs on the server
+- track application itself. Errors, response time, those thigs
+
+With one application per multiple hosts, we want to aggreage all host metrics but at the same time be able to drill down if necessary. We also need to track down load balancer as well. 
+
+If we have a multi-host, distributed app, then the only way to not go crazy is to aggreage all logs, store them somewhere safe. Collect, aggregate and store as much as possible. 
+
+Correct and properly implemented monitoring allows us to calculate capacity planning. 
+
+
+**Service metrics** Service itself might expose some basic metrics — a number of errors per minute, CPU load, memory, io. 
+
+In a distributed system, in case of an error we want to have a chain of call to be able to "track down" error, just like
+a stack trace help us to see what stack was like before error happened. One helpful trick is to use _corellation ID_. Idea is simple, you generate a unique ID for a call and then this id is passed to all underlying calls. That id might be stored in logs. 
+
+
+-----------------------
+Chapter 9 notes. Security. 
+
+SSO — single sign on. 
+
+Instead of having every service to call an Indetity provider for authentication, probably using some shared library, we can do authentication in one centralized place — SSO Gateway. This Gateway acs like a proxy, sitting between outside world and your services.   
+
+Next problem to solve. We need to somehow pass user information/model and authorization attributes(roles, permissions) to the downstream services.   
+*Service-to-Service Authentication and Authorization*   
+- Allow everything inside the perimiter is a common option but not a very good one. Should a malicious user penetrate your server, nothing is stopping her from going rampage  
+- You can use SAML or OpenID. Every service basically has its own credentials to authorize call  
+- Another option is to use TLS advantage and user client sertificates. Every client would have to have a X.509 sertification to establish connection with other servises  
+- HMAC over HTTP option is also viable, JWT does something similar. You probably need to establish secure connection before using them as it is still will be possible to read packets. Also although JWT seems to be simple, it is tricky to implement it correctly  
+- Api keys, there is a possibility you want to have two gateways — SSO gateway for usual users and API gateway that uses api key to authenticate caller  
+
+Securing your data.  
+Do not implement you own encryption, use well known encryption algorightms. Encode sensitive data first time you see it, decode on demand only. Encrypt your backups.  
+
+Defence in depth.  
+Use firewalls, have a good logging so you can detect if somebody is abusing the system. 
+But make sure you do not leak sensitive information in your log records. Patch your software regularly. 
+
+-----------------------
+Chapter 10 notes. Conway's law and system design. 
+
+-----------------------
+Chapter 11 notes. Microservices at scale. 
+
+Distributed system will have all sort of different failures eventually. You have to be prepared for this.   
+
+Architectural safety measures. 
+- Timeouts. Put them everywhere and log when timeout happens 
+- Circuit breaker. Circuit breaker helps to fail fast in case a downstream service is ill. When circuit breaker is "blown" it will immediately return an error. After some time if downstream service is healthy again circuit breaker reopens again.  
+While circuit breaker is blown you might decide to hold ongoing requests for awhile. This might be appropriate if you are doing some async stuff. 
+- Bulkheads.  
+The Bulkhead pattern is a type of application design that is tolerant of failure. In a bulkhead architecture, elements of an application are isolated into pools so that if one fails, the others will continue to function. It's named after the sectioned partitions (bulkheads) of a ship's hull. If the hull of a ship is compromised, only the damaged section fills with water, which prevents the ship from sinking.
+
+**Scaling** 
+Scaling helps with reducing risk, spreading workload effectively and cheaply. Author talks about load balancers and workers-based systems. 
+
+Jeff Dean said — "design for ~10× growth, but plan to rewrite before ~100×"  
+The need to change our systems to deal with scale isn’t a sign of failure. It is a sign of success.  
+
+**Scaling Databases** 
+
+- Scaling for writes, scaling for reads. If necessary to optimize for reads — do the caching first. It is easier and faster solution. 
+- Sharding and replication 
+- CQRS might be a very interesting approach to scale your system, but the whole team have to know it well, before actual implementation.  
+
+**Caching** 
+
+- client side caching  
+- proxy caching, think CDN  
+- server side caching  
+
+Caching HTTP. `cache_control` tells client if caching is necessary, also `Expires` header tells cache expiration date. These headers prevent client from even
+making a call.  
+Entity Tag or ETag allows you to make a what is called conditional GET. Imagine this case scenario. I make a call and receive ETag along with Expires tag. When Expires tells me that cached content is stale I make another request. **If** there is indeed a fresh version of stored content or a model on the server I receive a 200 HTTP status and fresh ETag. If nothing changed I receive 304 Not Modified HTTP status.  
+ETag is fucking amazing.   
+
+Cache poisoning. Example about all users having `Expires: never` header, which happened due to some bug. There is no way to nuke that cache from server side. THe only solution they came up with — change URL so user will receive proper headers.  
+
+**Autoscaling**
+
+**CAP Theorem** You can not have consistency, availability and partition tolerance at the same time.  
+
+Consistency is a system feature that lets me do the same call for different parts of a system and always get the same response.  
+Availability means that every requests receives a response. 
+Partition tolerance means that sometimes a communication between system parst is not possible and system should be able to handle this.  
+
+Service discovery. 
+- DNS is a good start
+- dynamic service registers. Consul, Zookeeper and etc.
+
+Summary. Principles of microservices.  
+- use bounded context to define domain boundaries 
+- adopt culture of automation 
+- hide internal implementation details 
+- decentralize all the things  
+- independent deploy 
+- isolate failures 
+- highly observable 
+
+
+
+
+
+
+
 
 
 
