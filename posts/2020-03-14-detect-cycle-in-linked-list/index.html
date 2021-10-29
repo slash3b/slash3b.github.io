@@ -1,0 +1,154 @@
+<!doctype html><html lang=en dir=auto>
+<head><meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name=robots content="index, follow">
+<title>Detect cycle in singly linked list (python) | Random notes to myself</title>
+<meta name=keywords content>
+<meta name=description content="As I&rsquo;m improving my data structures knowledge and understanding I&rsquo;m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.
+Singly-linked list consits of nodes that reference one another. A node could look like this: {% highlight python %}
+class Node: def init(self, value=None): self.next = None self.value = value
+{% endhighlight %} So it has two properties — next that contains next element, and value that contains data.">
+<meta name=author content>
+<link rel=canonical href=https://slash3b.github.io/posts/2020-03-14-detect-cycle-in-linked-list/>
+<link crossorigin=anonymous href=/assets/css/stylesheet.min.6f60056d44d3f7eb69a4bc6c332b59960f3a995802bded244750232f33713c49.css integrity="sha256-b2AFbUTT9+tppLxsMytZlg86mVgCve0kR1AjLzNxPEk=" rel="preload stylesheet" as=style>
+<script defer crossorigin=anonymous src=/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5+kdJvBz5iKbt6B5PJI=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://slash3b.github.io/favicon.ico>
+<link rel=icon type=image/png sizes=16x16 href=https://slash3b.github.io/favicon-16x16.png>
+<link rel=icon type=image/png sizes=32x32 href=https://slash3b.github.io/favicon-32x32.png>
+<link rel=apple-touch-icon href=https://slash3b.github.io/apple-touch-icon.png>
+<link rel=mask-icon href=https://slash3b.github.io/safari-pinned-tab.svg>
+<meta name=theme-color content="#2e2e33">
+<meta name=msapplication-TileColor content="#2e2e33">
+<meta name=generator content="Hugo 0.88.1">
+<noscript>
+<style>#theme-toggle,.top-link{display:none}</style>
+<style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style>
+</noscript><meta property="og:title" content="Detect cycle in singly linked list (python)">
+<meta property="og:description" content="As I&rsquo;m improving my data structures knowledge and understanding I&rsquo;m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.
+Singly-linked list consits of nodes that reference one another. A node could look like this: {% highlight python %}
+class Node: def init(self, value=None): self.next = None self.value = value
+{% endhighlight %} So it has two properties — next that contains next element, and value that contains data.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://slash3b.github.io/posts/2020-03-14-detect-cycle-in-linked-list/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-03-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2020-03-11T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Detect cycle in singly linked list (python)">
+<meta name=twitter:description content="As I&rsquo;m improving my data structures knowledge and understanding I&rsquo;m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.
+Singly-linked list consits of nodes that reference one another. A node could look like this: {% highlight python %}
+class Node: def init(self, value=None): self.next = None self.value = value
+{% endhighlight %} So it has two properties — next that contains next element, and value that contains data.">
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://slash3b.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Detect cycle in singly linked list (python)","item":"https://slash3b.github.io/posts/2020-03-14-detect-cycle-in-linked-list/"}]}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Detect cycle in singly linked list (python)","name":"Detect cycle in singly linked list (python)","description":"As I\u0026rsquo;m improving my data structures knowledge and understanding I\u0026rsquo;m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.\nSingly-linked list consits of nodes that reference one another. A node could look like this: {% highlight python %}\nclass Node: def init(self, value=None): self.next = None self.value = value\n{% endhighlight %} So it has two properties — next that contains next element, and value that contains data.","keywords":[],"articleBody":"As I’m improving my data structures knowledge and understanding I’m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.\nSingly-linked list consits of nodes that reference one another. A node could look like this: {% highlight python %}\nclass Node: def init(self, value=None): self.next = None self.value = value\n{% endhighlight %} So it has two properties — next that contains next element, and value that contains data. Could be more complex than this but lets not complicate.\nLets create linked list of 12 nodes and connect them in a circle. {% highlight python %}\na = Node(1) b = Node(2) c = Node(3) d = Node(4) e = Node(5) f = Node(6) g = Node(7) h = Node(8) i = Node(9) j = Node(10) k = Node(11) l = Node(12)\na.next = b b.next = c c.next = d d.next = e e.next = f f.next = g g.next = h h.next = i i.next = j j.next = k k.next = l l.next = a\n{% endhighlight %}\nNow how would you go about solving this? And solving efficiently, namely O(n) time and O(1) space complexity ? I could not solve it. I’ve been thinking about something horrible like “I need to have an additional dictionary with node values as keys and linked list of nodes as values of a dictionary as we may have a duplicates…” Feels overly complex and wrong 🤔\nThere is an elegant algorithm that is called “Floyd’s cycle-finding algorithm” and it was coined by computer scientist Robert W. Floyd.\nHere is algorithm description carefully paster from wiki:\n Floyd’s cycle-finding algorithm is a pointer algorithm that uses only two pointers, which move through the sequence at different speeds. It is also called the “tortoise and the hare algorithm”, alluding to Aesop’s fable of The Tortoise and the Hare.\n My wife Tatiana Timoshina made this nice animation:\nBlue runner runs twice as fast. Orange and blue runners meet exactly when orange finishes its first circle.\nAnd solution:\n{% highlight python %}\ndef detect_cycle(head): if head == None: return False\nrunner1 = head runner2 = head.next while runner1 != None and runner2 != None: if runner1 == runner2: return True # runner1 makes one step ahead # runner2 makes two steps, moving twice as fast runner1 = runner1.next runner2 = runner2.next.next return False  print(detect_cycle(a))\n{% endhighlight %}\nTo everyone who is looking for a way to improve data structures knowledge I’d recommend Python for Data Structures, Algorithms, and Interviews!  course.\n","wordCount":"421","inLanguage":"en","datePublished":"2020-03-11T00:00:00Z","dateModified":"2020-03-11T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2020-03-14-detect-cycle-in-linked-list/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
+</head>
+<body id=top>
+<script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
+<header class=header>
+<nav class=nav>
+<div class=logo>
+<a href=https://slash3b.github.io accesskey=h title="Random notes to myself (Alt + H)">Random notes to myself</a>
+<span class=logo-switches>
+<button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+</button>
+</span>
+</div>
+<ul id=menu>
+</ul>
+</nav>
+</header>
+<main class=main>
+<article class=post-single>
+<header class=post-header>
+<h1 class=post-title>
+Detect cycle in singly linked list (python)
+</h1>
+<div class=post-meta>March 11, 2020
+</div>
+</header>
+<div class=post-content><p>As I&rsquo;m improving my data structures knowledge and understanding I&rsquo;m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.</p>
+<p>Singly-linked list consits of nodes that reference one another. A node could look like this:
+{% highlight python %}</p>
+<p>class Node:
+def <strong>init</strong>(self, value=None):
+self.next = None
+self.value = value</p>
+<p>{% endhighlight %}
+So it has two properties — <em>next</em> that contains next element, and <em>value</em> that contains data. Could be more complex than this but lets not complicate.</p>
+<p>Lets create linked list of 12 nodes and connect them in a circle.
+{% highlight python %}</p>
+<p>a = Node(1)
+b = Node(2)
+c = Node(3)
+d = Node(4)
+e = Node(5)
+f = Node(6)
+g = Node(7)
+h = Node(8)
+i = Node(9)
+j = Node(10)
+k = Node(11)
+l = Node(12)</p>
+<p>a.next = b
+b.next = c
+c.next = d
+d.next = e
+e.next = f
+f.next = g
+g.next = h
+h.next = i
+i.next = j
+j.next = k
+k.next = l
+l.next = a</p>
+<p>{% endhighlight %}</p>
+<p>Now how would you go about solving this? And solving efficiently, namely <code>O(n)</code> time and <code>O(1)</code> space complexity ? I could not solve it. I&rsquo;ve been thinking about something horrible like &ldquo;I need to have an additional dictionary with node values as keys and linked list of nodes as values of a dictionary as we may have a duplicates&mldr;&rdquo; Feels overly complex and wrong 🤔</p>
+<p>There is an elegant algorithm that is called &ldquo;Floyd&rsquo;s cycle-finding algorithm&rdquo; and it was coined by computer scientist <a href=https://en.wikipedia.org/wiki/Robert_W._Floyd>Robert W. Floyd</a>.</p>
+<p>Here is algorithm description carefully paster from wiki:</p>
+<blockquote>
+<p>Floyd&rsquo;s cycle-finding algorithm is a pointer algorithm that uses only two pointers, which move through the sequence at different speeds. It is also called the &ldquo;tortoise and the hare algorithm&rdquo;, alluding to Aesop&rsquo;s fable of The Tortoise and the Hare.</p>
+</blockquote>
+<p>My wife <a href=https://onboard.studio/>Tatiana Timoshina</a> made this nice animation:</p>
+<p>Blue runner runs twice as fast. Orange and blue runners meet exactly when orange finishes its first circle.</p>
+<p>And solution:</p>
+<p>{% highlight python %}</p>
+<p>def detect_cycle(head):
+if head == None:
+return False</p>
+<pre><code>runner1 = head
+runner2 = head.next
+
+while runner1 != None and runner2 != None:
+    if runner1 == runner2:
+        return True
+
+    # runner1 makes one step ahead
+    # runner2 makes two steps, moving twice as fast
+    runner1 = runner1.next
+    runner2 = runner2.next.next
+
+return False
+</code></pre>
+<p>print(detect_cycle(a))</p>
+<p>{% endhighlight %}</p>
+<p>To everyone who is looking for a way to improve data structures knowledge I&rsquo;d recommend <a href=https://www.udemy.com/course/python-for-data-structures-algorithms-and-interviews/>Python for Data Structures, Algorithms, and Interviews! </a> course.</p>
+</div>
+<footer class=post-footer>
+</footer>
+</article>
+</main>
+<footer class=footer>
+<span>&copy; 2021 <a href=https://slash3b.github.io>Random notes to myself</a></span>
+<span>
+Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a>
+</span>
+</footer>
+<a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a>
+<script>let menu=document.getElementById('menu');menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)},document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener("click",function(b){b.preventDefault();var a=this.getAttribute("href").substr(1);window.matchMedia('(prefers-reduced-motion: reduce)').matches?document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(a)}']`).scrollIntoView({behavior:"smooth"}),a==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${a}`)})})</script>
+<script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script>
+<script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove('dark'),localStorage.setItem("pref-theme",'light')):(document.body.classList.add('dark'),localStorage.setItem("pref-theme",'dark'))})</script>
+</body>
+</html>
