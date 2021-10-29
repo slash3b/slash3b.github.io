@@ -1,0 +1,5 @@
+baseURL = "https://slash3b.me"
+languageCode = "en-us"
+title = "Random notes to myself"
+theme = "PaperMod"
+
