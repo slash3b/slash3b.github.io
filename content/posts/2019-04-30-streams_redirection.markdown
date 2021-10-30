@@ -18,38 +18,38 @@ Usually when we work with streams we use file descriptor numbers.
 link in the Resources section.
 
 Redirect STDOUT to some file:  
-{% highlight bash %}
+```
     cat /proc/sys/kernel/hostname 1> /tmp/test
-{%endhighlight%}
+```
 
 More complex example with piping and STDOUT redirection:  
-{% highlight bash %}mysql -uuser -ppass db_name | bzip > 1.sql.bz2{%endhighlight%}
+```
 
 
 Redirect STDERR to some file, note - wrong filename:  
-{% highlight bash %}
+```
     cat /proc/sys/kernel/hostname_ 2> /tmp/test
-{%endhighlight%}
+```
 
 
 Redirect STDOUT and STDERR to the file with **&>** shortcut:   
-{% highlight bash %}
+```
     cat smth /proc/sys/kernel/hostname &> /tmp/test
-{%endhighlight%}
+```
 
 
 Another way to redirect STDOUT to STDERR is to use **2>&1** in the end of line like this:   
-{% highlight bash %}
+```
     cat smth /proc/sys/kernel/hostname > /tmp/test 2>&1
-{%endhighlight%}
+```
 
 ... here your shell will first analyze what is going on and only then command will be launched. So shell does this analysys from left to right and first it sees redirection to the file, then it sees STDERR to STROUT redirection and does that, only then the whole line is "launched".  
 
 
 Direct STDOUT to STDIN of another program:   
-{% highlight bash %}
+```
 sed -n "${RANDOM}p" < /usr/share/dict/words
-{% endhighlight %}
+```
 Pay attention that here we used **<** sign for redirection from file to the stream editor.  
 
 

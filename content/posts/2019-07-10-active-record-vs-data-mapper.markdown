@@ -41,7 +41,7 @@ Examples of AR:
 - Django’s ORM
 
 Older version of Doctrine ORM did follow Active Record pattern and an entity was created and saved this way:
-{% highlight php %}
+```
 <?php
 $user = new User();
 $user->name = "john";
@@ -49,19 +49,19 @@ $user->password = "doe";
 $user->save();
 echo "The user with id $user->id has been saved.";
 
-{% endhighlight %}
+```
 
 In Ruby on Rails it could be like this: 
-{% highlight ruby %}
+```
 u = User.create(name: "john", password: "doe")
-{% endhighlight %}
+```
 
 Here is another exaple using [Eloquent ORM](https://laravel.com/docs/5.0/eloquent):
 
 Define entity like so:
-{% highlight php %}
+```
 class User extends Model {}
-{% endhighlight %}
+```
 and that is basically it. You can fire `User::all()` in order to get all users.  
 The entity does not have fields mapping becase they *are* alredy defined in the database.
 
@@ -83,7 +83,7 @@ That is a long definition and it definitely says something but I need a bit more
 
 For instance here an example of Doctine2 Entity:
 
-{% highlight php %}
+```
 <?php
 // src/Entity/Product.php
 namespace App\Entity;
@@ -119,7 +119,7 @@ class Product
 
     // ... getter and setter methods
 }
-{% endhighlight %}
+```
 Note how it lacks CRUD and domain methods, also mapping definition is done via annotaions.
 
 Examples of Data Mapper:
@@ -131,7 +131,7 @@ Examples of Data Mapper:
 - Ecto Elixir
 
 PHP example with Doctrine2. See, how CRUD et all operations are done with EntityManager and not with Entity itself?
-{% highlight php %}
+```
 
 $user = new User();
 $user->setName("john");
@@ -140,7 +140,7 @@ $entityManager->persist($user);
 $entityManager->flush();
 echo "The user with id " . $user->getId() . "has been saved.";
 
-{% endhighlight %}
+```
 
 Benefits of Data Mapper:
 - clear separation of domain logic and database

@@ -13,7 +13,7 @@ One of the ways to follow "open/closed" principle.
 
 Here is an example:
 
-{% highlight php %}
+```
 
 interface Visitor {
     // quite reasonable to a visitor to be able to "visit" other classes
@@ -67,7 +67,7 @@ $realPerson->accept($realVisitor);
 
 
 
-{% endhighlight %}
+```
 
 
 Hope it helps. Thanks!

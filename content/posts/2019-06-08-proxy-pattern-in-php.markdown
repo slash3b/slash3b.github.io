@@ -22,7 +22,7 @@ There are a few reasons to use Proxy pattern and control access to the underlyin
 
 Example of Virtual Proxy in PHP:
 
-{% highlight php %}
+```
 
 <?php
 declare(strict_types=1);
@@ -85,7 +85,7 @@ var_dump($reflectionProperty->getValue($proxy));
 print 'And here it is.' . PHP_EOL;
 var_dump($proxy->getFilm()); // heavy instance creation on demand
 
-{% endhighlight %}
+```
 
 
 

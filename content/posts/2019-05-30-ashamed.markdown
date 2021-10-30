@@ -3,6 +3,7 @@ layout: post
 date:   2019-05-30
 comments: true
 title: "Mixed feelings about being programmer in Moldova"
+draft: true
 ---
 
 This is just a personal rant on the current situation.  

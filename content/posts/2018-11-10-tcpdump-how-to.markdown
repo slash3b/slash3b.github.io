@@ -8,28 +8,28 @@ title: "tcpdump tiny cheat sheet"
 tcpdump is such an amazing tool, even knowing just basic parameters you can do a lot.
 
 - show list of available interfaces
-{% highlight bash %}
+```
     sudo tcpdump -D
-{% endhighlight %}
+```
 
 - show packets with X argument. Use A in case you want to see only textual info and skip binary in hex
-{% highlight bash %}
+```
     sudo tcpdump -X
-{% endhighlight %}
+```
 
 - track only specific port
-{% highlight bash %}
+```
     sudo tcpdump 'port 8888'
-{% endhighlight %}
+```
 
 - do not resolve host names, lets you see IP addresses
-{% highlight bash %}
+```
     sudo tcpdump -nn
-{% endhighlight %}
+```
 
 With all those arguments combined you can track connection to the program opened on local machine on port 8888 and see the following:
 
-{% highlight bash %}
+```
 sudo tcpdump -i lo -nnA 'port 8000'
 
 1  23:53:22.733261 IP 127.0.0.1.40968 > 127.0.0.1.8000: Flags [S], seq 3663077212, win 43690, options [mss 65495,sackOK,TS val 1062127408 ecr 0,nop,wscale 7], length 0
@@ -109,7 +109,7 @@ sudo tcpdump -i lo -nnA 'port 8000'
 75     0x0030:  3f4e c731                                ?N.1
 76 
 
-{% endhighlight %}
+```
 
 Basically it shows you how TCP connection established and then on 26-th line we send request. And server answers with 'test!' on 55-th line. 
 

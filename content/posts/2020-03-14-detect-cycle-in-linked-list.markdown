@@ -8,18 +8,18 @@ title: "Detect cycle in singly linked list (python)"
 As I'm improving my data structures knowledge and understanding I'm trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.
 
 Singly-linked list consits of nodes that reference one another. A node could look like this:
-{% highlight python %}
+```
 
 class Node:
     def __init__(self, value=None):
         self.next = None
         self.value = value
 
-{% endhighlight %}
+```
 So it has two properties — _next_ that contains next element, and _value_ that contains data. Could be more complex than this but lets not complicate.
 
 Lets create linked list of 12 nodes and connect them in a circle.
-{% highlight python %}
+```
 
 a = Node(1)
 b = Node(2)
@@ -47,7 +47,7 @@ j.next = k
 k.next = l
 l.next = a
 
-{% endhighlight %}
+```
 
 Now how would you go about solving this? And solving efficiently, namely `O(n)` time and `O(1)` space complexity ? I could not solve it. I've been thinking about something horrible like "I need to have an additional dictionary with node values as keys and linked list of nodes as values of a dictionary as we may have a duplicates..." Feels overly complex and wrong 🤔   
 
@@ -64,7 +64,7 @@ Blue runner runs twice as fast. Orange and blue runners meet exactly when orange
 
 And solution:  
 
-{% highlight python %}
+```
 
 def detect_cycle(head):
     if head == None:
@@ -86,7 +86,7 @@ def detect_cycle(head):
 
 print(detect_cycle(a))
 
-{% endhighlight %}
+```
 
 To everyone who is looking for a way to improve data structures knowledge I'd recommend [Python for Data Structures, Algorithms, and Interviews! ](https://www.udemy.com/course/python-for-data-structures-algorithms-and-interviews/) course.
 

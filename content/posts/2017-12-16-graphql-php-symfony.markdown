@@ -3,6 +3,8 @@ layout: post
 date:   2017-12-16
 comments: true
 title: 'wip: GraphQL and Symfony'
+draft: true
+
 ---
 
 _Disclaimer: this post is my own understanding of graphQL and how it may be implemented with Symfony. I'm quite sure this is not a "best practice" guide and this post may contain erros, so please remember this. I do not encourage anybody to build API the way it is described here. I would be really glad if you would leave your opinion in the comments below. Thanks for reading!_
@@ -46,7 +48,7 @@ We are going to use Symfony the GraphQL recommended PHP package - [webonyx/graph
 
 In order to implement the very simple "Hello GraphQL" example I have to start with creating a simple controller 
 keep an eye on inline comments!
-{% highlight PHP %}
+```
    <?php
 
     namespace AppBundle\Controller;
@@ -129,7 +131,7 @@ keep an eye on inline comments!
         }
 
     }     
-{% endhighlight %}
+```
 
 
 Basically I'd outline here 3 main steps:
@@ -139,12 +141,12 @@ Basically I'd outline here 3 main steps:
 
 And when you send request with curl you will get silly but perfectly valid response:  
 
-{% highlight bash %}
+```
     ~ $ curl http://localhost:8080/graphql -d '{"query":
              "query{ echo(message: \"Hello GraphQL\") }" }'
 
     {"data":{"echo":"Hello GraphQL"}}
-{% endhighlight %}
+```
 
 ### Cons:
 <div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-parent="false" data-embed-live="false" data-embed-uuid="d9ca904a-9fe4-4528-a251-192208fd9a73" data-embed-created="2017-12-02T08:25:27.545Z"><a href="https://www.reddit.com/r/reactjs/comments/4h2rm6/graphql_overhyped/d2n5r9j/">Comment</a> from discussion <a href="https://www.reddit.com/r/reactjs/comments/4h2rm6/graphql_overhyped/">GraphQL Overhyped?</a>.</div><script async src="https://www.redditstatic.com/comment-embed.js"></scripit>

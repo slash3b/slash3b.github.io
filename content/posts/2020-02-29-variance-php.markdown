@@ -19,7 +19,7 @@ In general, a type constructor can be:
 
 Here is an example of invariant return type in class hierarchy, note **same** return types:
 
-{% highlight php %}
+```
 
 class A
 {
@@ -39,16 +39,16 @@ class B extends A
 
 var_dump((new B)->test());
 
-{% endhighlight %}
+```
 
 In case you want to return `self` in `B::test()` PHP7.3 will return:  
-{% highlight bash %}
+```
 
 Fatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18
 
 Process exited with code 255.
 
-{% endhighlight %}
+```
 
 Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:  
 - return type might be more specific — contravariance   
@@ -60,7 +60,7 @@ You will be able to find much more info in original RFC linked below.
 An example of covariance:
 
 
-{% highlight php %}
+```
 
 class A
 {
@@ -80,13 +80,13 @@ class B extends A
 
 var_dump((new B)->test(new ArrayObject));
 
-{% endhighlight %}
+```
 In this example above we are being less specific expecting a more general type `object` instead of `stdClass`  
 
 And contravariance looks like this:
 
 
-{% highlight php %}
+```
 
 class A
 {
@@ -106,17 +106,17 @@ class B extends A
 
 var_dump((new B)->test());
 
-{% endhighlight %}
+```
 
 Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. `object` retur type as it will be a covariant return type and you get an error:
 
 
-{% highlight bash %}
+```
 
 Fatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14
 
 
-{% endhighlight %}
+```
 
 Resources:  
 [What’s New in PHP 7.4 (Features, Deprecations, Speed)](https://kinsta.com/blog/php-7-4)  

@@ -19,7 +19,7 @@ Composition is just another way to inherit other classes
 Basically you do not inherit class directly but get it injected into the constructor or via setter method. For instance:  
 
 Typical inheritance:
-{%highlight php%}
+```
 
 class MusicalIntstrument
 {
@@ -31,12 +31,12 @@ class Violin extends MusicalInstrument
     ...
 }
 
-{%endhighlight%}
+```
 
 In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from muptiple classes simultaneously and sometimes you do **not** want to inherit everything from parent class. That is when composition helps. For example:
 
 
-{%highlight php%}
+```
 
 class MusicalIntstrument
 {
@@ -62,7 +62,7 @@ class Violin
 
 }
 
-{%endhighlight%}
+```
 
 Of course stackoverflow has much much better examples and explanations, please check the link below.
 

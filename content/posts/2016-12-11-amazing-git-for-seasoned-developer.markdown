@@ -13,41 +13,41 @@ This is not a post but rather a set of things I would like to remember about GIT
 
 Do you know that there is a way to trace function or a piece of code?
 In order to see code snippet evolution you have to use this command, specifying start line(2) and end line(20):
-{% highlight bash %}
-git log -L  2,20:src/AdminBundle/Controller/AccountController.php
-{% endhighlight %}
+
+    git log -L  2,20:src/AdminBundle/Controller/AccountController.php
+
 
 If you want to trace fuction history you may use:
-{% highlight bash %}
-git log -L  :funcname:src/AdminBundle/Controller/AccountController.php
-{% endhighlight %}
+
+    git log -L  :funcname:src/AdminBundle/Controller/AccountController.php
+
 In my case this worked for class definition but not for methods within, the thing is that GIT doesn't know a thing about function declaration in the given language. GIT has a set of predefined regular expressions for some languages so we can fix this issue with this one-liner in your repo - `echo '*.php diff=php' >> .gitattributes`. Thus GIT will know PHP better, given line affects git diff command and diff output will be more correct.
 
 There is also a slightly different approach to this - you can use so called "pickaxe" filter `-S`
-{% highlight bash %}
-git log -S function_name
-{% endhighlight %}
+
+    git log -S function_name
+
 It will show commits that contain addition or removal of the given function name. With this filter you can trace back all "evolution" of the function. Note that in case function has some generic name you may end up with ambiguous data.  
 
 Another interesting command will display all commit names grouped and counted by contributors:
-{% highlight bash %}
-git shortlog --no-merges
-{% endhighlight %}
+
+    git shortlog --no-merges
+
 
 Instead of writing n'th time about difference between HEAD~ and HEAD^, I will paste here [this](http://) awesome answer from stackoverflow with some additions:
-{% highlight bash %}
-HEAD^    : means the parent of HEAD
-HEAD^^   : 2 commits older than HEAD
-HEAD^2   : the second parent of HEAD, if HEAD was a merge, otherwise illegal
 
-HEAD~    : the parent of HEAD
-HEAD~~   : 2 commits older than HEAD
-HEAD~6   : 6 commits older than HEAD
+    HEAD^    : means the parent of HEAD
+    HEAD^^   : 2 commits older than HEAD
+    HEAD^2   : the second parent of HEAD, if HEAD was a merge, otherwise illegal
 
-HEAD~3^2 : 3 commits older than HEAD and then grab the second parent of merge commit
+    HEAD~    : the parent of HEAD
+    HEAD~~   : 2 commits older than HEAD
+    HEAD~6   : 6 commits older than HEAD
 
-HEAD@{2} : refers to the 3rd listing in the overview of git reflog
-{% endhighlight %}
+    HEAD~3^2 : 3 commits older than HEAD and then grab the second parent of merge commit
+
+    HEAD@{2} : refers to the 3rd listing in the overview of git reflog
+
 More info may be found in the [documentation](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection)
 
 Imagine that for some reason you have to merge the same piece of code over and over again. In this case GIT can simplify your life a bit, you  should turn on `git rerere` which stands for reuse recorded resolution. Basically it would record khow you did merge and next time will do that for you.
@@ -56,13 +56,11 @@ You can always create an alias for some 'missing' commands like this:
 `git config --global alias.unstage 'reset HEAD --'`
 By the way, recent version of oh-my-zsh http://ohmyz.sh/ has 123 git aliases. 
 For instance, here are some aliases for git log command, so please use oh-my-zsh, they are awesome!
-{% highlight bash %}
 
-gke='\gitk --all $(git log -g --pretty=%h)'
-glg='git log --stat'
-glgg='git log --graph'
 
-{% endhighlight %}
+    gke='\gitk --all $(git log -g --pretty=%h)'
+    glg='git log --stat'
+    glgg='git log --graph'
 
 There is also an interesting possibility to pack the whole repo into the binary file like this:
 `git bundle create repo.bundle HEAD master`
