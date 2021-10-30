@@ -51,20 +51,6 @@
 </header>
 <article class=post-entry>
 <header class=entry-header>
-<h2>tcpdump tiny cheat sheet
-</h2>
-</header>
-<section class=entry-content>
-<p>tcpdump is such an amazing tool, even knowing just basic parameters you can do a lot.
-show list of available interfaces {% highlight bash %} sudo tcpdump -D {% endhighlight %}
-show packets with X argument. Use A in case you want to see only textual info and skip binary in hex {% highlight bash %} sudo tcpdump -X {% endhighlight %}
-track only specific port {% highlight bash %} sudo tcpdump ‘port 8888’ {% endhighlight %}...</p>
-</section>
-<footer class=entry-footer>November 10, 2018</footer>
-<a class=entry-link aria-label="post link to tcpdump tiny cheat sheet" href=https://slash3b.github.io/posts/2018-11-10-tcpdump-how-to/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
 <h2>Mutation testing in PHP
 </h2>
 </header>
@@ -72,7 +58,7 @@ track only specific port {% highlight bash %} sudo tcpdump ‘port 8888’ {% en
 <p>Today at my job I did an internal presentation on mutation testing in PHP.
 Here is the presentation:
 What it lacks is the live example of how it is done. So I’m going to just short list here an example.
-For this code intro I’m going to use PHP7.2. The only PHP class we have is this one below, and it is pretty much naive but is usefull for our example: {% highlight PHP %}</p>
+For this code intro I’m going to use PHP7.2. The only PHP class we have is this one below, and it is pretty much naive but is usefull for our example:...</p>
 </section>
 <footer class=entry-footer>August 2, 2018</footer>
 <a class=entry-link aria-label="post link to Mutation testing in PHP" href=https://slash3b.github.io/posts/2018-08-02-mutation-testing-in-php/></a>
@@ -106,18 +92,6 @@ gpg2 --fingerprint &lt;your@email....</p>
 </section>
 <footer class=entry-footer>May 20, 2018</footer>
 <a class=entry-link aria-label="post link to How to sign your commit with GPG" href=https://slash3b.github.io/posts/2018-05-20-how-to-sign-git-commit-with-gpg/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>wip: GraphQL and Symfony
-</h2>
-</header>
-<section class=entry-content>
-<p>Disclaimer: this post is my own understanding of graphQL and how it may be implemented with Symfony. I’m quite sure this is not a “best practice” guide and this post may contain erros, so please remember this. I do not encourage anybody to build API the way it is described here. I would be really glad if you would leave your opinion in the comments below. Thanks for reading!
-In wikipedia we may find the following explanation:...</p>
-</section>
-<footer class=entry-footer>December 16, 2017</footer>
-<a class=entry-link aria-label="post link to wip: GraphQL and Symfony" href=https://slash3b.github.io/posts/2017-12-16-graphql-php-symfony/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -168,7 +142,7 @@ So for some time I avoided the yeild and all generator related stuff, honestly I
 <section class=entry-content>
 <p>So at first what is a variadic function ? A variadic function is a function that accepts a variable number of arguments, that is it!
 Starting from PHP 5.6 version we can write it using a special “splat” operator = ... So the simplest example would be this:
-{% highlight PHP%} function variadic(…$args) { return $args; } var_dump(variadic(1,2,3,4)); // and you get it in form of the array [1,2,3,4] {%endhighlight%}...</p>
+function variadic(...$args) { return $args; } var_dump(variadic(1,2,3,4)); // and you get it in form of the array [1,2,3,4] In the earlier versions of PHP func_get_args() and func_num_args() were used in order to create variadic functions....</p>
 </section>
 <footer class=entry-footer>July 30, 2017</footer>
 <a class=entry-link aria-label="post link to PHP variadic functions" href=https://slash3b.github.io/posts/2017-07-30-php-variadic-functions/></a>
@@ -185,10 +159,20 @@ Every text is just a sequence of bytes. Period. There are 128 symbols defined in
 <footer class=entry-footer>May 28, 2017</footer>
 <a class=entry-link aria-label="post link to Encoging tl;dr" href=https://slash3b.github.io/posts/2017-05-28-encoding-tldr/></a>
 </article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>Pragmatic Programmer synopsis
+</h2>
+</header>
+<section class=entry-content>
+<p>Here are all the tips from the book Pragmatic Programmer. It was published in October, 1999 and since then became one the best known books about software engineering. Just as I started to write this post, I found that Jeff Atwood already wrote about this post. But I like to finish what I started, so let there be yet another post praising this great book. The list is mostly copy-paste, some day I’ll have time to add my own comments to each Tip, though most if the Tips are pretty self-explanatory....</p>
+</section>
+<footer class=entry-footer>January 14, 2017</footer>
+<a class=entry-link aria-label="post link to Pragmatic Programmer synopsis" href=https://slash3b.github.io/posts/2017-01-14-pragmatic-programmer-synopsis/></a>
+</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://slash3b.github.io/posts/page/2/>« Prev Page</a>
-<a class=next href=https://slash3b.github.io/posts/page/4/>Next Page »</a>
 </nav>
 </footer>
 </main>

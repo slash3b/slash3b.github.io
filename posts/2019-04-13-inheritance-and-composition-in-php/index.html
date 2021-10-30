@@ -37,7 +37,7 @@ So inheritance is awesome way to reuse code between objects but it comes at cost
 So inheritance is awesome way to reuse code between objects but it comes at cost.
  When class inherit from parent class there is no way to not implement methods/reduce parent&rsquo;s code. You have to implement everything according to parent class You need to make sure you are compatible with parent&rsquo;s class in case override something Child class may know about parent&rsquo;s methods implementation, in case they are not private, which breaks incapsulation Inheritance means deep coupling between parent and child classes  Composition is just another way to inherit other classes Basically you do not inherit class directly but get it injected into the constructor or via setter method.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://slash3b.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Composition vs. Inheritance in PHP, tl;dr version","item":"https://slash3b.github.io/posts/2019-04-13-inheritance-and-composition-in-php/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Composition vs. Inheritance in PHP, tl;dr version","name":"Composition vs. Inheritance in PHP, tl;dr version","description":"After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:\nSo inheritance is awesome way to reuse code between objects but it comes at cost.\n When class inherit from parent class there is no way to not implement methods/reduce parent\u0026rsquo;s code. You have to implement everything according to parent class You need to make sure you are compatible with parent\u0026rsquo;s class in case override something Child class may know about parent\u0026rsquo;s methods implementation, in case they are not private, which breaks incapsulation Inheritance means deep coupling between parent and child classes  Composition is just another way to inherit other classes Basically you do not inherit class directly but get it injected into the constructor or via setter method.","keywords":[],"articleBody":"After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:\nSo inheritance is awesome way to reuse code between objects but it comes at cost.\n When class inherit from parent class there is no way to not implement methods/reduce parent’s code. You have to implement everything according to parent class You need to make sure you are compatible with parent’s class in case override something Child class may know about parent’s methods implementation, in case they are not private, which breaks incapsulation Inheritance means deep coupling between parent and child classes  Composition is just another way to inherit other classes Basically you do not inherit class directly but get it injected into the constructor or via setter method. For instance:\nTypical inheritance: {%highlight php%}\nclass MusicalIntstrument { … }\nclass Violin extends MusicalInstrument { … }\n{%endhighlight%}\nIn this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from muptiple classes simultaneously and sometimes you do not want to inherit everything from parent class. That is when composition helps. For example:\n{%highlight php%}\nclass MusicalIntstrument { … }\nclass Violin { // typed properties will be available in PHP 7.4 private MusicalInstrument $instrument;\n// we can go with constructor injection public function __construct($instrument) { $this-instrument = $instrument; } // or you can do setter injection whenever you need public function setInstrument($instrument) { $this-instrument = $instrument; }  }\n{%endhighlight%}\nOf course stackoverflow has much much better examples and explanations, please check the link below.\nResources: stackovewflow#1 Dive Into Design Patterns\n","wordCount":"286","inLanguage":"en","datePublished":"2019-04-13T00:00:00Z","dateModified":"2019-04-13T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2019-04-13-inheritance-and-composition-in-php/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Composition vs. Inheritance in PHP, tl;dr version","name":"Composition vs. Inheritance in PHP, tl;dr version","description":"After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:\nSo inheritance is awesome way to reuse code between objects but it comes at cost.\n When class inherit from parent class there is no way to not implement methods/reduce parent\u0026rsquo;s code. You have to implement everything according to parent class You need to make sure you are compatible with parent\u0026rsquo;s class in case override something Child class may know about parent\u0026rsquo;s methods implementation, in case they are not private, which breaks incapsulation Inheritance means deep coupling between parent and child classes  Composition is just another way to inherit other classes Basically you do not inherit class directly but get it injected into the constructor or via setter method.","keywords":[],"articleBody":"After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:\nSo inheritance is awesome way to reuse code between objects but it comes at cost.\n When class inherit from parent class there is no way to not implement methods/reduce parent’s code. You have to implement everything according to parent class You need to make sure you are compatible with parent’s class in case override something Child class may know about parent’s methods implementation, in case they are not private, which breaks incapsulation Inheritance means deep coupling between parent and child classes  Composition is just another way to inherit other classes Basically you do not inherit class directly but get it injected into the constructor or via setter method. For instance:\nTypical inheritance:\n class MusicalIntstrument { ... } class Violin extends MusicalInstrument { ... } In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from muptiple classes simultaneously and sometimes you do not want to inherit everything from parent class. That is when composition helps. For example:\n class MusicalIntstrument { ... } class Violin { // typed properties will be available in PHP 7.4 private MusicalInstrument $instrument; // we can go with constructor injection public function __construct($instrument) { $this-instrument = $instrument; } // or you can do setter injection whenever you need public function setInstrument($instrument) { $this-instrument = $instrument; } } Of course stackoverflow has much much better examples and explanations, please check the link below.\nResources: stackovewflow#1 Dive Into Design Patterns\n","wordCount":"280","inLanguage":"en","datePublished":"2019-04-13T00:00:00Z","dateModified":"2019-04-13T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2019-04-13-inheritance-and-composition-in-php/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -73,42 +73,45 @@ Composition vs. Inheritance in PHP, tl;dr version
 </ul>
 <p>Composition is just another way to inherit other classes
 Basically you do not inherit class directly but get it injected into the constructor or via setter method. For instance:</p>
-<p>Typical inheritance:
-{%highlight php%}</p>
-<p>class MusicalIntstrument
+<p>Typical inheritance:</p>
+<pre tabindex=0><code>
+class MusicalIntstrument
 {
-&mldr;
-}</p>
-<p>class Violin extends MusicalInstrument
-{
-&mldr;
-}</p>
-<p>{%endhighlight%}</p>
-<p>In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from muptiple classes simultaneously and sometimes you do <strong>not</strong> want to inherit everything from parent class. That is when composition helps. For example:</p>
-<p>{%highlight php%}</p>
-<p>class MusicalIntstrument
-{
-&mldr;
-}</p>
-<p>class Violin
-{
-// typed properties will be available in PHP 7.4
-private MusicalInstrument $instrument;</p>
-<pre><code>// we can go with constructor injection
-public function __construct($instrument)
-{
-    $this-&gt;instrument = $instrument;
+    ...
 }
 
-// or you can do setter injection whenever you need
-public function setInstrument($instrument)
+class Violin extends MusicalInstrument
 {
-    $this-&gt;instrument = $instrument;
+    ...
 }
-</code></pre>
-<p>}</p>
-<p>{%endhighlight%}</p>
-<p>Of course stackoverflow has much much better examples and explanations, please check the link below.</p>
+
+</code></pre><p>In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from muptiple classes simultaneously and sometimes you do <strong>not</strong> want to inherit everything from parent class. That is when composition helps. For example:</p>
+<pre tabindex=0><code>
+class MusicalIntstrument
+{
+    ...
+}
+
+class Violin
+{
+    // typed properties will be available in PHP 7.4
+    private MusicalInstrument $instrument;
+
+    // we can go with constructor injection
+    public function __construct($instrument)
+    {
+        $this-&gt;instrument = $instrument;
+    }
+
+    // or you can do setter injection whenever you need
+    public function setInstrument($instrument)
+    {
+        $this-&gt;instrument = $instrument;
+    }
+
+}
+
+</code></pre><p>Of course stackoverflow has much much better examples and explanations, please check the link below.</p>
 <p>Resources:
 <a href="https://stackoverflow.com/questions/49002/prefer-composition-over-inheritance?rq=1">stackovewflow#1</a>
 <a href=https://sourcemaking.com/design-patterns-ebook>Dive Into Design Patterns</a></p>

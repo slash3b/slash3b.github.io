@@ -34,7 +34,7 @@ So for some time I avoided the yeild and all generator related stuff, honestly I
 <meta name=twitter:description content="If you would like to run some php code samples, your own machine is fine, but I would recomment you to use 3v4l.org as a way to execute the code with ~200 different PHP version. That is pretty awesome.
 So for some time I avoided the yeild and all generator related stuff, honestly I did not get it from the first time and from the second time too&mldr; as usual It took some time and perseverence from my side to grok that.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://slash3b.github.io/posts/"},{"@type":"ListItem","position":3,"name":"PHP yield tl;dr","item":"https://slash3b.github.io/posts/2017-08-30-php-yield-tldr/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PHP yield tl;dr","name":"PHP yield tl;dr","description":"If you would like to run some php code samples, your own machine is fine, but I would recomment you to use 3v4l.org as a way to execute the code with ~200 different PHP version. That is pretty awesome.\nSo for some time I avoided the yeild and all generator related stuff, honestly I did not get it from the first time and from the second time too\u0026hellip; as usual It took some time and perseverence from my side to grok that.","keywords":[],"articleBody":"If you would like to run some php code samples, your own machine is fine, but I would recomment you to use 3v4l.org as a way to execute the code with ~200 different PHP version. That is pretty awesome.\nSo for some time I avoided the yeild and all generator related stuff, honestly I did not get it from the first time and from the second time too… as usual It took some time and perseverence from my side to grok that.\nBefore we begin here is some specs from the local machine, I’m showing what seems reasonable so bear with me: {%highlight bash%} ~ $ php -v PHP 7.1.8 (cli) (built: Aug 2 2017 08:32:24) ( NTS ) Copyright (c) 1997-2017 The PHP Group Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies {%endhighlight%}\n{%highlight bash%} ~ $ lscpu Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit CPU(s): 4 Thread(s) per core: 2 Core(s) per socket: 2 Socket(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 142 Model name: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz Stepping: 9 CPU max MHz: 3100.0000 L1d cache: 32K L1i cache: 32K L2 cache: 256K L3 cache: 3072K {%endhighlight%}\n{%highlight bash%} ~ $ free –total -h total used Mem: 7.7G Swap: 7.8G Total: 15G {%endhighlight%} Well, now lets start right of the bat. You probably know the usual foreach control structure: {% highlight PHP %} You can also do something like this:\n{% highlight PHP %} grabArray() will store the whole array in the memory and then obediently return this huge array, the yieldArray() will return the object instance of the Generator class. Generator is a special type of class which can not be instantiated with the new keyword, it extents Iterator interface and can be traversed with the usual foreach.\nAlso you can notice a huge difference in consumed RAM (tested files with function above may be found here): {%highlight bash%} ~ $ php array_test.php 4098Mb ~ $ php yield_test.php 2Mb {% endhighlight %} later on I found out that the paragraph below is almost the same as in the “couroutines” article by Nikita Popov. Does it mean I understood it that good or I just subconsciously stole it?\nIt happens because the yieldArray() is not executed fully, instead it returns Generator instance when it stumbles on the first yield keyword. Returned generator has a “state” and “remembers” current state of the function, more on that later.\nLets take into account some other important generator features:\n yeild() can take key-value pairs, just like this yield $key = $value in order to yeild null just yield; it generators are one-way only highway, you can’t get the previous value from the generator generators can not be cloned and when it is closed the valid() method will return false  In php7, we have a possibility to yeild form another generator, array, Iterator, well… anything that can be pushed into the genereator. {% highlight php %} getGen();  {% endhighlight %}\nNow, lets continue with the generators, on the rfc page, link down below, there is super awesome example by Nikita Popov of how the generator is working.\nI preserved it with author’s comments but added a couple of lines in the end, for better understanding: {% highlight php %} } // Initial call does not output anything $gen = gen(); // Call to current() resumes the generator, thus \"start\" is echo'd. // Then the yield expression is hit and the string \"middle\" is returned // as the result of current() and then echo'd. echo $gen-current(); // Execution of the generator is resumed again, thus echoing \"end\" $gen-next(); // Then again, current() returns us the \"start\" and the \"middle\" echo $gen-current(); // and next() executes what is left in the function $gen-next();  {% endhighlight %} And this will resut in: {% highlight bash%} start middle end start middle end {% endhighlight %}\nto be continued … I will update this article with coroutine examples.\nUsed materials:\nCooperative multitasking using coroutines (in PHP!) What Generators Can Do For You\nGenerators in action man\nrfc\n","wordCount":"758","inLanguage":"en","datePublished":"2017-08-30T00:00:00Z","dateModified":"2017-08-30T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2017-08-30-php-yield-tldr/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"PHP yield tl;dr","name":"PHP yield tl;dr","description":"If you would like to run some php code samples, your own machine is fine, but I would recomment you to use 3v4l.org as a way to execute the code with ~200 different PHP version. That is pretty awesome.\nSo for some time I avoided the yeild and all generator related stuff, honestly I did not get it from the first time and from the second time too\u0026hellip; as usual It took some time and perseverence from my side to grok that.","keywords":[],"articleBody":"If you would like to run some php code samples, your own machine is fine, but I would recomment you to use 3v4l.org as a way to execute the code with ~200 different PHP version. That is pretty awesome.\nSo for some time I avoided the yeild and all generator related stuff, honestly I did not get it from the first time and from the second time too… as usual It took some time and perseverence from my side to grok that.\nBefore we begin here is some specs from the local machine, I’m showing what seems reasonable so bear with me:\n~ $ php -v PHP 7.1.8 (cli) (built: Aug 2 2017 08:32:24) ( NTS ) Copyright (c) 1997-2017 The PHP Group Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies ~ $ lscpu Architecture: x86_64 CPU op-mode(s): 32-bit, 64-bit CPU(s): 4 Thread(s) per core: 2 Core(s) per socket: 2 Socket(s): 1 Vendor ID: GenuineIntel CPU family: 6 Model: 142 Model name: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz Stepping: 9 CPU max MHz: 3100.0000 L1d cache: 32K L1i cache: 32K L2 cache: 256K L3 cache: 3072K ~ $ free --total -h total used Mem: 7.7G Swap: 7.8G Total: 15G  Well, now lets start right of the bat. You probably know the usual foreach control structure:\n You can also do something like this:\n While the grabArray() will store the whole array in the memory and then obediently return this huge array, the yieldArray() will return the object instance of the Generator class. Generator is a special type of class which can not be instantiated with the new keyword, it extents Iterator interface and can be traversed with the usual foreach.\nAlso you can notice a huge difference in consumed RAM (tested files with function above may be found here):\n~ $ php array_test.php 4098Mb ~ $ php yield_test.php 2Mb  later on I found out that the paragraph below is almost the same as in the “couroutines” article by Nikita Popov. Does it mean I understood it that good or I just subconsciously stole it?\nIt happens because the yieldArray() is not executed fully, instead it returns Generator instance when it stumbles on the first yield keyword. Returned generator has a “state” and “remembers” current state of the function, more on that later.\nLets take into account some other important generator features:\n yeild() can take key-value pairs, just like this yield $key = $value in order to yeild null just yield; it generators are one-way only highway, you can’t get the previous value from the generator generators can not be cloned and when it is closed the valid() method will return false  In php7, we have a possibility to yeild form another generator, array, Iterator, well… anything that can be pushed into the genereator.\n Now, lets continue with the generators, on the rfc page, link down below, there is super awesome example by Nikita Popov of how the generator is working.\nI preserved it with author’s comments but added a couple of lines in the end, for better understanding:\ncurrent(); // Execution of the generator is resumed again, thus echoing \"end\" $gen-next(); // Then again, current() returns us the \"start\" and the \"middle\" echo $gen-current(); // and next() executes what is left in the function $gen-next();  And this will resut in:\n start middle end start middle end  to be continued … I will update this article with coroutine examples.\nUsed materials:\nCooperative multitasking using coroutines (in PHP!) What Generators Can Do For You\nGenerators in action man\nrfc\n","wordCount":"714","inLanguage":"en","datePublished":"2017-08-30T00:00:00Z","dateModified":"2017-08-30T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2017-08-30-php-yield-tldr/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -63,70 +63,65 @@ PHP yield tl;dr
 <div class=post-content><p><em>If you would like to run some php code samples, your own machine is fine, but I would recomment you to use <a href=3v4l.org>3v4l.org</a> as a way to execute the code with ~200 different PHP version. That is pretty awesome.</em></p>
 <p>So for some time I avoided the <code>yeild</code> and all generator related stuff, honestly I did not get it from the first time and from the second time too&mldr; as usual It took some time
 and perseverence from my side to grok that.</p>
-<p>Before we begin here is some specs from the local machine, I&rsquo;m showing what seems reasonable so bear with me:
-{%highlight bash%}
-~ $ php -v
-PHP 7.1.8 (cli) (built: Aug 2 2017 08:32:24) ( NTS )
+<p>Before we begin here is some specs from the local machine, I&rsquo;m showing what seems reasonable so bear with me:</p>
+<pre><code>~ $ php -v
+PHP 7.1.8 (cli) (built: Aug  2 2017 08:32:24) ( NTS )
 Copyright (c) 1997-2017 The PHP Group
 Zend Engine v3.1.0, Copyright (c) 1998-2017 Zend Technologies
-{%endhighlight%}</p>
-<p>{%highlight bash%}
+
 ~ $ lscpu
-Architecture: x86_64
-CPU op-mode(s): 32-bit, 64-bit
-CPU(s): 4
-Thread(s) per core: 2
-Core(s) per socket: 2
-Socket(s): 1
-Vendor ID: GenuineIntel
-CPU family: 6
-Model: 142
-Model name: Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
-Stepping: 9
-CPU max MHz: 3100.0000
-L1d cache: 32K
-L1i cache: 32K
-L2 cache: 256K
-L3 cache: 3072K
-{%endhighlight%}</p>
-<p>{%highlight bash%}
-~ $ free &ndash;total -h
-total used
-Mem: 7.7G
-Swap: 7.8G
-Total: 15G
-{%endhighlight%}
-Well, now lets start right of the bat. You probably know the usual foreach control structure:
-{% highlight PHP %}
-&lt;?php
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+CPU(s):              4
+Thread(s) per core:  2
+Core(s) per socket:  2
+Socket(s):           1
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               142
+Model name:          Intel(R) Core(TM) i5-7200U CPU @ 2.50GHz
+Stepping:            9
+CPU max MHz:         3100.0000
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            3072K
+
+
+~ $ free --total -h
+total          used
+Mem:           7.7G
+Swap:          7.8G
+Total:          15G
+</code></pre>
+<p>Well, now lets start right of the bat. You probably know the usual foreach control structure:</p>
+<pre><code>&lt;?php
 function grabArray() {
-$arr = [];
-for($i = 0; $i &lt;= 100000000; $i++) {
-$arr[] = $i;
+    $arr = [];
+    for($i = 0; $i &lt;= 100000000; $i++) {
+        $arr[] = $i;
+    }
+    return $arr;
 }
-return $arr;
-}
-{%endhighlight%}</p>
+</code></pre>
 <p>You can also do something like this:</p>
-<p>{% highlight PHP %}
-&lt;?php
+<pre><code>&lt;?php
 function yieldArray() {
-for($i = 0; $i &lt;= 100000000; $i++) {
-yield $i;
+    for($i = 0; $i &lt;= 100000000; $i++) {
+       yield $i; 
+    }
 }
-}
-{%endhighlight%}
-While the <code>grabArray()</code> will store the whole array in the memory and then obediently return this huge array, the <code>yieldArray()</code> will return the object instance of the <code>Generator</code> class.
+</code></pre>
+<p>While the <code>grabArray()</code> will store the whole array in the memory and then obediently return this huge array, the <code>yieldArray()</code> will return the object instance of the <code>Generator</code> class.
 Generator is a special type of class which can <strong>not</strong> be instantiated with the <em>new</em> keyword, it extents <code>Iterator</code> interface and can be traversed with the usual
 foreach.</p>
-<p>Also you can notice a huge difference in consumed RAM (tested files with function above may be found <a href=https://github.com/slash3b/sand%60box/tree/master/php%60yield%60blog%60post>here</a>):
-{%highlight bash%}
-~ $ php array_test.php
-4098Mb <br>
+<p>Also you can notice a huge difference in consumed RAM (tested files with function above may be found <a href=https://github.com/slash3b/sand%60box/tree/master/php%60yield%60blog%60post>here</a>):</p>
+<pre><code>~ $ php array_test.php
+4098Mb           
 ~ $ php yield_test.php
 2Mb
-{% endhighlight %}
-<em>later on I found out that the paragraph below is almost the same as in the &ldquo;couroutines&rdquo; article by Nikita Popov. Does it mean I understood it that good or I just subconsciously stole it?</em></p>
+</code></pre>
+<p><em>later on I found out that the paragraph below is almost the same as in the &ldquo;couroutines&rdquo; article by Nikita Popov. Does it mean I understood it that good or I just subconsciously stole it?</em></p>
 <p>It happens because the <code>yieldArray()</code> is not executed fully, instead it returns <code>Generator</code> instance when it stumbles on the first <code>yield</code> keyword.
 Returned generator has a &ldquo;state&rdquo; and &ldquo;remembers&rdquo; current state of the function, more on that later.</p>
 <p>Lets take into account some other important generator features:</p>
@@ -136,33 +131,32 @@ Returned generator has a &ldquo;state&rdquo; and &ldquo;remembers&rdquo; current
 <li>generators are one-way only highway, you can&rsquo;t get the previous value from the generator</li>
 <li>generators can not be cloned and when it is closed the <code>valid()</code> method will return false</li>
 </ul>
-<p>In php7, we have a possibility to yeild form another generator, array, Iterator, well&mldr; anything that can be pushed into the genereator.
-{% highlight php %}
-&lt;?php
+<p>In php7, we have a possibility to yeild form another generator, array, Iterator, well&mldr; anything that can be pushed into the genereator.</p>
+<pre><code>&lt;?php
 function secondGen()
 {
-yield 9;
+    yield 9;
 }
 function getGen()
 {
-yield 1;
-yield from [2,3];
-yield from secondGen();
-}</p>
-<pre><code>getGen();
+    yield 1;
+    yield from [2,3];
+    yield from secondGen();
+}
+
+getGen();
 </code></pre>
-<p>{% endhighlight %}</p>
 <p>Now, lets continue with the generators, on the rfc page, link down below, there is super awesome example by <a href=https://twitter.com/nikita_ppv>Nikita Popov</a> of how the generator is working.<br>
-I preserved it with author&rsquo;s comments but added a couple of lines in the end, for better understanding:
-{% highlight php %}
-&lt;?php
+I preserved it with author&rsquo;s comments but added a couple of lines in the end, for better understanding:</p>
+<pre><code>&lt;?php
 function gen() {
-for($i = 0; $i &lt;= 1; $i++) {
-echo &lsquo;start&rsquo; . PHP_EOL;
-yield &lsquo;middle&rsquo; . PHP_EOL;
-echo &lsquo;end&rsquo; . PHP_EOL;
-}</p>
-<pre><code>}
+    for($i = 0; $i &lt;= 1; $i++) {
+        echo 'start' . PHP_EOL;
+        yield 'middle' . PHP_EOL;
+        echo 'end' . PHP_EOL;
+    }
+
+}
 
 // Initial call does not output anything
 $gen = gen();
@@ -179,16 +173,14 @@ echo $gen-&gt;current();
 // and next() executes what is left in the function
 $gen-&gt;next();
 </code></pre>
-<p>{% endhighlight %}
-And this will resut in:
-{% highlight bash%}
-start
-middle
-end
-start
-middle
-end
-{% endhighlight %}</p>
+<p>And this will resut in:</p>
+<pre><code>    start
+    middle
+    end
+    start
+    middle
+    end
+</code></pre>
 <p>to be continued &mldr;
 I will update this article with coroutine examples.</p>
 <p><strong>Used materials:</strong><br>

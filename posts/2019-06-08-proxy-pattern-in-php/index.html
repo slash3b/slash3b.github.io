@@ -46,7 +46,7 @@ Wikipedia:
  Provide a surrogate or placeholder for another object to control access to it.
  There are a few reasons to use Proxy pattern and control access to the underlying object:">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://slash3b.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Proxy Design Pattern","item":"https://slash3b.github.io/posts/2019-06-08-proxy-pattern-in-php/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Proxy Design Pattern","name":"Proxy Design Pattern","description":"Proxy Design Pattern First, some definitions.\nWikipedia:\n In computer programming, the proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else\n Design Patterns. Elements of Reusable Object-Oriented Software:\n Provide a surrogate or placeholder for another object to control access to it.\n There are a few reasons to use Proxy pattern and control access to the underlying object:","keywords":[],"articleBody":"Proxy Design Pattern First, some definitions.\nWikipedia:\n In computer programming, the proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else\n Design Patterns. Elements of Reusable Object-Oriented Software:\n Provide a surrogate or placeholder for another object to control access to it.\n There are a few reasons to use Proxy pattern and control access to the underlying object:\n underlying object is heavy and it is very costly to create it, e.g. it may do some media processing, multiple HTTP calls, etc. a.k.a. Virtual Proxy access regulation, before giving up the real object, you may want to check first if client/user has an access to it. a.k.a. Protection Proxy executes additional operations when the real subject is accessded(c) Ocramius a.k.a. Smart Reference  Example of Virtual Proxy in PHP:\n{% highlight php %}\n","wordCount":"144","inLanguage":"en","datePublished":"2019-06-08T00:00:00Z","dateModified":"2019-06-08T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2019-06-08-proxy-pattern-in-php/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Proxy Design Pattern","name":"Proxy Design Pattern","description":"Proxy Design Pattern First, some definitions.\nWikipedia:\n In computer programming, the proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else\n Design Patterns. Elements of Reusable Object-Oriented Software:\n Provide a surrogate or placeholder for another object to control access to it.\n There are a few reasons to use Proxy pattern and control access to the underlying object:","keywords":[],"articleBody":"Proxy Design Pattern First, some definitions.\nWikipedia:\n In computer programming, the proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else\n Design Patterns. Elements of Reusable Object-Oriented Software:\n Provide a surrogate or placeholder for another object to control access to it.\n There are a few reasons to use Proxy pattern and control access to the underlying object:\n underlying object is heavy and it is very costly to create it, e.g. it may do some media processing, multiple HTTP calls, etc. a.k.a. Virtual Proxy access regulation, before giving up the real object, you may want to check first if client/user has an access to it. a.k.a. Protection Proxy executes additional operations when the real subject is accessded(c) Ocramius a.k.a. Smart Reference  Example of Virtual Proxy in PHP:\n title = $title; } public function getFilm() { if ($this-path == null) { // doing time and/or memory consuming computation here print 'Searching for film...' . PHP_EOL; $this-path = '/tmp/' . $this-title; } return $this-path; } } class NetflixFilmProxy { protected $title; protected $netflixFilm; public function __construct(string $title) { $this-title = $title; } public function getFilm() { if (!$this-netflixFilm instanceof NetflixFilm) { $this-netflixFilm = new NetflixFilm($this-title); } return $this-netflixFilm-getFilm(); } } print 'And underlying object is not instantiated when we create Proxy.' . PHP_EOL; $proxy = new NetflixFilmProxy('Our Planet'); $reflectionObject = new ReflectionObject($proxy); $reflectionProperty = $reflectionObject-getProperty('netflixFilm'); $reflectionProperty-setAccessible(true); var_dump($reflectionProperty-getValue($proxy)); print 'And here it is.' . PHP_EOL; var_dump($proxy-getFilm()); // heavy instance creation on demand ","wordCount":"294","inLanguage":"en","datePublished":"2019-06-08T00:00:00Z","dateModified":"2019-06-08T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2019-06-08-proxy-pattern-in-php/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -89,7 +89,69 @@ Proxy Design Pattern
 <li>executes additional operations when the real subject is accessded(c) Ocramius a.k.a. <strong>Smart Reference</strong></li>
 </ul>
 <p>Example of Virtual Proxy in PHP:</p>
-<p>{% highlight php %}</p>
+<pre tabindex=0><code>
+&lt;?php
+declare(strict_types=1);
+
+// it is usually recommended to bound both classes by a contract
+// but are going to just extend underlying object and
+// comply this way with LSP
+
+class NetflixFilm {
+
+    protected $title;
+
+    protected $path;
+
+    public function __construct(string $title)
+    {
+        $this-&gt;title = $title;
+    }
+
+    public function getFilm()
+    {
+        if ($this-&gt;path == null) {
+            // doing time and/or memory consuming computation here
+            print 'Searching for film...' . PHP_EOL;
+            $this-&gt;path = '/tmp/' . $this-&gt;title;
+        }
+
+        return $this-&gt;path;
+    }
+}
+
+class NetflixFilmProxy {
+    protected $title;
+
+    protected $netflixFilm;
+
+    public function __construct(string $title)
+    {
+        $this-&gt;title = $title;
+    }
+
+    public function getFilm()
+    {
+        if (!$this-&gt;netflixFilm instanceof NetflixFilm) {
+            $this-&gt;netflixFilm = new NetflixFilm($this-&gt;title);
+        }
+
+        return $this-&gt;netflixFilm-&gt;getFilm();
+    }
+}
+
+print 'And underlying object is not instantiated when we create Proxy.' . PHP_EOL;
+$proxy = new NetflixFilmProxy('Our Planet');
+$reflectionObject = new ReflectionObject($proxy);
+$reflectionProperty = $reflectionObject-&gt;getProperty('netflixFilm');
+$reflectionProperty-&gt;setAccessible(true);
+
+var_dump($reflectionProperty-&gt;getValue($proxy));
+
+print 'And here it is.' . PHP_EOL;
+var_dump($proxy-&gt;getFilm()); // heavy instance creation on demand
+
+</code></pre>
 </div>
 <footer class=post-footer>
 </footer>

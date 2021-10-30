@@ -37,7 +37,7 @@ ORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.
 ORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.
  DBAL abstracts Quering language details of different databases and supports many databases at once.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://slash3b.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Active record vs. Data Mapper","item":"https://slash3b.github.io/posts/2019-07-10-active-record-vs-data-mapper/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Active record vs. Data Mapper","name":"Active record vs. Data Mapper","description":"In Object-oriented programming we often need to persist object to the database for later retrieval. For that to work smart people invented Object-Relation Mapper that does object to db conversion and vise versa. Such ORM object are usually called entities and are passed around in application and are subject to CRUD operations.\nORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.\n DBAL abstracts Quering language details of different databases and supports many databases at once.","keywords":[],"articleBody":"In Object-oriented programming we often need to persist object to the database for later retrieval. For that to work smart people invented Object-Relation Mapper that does object to db conversion and vise versa. Such ORM object are usually called entities and are passed around in application and are subject to CRUD operations.\nORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.\n DBAL abstracts Quering language details of different databases and supports many databases at once. Theoretically you can switch seamlessly from one database to another, though I never heard of practical execution of this feature. Active record and Data Mapper are Data Access Layer patterns or better to say paradigms.  ORM advantages:\n Most of the time you do not have to write SQL, ORM does that for you behind the scenes Entities are very flexible, you can pass them around, change and when needed persist More clean domain visibility - you have an entity filled with values and comments and annotations and lots of functionality provided by e.g. EntityManager. This lets you abstract away from SQL and operate on domain level  ORM disadvantages:\n ORM may be suboptimal in efficiency - internal conversion and compilation to SQL takes time, also ORM could do multiple inefficient queries instead of one e.g. N+1 problem It may be very difficult to write complex queries with ORM tooling, actually ORM can not compete with SQL on this field ORMs are also called “leaky abstractions” which means that even though you abstract away from low level details, SQL, you still need to understand what is going on a low level in order to use abstraction efficiently.  Active record According to Martin Fowler Active Directory is:\n An object that wraps a row in a database table or view, encapsulates the database access, and adds domain logic on that data. Object carries both data and behavior.\n My interpretaion in plain english:\n Active Record implies that an entity represents a table from database and each instance of an entity represents one row from the table, also that entity contains not only data but also all methods/operations to deal with that data. So it typically contains CRUD methods like save(), delete(), update(), find() and etc.\n Examples of AR:\n Ruby on Rails Laravel’s Eloquent Propel (Symfony) Yii Active Record Django’s ORM  Older version of Doctrine ORM did follow Active Record pattern and an entity was created and saved this way: {% highlight php %}\n","wordCount":"405","inLanguage":"en","datePublished":"2019-07-10T00:00:00Z","dateModified":"2019-07-10T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2019-07-10-active-record-vs-data-mapper/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Active record vs. Data Mapper","name":"Active record vs. Data Mapper","description":"In Object-oriented programming we often need to persist object to the database for later retrieval. For that to work smart people invented Object-Relation Mapper that does object to db conversion and vise versa. Such ORM object are usually called entities and are passed around in application and are subject to CRUD operations.\nORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.\n DBAL abstracts Quering language details of different databases and supports many databases at once.","keywords":[],"articleBody":"In Object-oriented programming we often need to persist object to the database for later retrieval. For that to work smart people invented Object-Relation Mapper that does object to db conversion and vise versa. Such ORM object are usually called entities and are passed around in application and are subject to CRUD operations.\nORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.\n DBAL abstracts Quering language details of different databases and supports many databases at once. Theoretically you can switch seamlessly from one database to another, though I never heard of practical execution of this feature. Active record and Data Mapper are Data Access Layer patterns or better to say paradigms.  ORM advantages:\n Most of the time you do not have to write SQL, ORM does that for you behind the scenes Entities are very flexible, you can pass them around, change and when needed persist More clean domain visibility - you have an entity filled with values and comments and annotations and lots of functionality provided by e.g. EntityManager. This lets you abstract away from SQL and operate on domain level  ORM disadvantages:\n ORM may be suboptimal in efficiency - internal conversion and compilation to SQL takes time, also ORM could do multiple inefficient queries instead of one e.g. N+1 problem It may be very difficult to write complex queries with ORM tooling, actually ORM can not compete with SQL on this field ORMs are also called “leaky abstractions” which means that even though you abstract away from low level details, SQL, you still need to understand what is going on a low level in order to use abstraction efficiently.  Active record According to Martin Fowler Active Directory is:\n An object that wraps a row in a database table or view, encapsulates the database access, and adds domain logic on that data. Object carries both data and behavior.\n My interpretaion in plain english:\n Active Record implies that an entity represents a table from database and each instance of an entity represents one row from the table, also that entity contains not only data but also all methods/operations to deal with that data. So it typically contains CRUD methods like save(), delete(), update(), find() and etc.\n Examples of AR:\n Ruby on Rails Laravel’s Eloquent Propel (Symfony) Yii Active Record Django’s ORM  Older version of Doctrine ORM did follow Active Record pattern and an entity was created and saved this way:\nname = \"john\"; $user-password = \"doe\"; $user-save(); echo \"The user with id $user-id has been saved.\"; In Ruby on Rails it could be like this:\nu = User.create(name: \"john\", password: \"doe\") Here is another exaple using Eloquent ORM:\nDefine entity like so:\nclass User extends Model {} and that is basically it. You can fire User::all() in order to get all users.\nThe entity does not have fields mapping becase they are alredy defined in the database.\nSo the major benefits of AR are:\n simplicity easy to start with  Disadvantages are:\n strong binding between database and application - entities contain domain behaviour apart from the data itself can become messy in big projects  Data Mapper From wikipedia:\n A Data Mapper is a Data Access Layer that performs bidirectional transfer of data between a persistent data store (often a relational database) and an in-memory data representation (the domain layer). The goal of the pattern is to keep the in-memory representation and the persistent data store independent of each other and the data mapper itself.\n That is a long definition and it definitely says something but I need a bit more succint and clear definition, otherwise my brain wont remember it. So I like this by Martin Fowler:\n The Data Mapper is a layer of software that separates the in-memory objects from the database. Its responsibility is to transfer data between the two and also to isolate them from each other.\n For instance here an example of Doctine2 Entity:\nid; } // ... getter and setter methods } Note how it lacks CRUD and domain methods, also mapping definition is done via annotaions.\nExamples of Data Mapper:\n Java Hibernate Doctrine2 SQLAlchemy in Python EntityFramework for Microsoft .NET Golang Prisma Ecto Elixir  PHP example with Doctrine2. See, how CRUD et all operations are done with EntityManager and not with Entity itself?\n $user = new User(); $user-setName(\"john\"); $user-setPassword(\"doe\"); $entityManager-persist($user); $entityManager-flush(); echo \"The user with id \" . $user-getId() . \"has been saved.\"; Benefits of Data Mapper:\n clear separation of domain logic and database a lot of flexibility. That is arguable of course, because with enough experience AR allows a lot of flexibility too, imo  Disadvantages:\n you have to learn how to work with it may not be easy to set up and start with  Brief conclusion: When Active Record tries to make the gap between application and database as thin and seamless as possible, Data Mapper strives to abstract your domain away as much as possible.\nResources used:\nActive record versus Data Mapper\nstackoverfow_1\nDoctrine wiki page in russian\nMartin Fowler Active Record\nMartin Fowler Data Mapper wiki page for DataMapper\nentity example with Symfony and Doctrine\nactive record antipattern ar-vs-data_mapper\n","wordCount":"897","inLanguage":"en","datePublished":"2019-07-10T00:00:00Z","dateModified":"2019-07-10T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2019-07-10-active-record-vs-data-mapper/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -102,8 +102,117 @@ typically contains CRUD methods like <code>save()</code>, <code>delete()</code>,
 <li>Yii Active Record</li>
 <li>Django’s ORM</li>
 </ul>
-<p>Older version of Doctrine ORM did follow Active Record pattern and an entity was created and saved this way:
-{% highlight php %}</p>
+<p>Older version of Doctrine ORM did follow Active Record pattern and an entity was created and saved this way:</p>
+<pre tabindex=0><code>&lt;?php
+$user = new User();
+$user-&gt;name = &quot;john&quot;;
+$user-&gt;password = &quot;doe&quot;;
+$user-&gt;save();
+echo &quot;The user with id $user-&gt;id has been saved.&quot;;
+
+</code></pre><p>In Ruby on Rails it could be like this:</p>
+<pre tabindex=0><code>u = User.create(name: &quot;john&quot;, password: &quot;doe&quot;)
+</code></pre><p>Here is another exaple using <a href=https://laravel.com/docs/5.0/eloquent>Eloquent ORM</a>:</p>
+<p>Define entity like so:</p>
+<pre tabindex=0><code>class User extends Model {}
+</code></pre><p>and that is basically it. You can fire <code>User::all()</code> in order to get all users.<br>
+The entity does not have fields mapping becase they <em>are</em> alredy defined in the database.</p>
+<p>So the major benefits of AR are:</p>
+<ul>
+<li>simplicity</li>
+<li>easy to start with</li>
+</ul>
+<p>Disadvantages are:</p>
+<ul>
+<li>strong binding between database and application - entities contain domain behaviour apart from the data itself</li>
+<li>can become messy in big projects</li>
+</ul>
+<h1 id=data-mapper>Data Mapper<a hidden class=anchor aria-hidden=true href=#data-mapper>#</a></h1>
+<p>From wikipedia:</p>
+<blockquote>
+<p>A Data Mapper is a Data Access Layer that performs bidirectional transfer of data between a persistent data store (often a relational database) and an in-memory data representation (the domain layer). The goal of the pattern is to keep the in-memory representation and the persistent data store independent of each other and the data mapper itself.</p>
+</blockquote>
+<p>That is a long definition and it definitely says something but I need a bit more succint and clear definition, otherwise my brain wont remember it. So I like this by Martin Fowler:</p>
+<blockquote>
+<p>The Data Mapper is a layer of software that separates the in-memory objects from the database. Its responsibility is to transfer data between the two and also to isolate them from each other.</p>
+</blockquote>
+<p>For instance here an example of Doctine2 Entity:</p>
+<pre tabindex=0><code>&lt;?php
+// src/Entity/Product.php
+namespace App\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity(repositoryClass=&quot;App\Repository\ProductRepository&quot;)
+ */
+class Product
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type=&quot;integer&quot;)
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(type=&quot;string&quot;, length=255)
+     */
+    private $name;
+
+    /**
+     * @ORM\Column(type=&quot;integer&quot;)
+     */
+    private $price;
+
+    public function getId()
+    {
+        return $this-&gt;id;
+    }
+
+    // ... getter and setter methods
+}
+</code></pre><p>Note how it lacks CRUD and domain methods, also mapping definition is done via annotaions.</p>
+<p>Examples of Data Mapper:</p>
+<ul>
+<li>Java Hibernate</li>
+<li>Doctrine2</li>
+<li>SQLAlchemy in Python</li>
+<li>EntityFramework for Microsoft .NET</li>
+<li>Golang Prisma</li>
+<li>Ecto Elixir</li>
+</ul>
+<p>PHP example with Doctrine2. See, how CRUD et all operations are done with EntityManager and not with Entity itself?</p>
+<pre tabindex=0><code>
+$user = new User();
+$user-&gt;setName(&quot;john&quot;);
+$user-&gt;setPassword(&quot;doe&quot;);
+$entityManager-&gt;persist($user);
+$entityManager-&gt;flush();
+echo &quot;The user with id &quot; . $user-&gt;getId() . &quot;has been saved.&quot;;
+
+</code></pre><p>Benefits of Data Mapper:</p>
+<ul>
+<li>clear separation of domain logic and database</li>
+<li>a lot of flexibility. That is arguable of course, because with enough experience AR allows a lot of flexibility too, imo</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>you have to learn how to work with it</li>
+<li>may not be easy to set up and start with</li>
+</ul>
+<h1 id=brief-conclusion>Brief conclusion:<a hidden class=anchor aria-hidden=true href=#brief-conclusion>#</a></h1>
+<p>When Active Record tries to make the gap between application and database as thin and seamless as possible, Data Mapper strives to abstract your domain away as much as possible.</p>
+<p>Resources used:<br>
+<a href=https://www.thoughtfulcode.com/orm-active-record-vs-data-mapper/>Active record versus Data Mapper</a><br>
+<a href=https://stackoverflow.com/questions/4667906/the-advantages-and-disadvantages-of-using-orm>stackoverfow_1</a><br>
+<a href=https://ru.wikipedia.org/wiki/Doctrine>Doctrine wiki page in russian</a><br>
+<a href=https://martinfowler.com/eaaCatalog/activeRecord.html>Martin Fowler Active Record</a><br>
+<a href=https://martinfowler.com/eaaCatalog/dataMapper.html>Martin Fowler Data Mapper</a> <br>
+<a href=https://en.wikipedia.org/wiki/Data_mapper_pattern>wiki page for DataMapper</a><br>
+<a href=https://symfony.com/doc/current/doctrine.html#creating-an-entity-class>entity example with Symfony and Doctrine</a><br>
+<a href=https://www.mehdi-khalili.com/orm-anti-patterns-part-1-active-record>active record antipattern</a>
+<a href=https://medium.com/oceanize-geeks/the-active-record-and-data-mappers-of-orm-pattern-eefb8262b7bb>ar-vs-data_mapper</a></p>
 </div>
 <footer class=post-footer>
 </footer>

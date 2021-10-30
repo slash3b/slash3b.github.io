@@ -101,25 +101,12 @@ There are a few reasons to use Proxy pattern and control access to the underlyin
 </article>
 <article class=post-entry>
 <header class=entry-header>
-<h2>Mixed feelings about being programmer in Moldova
-</h2>
-</header>
-<section class=entry-content>
-<p>This is just a personal rant on the current situation.
-Moldova is a third world country, Moldova is a very poor country. In the capital - Chishinau, on average you earn ~500 euros per month. That’s bearable but basically not enough. Not enough to feel yourself steady on your legs so to speak.
-On the other side if you are an IT “specialist”, lets use this vague term, then you can earn from ~1k euros per month....</p>
-</section>
-<footer class=entry-footer>May 30, 2019</footer>
-<a class=entry-link aria-label="post link to Mixed feelings about being programmer in Moldova" href=https://slash3b.github.io/posts/2019-05-30-ashamed/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
 <h2>How to send request to UNIX socket
 </h2>
 </header>
 <section class=entry-content>
 <p>This is one of those notes to myself, so I can remmber it better or find it later more easy.
-I was recently strugging with permission problem for the unix socket, the mistake was quite silly - I did not turn permission bit on for the folder with socket file. And before I found the solution I tried to debug socket and I found that you can curl socket with {% highlight bash %} curl –unix-socket /full/path/to/the/socket/socket....</p>
+I was recently strugging with permission problem for the unix socket, the mistake was quite silly - I did not turn permission bit on for the folder with socket file. And before I found the solution I tried to debug socket and I found that you can curl socket with...</p>
 </section>
 <footer class=entry-footer>May 12, 2019</footer>
 <a class=entry-link aria-label="post link to How to send request to UNIX socket" href=https://slash3b.github.io/posts/2019-05-12-debud-unix-socket/></a>
@@ -176,11 +163,22 @@ So basically since this version it is not hypertext but hypermedia protocol....<
 Allows to move part of the logic/algorithm from one class to another, so you can extend/add new behavior to the initial class without changing its code.
 One of the ways to follow “open/closed” principle.
 Here is an example:
-{% highlight php %}
-interface Visitor { // quite reasonable to a visitor to be able to “visit” other classes public function visit(Person $person); }...</p>
+interface Visitor { // quite reasonable to a visitor to be able to "visit" other classes public function visit(Person $person); } interface Person { public function accept(Visitor $visitor); } // so these two interfaces know about each other class RealVisitor implements Visitor { public function visit(Person $person) { // this sequence of "operations" is quite naive // but you can implement here whatever you want // instance of Person interface can be changed however you want // no need to update/change class itself $person->name = 'Mr....</p>
 </section>
 <footer class=entry-footer>February 17, 2019</footer>
 <a class=entry-link aria-label="post link to Visitor Design Pattern" href=https://slash3b.github.io/posts/2019-02-17-visitor-design-pattern/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>tcpdump tiny cheat sheet
+</h2>
+</header>
+<section class=entry-content>
+<p>tcpdump is such an amazing tool, even knowing just basic parameters you can do a lot.
+show list of available interfaces sudo tcpdump -D show packets with X argument. Use A in case you want to see only textual info and skip binary in hex sudo tcpdump -X track only specific port sudo tcpdump 'port 8888' do not resolve host names, lets you see IP addresses sudo tcpdump -nn With all those arguments combined you can track connection to the program opened on local machine on port 8888 and see the following:...</p>
+</section>
+<footer class=entry-footer>November 10, 2018</footer>
+<a class=entry-link aria-label="post link to tcpdump tiny cheat sheet" href=https://slash3b.github.io/posts/2018-11-10-tcpdump-how-to/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>

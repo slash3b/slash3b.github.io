@@ -40,7 +40,7 @@ Variance is a property of class hierarchies describing how the types of a type c
 In general, a type constructor can be:
  Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well.">
 <script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://slash3b.github.io/posts/"},{"@type":"ListItem","position":3,"name":"Variance in PHP","item":"https://slash3b.github.io/posts/2020-02-29-variance-php/"}]}</script>
-<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Variance in PHP","name":"Variance in PHP","description":"Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\n Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well.","keywords":[],"articleBody":"Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\n Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well. Covariant: if the ordering of types is preserved (types are ordered from more specific to more generic). You can imagine hierarchy tree and follow it from leaves to the root (top most superclass). Contravariant: if it reverses the order (types are ordered from more generic to more specific). Traversing type hierarchy from the root to the leaves.  Here is an example of invariant return type in class hierarchy, note same return types:\n{% highlight php %}\nclass A { function test() : self { return $this; } }\nclass B extends A { function test() : A { return $this; } }\nvar_dump((new B)-test());\n{% endhighlight %}\nIn case you want to return self in B::test() PHP7.3 will return:\n{% highlight bash %}\nFatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18\nProcess exited with code 255.\n{% endhighlight %}\nSince PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:\n return type might be more specific — contravariance parameter types might be less specific — covariance  I can not yet explain why both parameter and return types are not having both type of variance 🤔 You will be able to find much more info in original RFC linked below.\nAn example of covariance:\n{% highlight php %}\nclass A { function test(stdClass $param) { return $param; } }\nclass B extends A { function test(object $param) { return $param; } }\nvar_dump((new B)-test(new ArrayObject));\n{% endhighlight %} In this example above we are being less specific expecting a more general type object instead of stdClass\nAnd contravariance looks like this:\n{% highlight php %}\nclass A { function test(): A { return $this; } }\nclass B extends A { function test(): B { return $this; } }\nvar_dump((new B)-test());\n{% endhighlight %}\nNote that B return type is more specific and that hierarchy works just fine. But you can not use e.g. object retur type as it will be a covariant return type and you get an error:\n{% highlight bash %}\nFatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14\n{% endhighlight %}\nResources:\nWhat’s New in PHP 7.4 (Features, Deprecations, Speed)\nPHP RFC: Covariant Returns and Contravariant Parameters\nWiki: Covariance and contravariance (computer science) Type constructor\n","wordCount":"480","inLanguage":"en","datePublished":"2020-02-29T00:00:00Z","dateModified":"2020-02-29T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2020-02-29-variance-php/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
+<script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Variance in PHP","name":"Variance in PHP","description":"Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\n Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well.","keywords":[],"articleBody":"Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\n Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well. Covariant: if the ordering of types is preserved (types are ordered from more specific to more generic). You can imagine hierarchy tree and follow it from leaves to the root (top most superclass). Contravariant: if it reverses the order (types are ordered from more generic to more specific). Traversing type hierarchy from the root to the leaves.  Here is an example of invariant return type in class hierarchy, note same return types:\n class A { function test() : self { return $this; } } class B extends A { function test() : A { return $this; } } var_dump((new B)-test()); In case you want to return self in B::test() PHP7.3 will return:\n Fatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18 Process exited with code 255. Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:\n return type might be more specific — contravariance parameter types might be less specific — covariance  I can not yet explain why both parameter and return types are not having both type of variance 🤔 You will be able to find much more info in original RFC linked below.\nAn example of covariance:\n class A { function test(stdClass $param) { return $param; } } class B extends A { function test(object $param) { return $param; } } var_dump((new B)-test(new ArrayObject)); In this example above we are being less specific expecting a more general type object instead of stdClass\nAnd contravariance looks like this:\n class A { function test(): A { return $this; } } class B extends A { function test(): B { return $this; } } var_dump((new B)-test()); Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. object retur type as it will be a covariant return type and you get an error:\n Fatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14 Resources:\nWhat’s New in PHP 7.4 (Features, Deprecations, Speed)\nPHP RFC: Covariant Returns and Contravariant Parameters\nWiki: Covariance and contravariance (computer science) Type constructor\n","wordCount":"445","inLanguage":"en","datePublished":"2020-02-29T00:00:00Z","dateModified":"2020-02-29T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://slash3b.github.io/posts/2020-02-29-variance-php/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"https://slash3b.github.io/favicon.ico"}}}</script>
 </head>
 <body id=top>
 <script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add('dark'):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove('dark'):window.matchMedia('(prefers-color-scheme: dark)').matches&&document.body.classList.add('dark')</script>
@@ -75,29 +75,32 @@ Variance in PHP
 <li><strong>Contravariant</strong>: if it reverses the order (types are ordered from more generic to more specific). Traversing type hierarchy from the root to the leaves.</li>
 </ul>
 <p>Here is an example of invariant return type in class hierarchy, note <strong>same</strong> return types:</p>
-<p>{% highlight php %}</p>
-<p>class A
+<pre tabindex=0><code>
+class A
 {
-function test() : self
-{
-return $this;
+    function test() : self
+    {
+        return $this;
+    }
 }
-}</p>
-<p>class B extends A
+
+class B extends A
 {
-function test() : A
-{
-return $this;
+    function test() : A
+    {
+        return $this;
+    }
 }
-}</p>
-<p>var_dump((new B)->test());</p>
-<p>{% endhighlight %}</p>
-<p>In case you want to return <code>self</code> in <code>B::test()</code> PHP7.3 will return:<br>
-{% highlight bash %}</p>
-<p>Fatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18</p>
-<p>Process exited with code 255.</p>
-<p>{% endhighlight %}</p>
-<p>Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:</p>
+
+var_dump((new B)-&gt;test());
+
+</code></pre><p>In case you want to return <code>self</code> in <code>B::test()</code> PHP7.3 will return:</p>
+<pre tabindex=0><code>
+Fatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18
+
+Process exited with code 255.
+
+</code></pre><p>Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:</p>
 <ul>
 <li>return type might be more specific — contravariance</li>
 <li>parameter types might be less specific — covariance</li>
@@ -105,47 +108,52 @@ return $this;
 <p>I can not yet explain why both parameter and return types are not having both type of variance 🤔
 You will be able to find much more info in original RFC linked below.</p>
 <p>An example of covariance:</p>
-<p>{% highlight php %}</p>
-<p>class A
+<pre tabindex=0><code>
+class A
 {
-function test(stdClass $param)
-{
-return $param;
+    function test(stdClass $param)
+    {
+        return $param;
+    }
 }
-}</p>
-<p>class B extends A
+
+class B extends A
 {
-function test(object $param)
-{
-return $param;
+    function test(object $param)
+    {
+        return $param;
+    }
 }
-}</p>
-<p>var_dump((new B)->test(new ArrayObject));</p>
-<p>{% endhighlight %}
-In this example above we are being less specific expecting a more general type <code>object</code> instead of <code>stdClass</code></p>
+
+var_dump((new B)-&gt;test(new ArrayObject));
+
+</code></pre><p>In this example above we are being less specific expecting a more general type <code>object</code> instead of <code>stdClass</code></p>
 <p>And contravariance looks like this:</p>
-<p>{% highlight php %}</p>
-<p>class A
+<pre tabindex=0><code>
+class A
 {
-function test(): A
-{
-return $this;
+    function test(): A
+    {
+        return $this;
+    }
 }
-}</p>
-<p>class B extends A
+
+class B extends A
 {
-function test(): B
-{
-return $this;
+    function test(): B
+    {
+        return $this;
+    }
 }
-}</p>
-<p>var_dump((new B)->test());</p>
-<p>{% endhighlight %}</p>
-<p>Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. <code>object</code> retur type as it will be a covariant return type and you get an error:</p>
-<p>{% highlight bash %}</p>
-<p>Fatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14</p>
-<p>{% endhighlight %}</p>
-<p>Resources:<br>
+
+var_dump((new B)-&gt;test());
+
+</code></pre><p>Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. <code>object</code> retur type as it will be a covariant return type and you get an error:</p>
+<pre tabindex=0><code>
+Fatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14
+
+
+</code></pre><p>Resources:<br>
 <a href=https://kinsta.com/blog/php-7-4>What’s New in PHP 7.4 (Features, Deprecations, Speed)</a><br>
 <a href=https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters>PHP RFC: Covariant Returns and Contravariant Parameters</a><br>
 <a href=https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)>Wiki: Covariance and contravariance (computer science)</a> <a href=https://en.wikipedia.org/wiki/Type_constructor>Type constructor</a></p>
