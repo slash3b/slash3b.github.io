@@ -129,9 +129,156 @@ Building blocks of a system:
 
 Failure is inevitable in a distributed system. For failure detection — use gossip protocol. 
 
+
+Additional notes for the chapter. 
+
+Lamport timestamps.
+
+Key idea is: **each node and each client keeps track of maximum value it has seen so far and includes that value on every request**. 
+
+- each node tracks a number of operation it processed
+- each node has a unique identifier
+- each node and every client includes its own version of max value they have seen so far
+- value with greater counter value is bigger
+- if counter values are equal then node with greated node id is bigger timestamp 
+
+```
+           Lamport timestamp: (counter, node id)
+
+Max value    0             1                      4        5
+Client 1   ───────▲────────────────────────▲───────────▲──────►
+                  │                        │           │
+                 A│                       E│          G│
+                  │                        │           │
+ Node 1    ───────▼────────────────────────┼───────────▼──────►
+ Timestamp  (0,1)         (1,1)            │             (5,1)
+                                           │
+                                           │
+ Timestamp  (0,2)  (1,2)   (2,2)   (3,2)   │ (4,2)   (5,2)
+ Node 2    ───────▲──────▲──────▲──────────▼──────▲───────────►
+                  │      │      │                 │
+                 B│     C│     D│                F│
+                  │      │      │                 │
+Client 2   ───────▼──────▼──────▼─────────────────▼───────────►
+Max value     0       1      2      3                  5
+```
+
+todo: like... find an example, come up with example yourself 
+
 ---
 _chapter 7_
 
+Design unique ID generator
+
+Requirement:
+- sortable by time
+- 64 bits length
+- unique
+- numeric only
+
+UUID is a great solution, but it is 128 bits length. For us Twitter Showflake ID generator fits perfectly.
+
+It is simple and efficient and looks like this:
+
+```
+   ┌─┬─────────────────────────┬───────────────┬────────────┬───────────────────┐
+   │0│       timestamp         │ datacenter ID │ machine ID │  sequence number  │
+   └─┴─────────────────────────┴───────────────┴────────────┴───────────────────┘
+     ▲                         ▲               ▲            ▲                   ▲
+1 bit│        41 bits          │    5 bits     │  5 bits    │    12 bits        │
+─────┴─────────────────────────┴───────────────┴────────────┴───────────────────┘
+```
+First bit is not used and reserved for future uses. 
+Interestingly, sequence number is reset to 0 every millisecond. 
+
+
+---
+_chapter 8_
+
+URL shortener  
+
+Types of redirect — 301 and 302 http statuses.
+301 means permanent redirect, which means browser will cache it and next time will hit long url directly. 
+302 meand temporary redirect so that the browser hits short url every time.
+
+301 reduces server load
+302 allows to have better tracking and analytics 
+
+Two types of hash functions along with collision detection are mentioned.
+First one is to use well known hash function MD5, SHA-1 and etc. to calculate hash. If there is a collision
+we might approach it the following way:
+- generate hash for the long url
+- check if database has this hash key
+- if yes then append some predefined string to long url and generate it again
+- do prev step recursively until collision is resolved
+
+Method above works, but it might be expensive to always fetch from database in
+order to know if record is already exists — collision exists. In this situation
+a bloom filter is an elegant solution for this problem.  
+
+Second method is base 62 conversion.
+base 62 is a way to use 62 characters for encoding, that is 0-0, 1-1, 10-a, 11-b, 35-z, 36-A, 61-Z. 
+Leaving us with "alphabet" that looks like this "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+---
+_chapter 9_
+
+Web crawler  
+
+nothing notable (?), I probably need to review it one more time.
+
+
+---
+_chapter 10_
+
+Notification system
+
+nothing notable (?), I probably need to review it one more time.
+
+
+---
+_chapter 11_ 
+
+News feed system
+
+Feed system includes fanout service. That is when a fried, e.g. posts something to the feed, all frieds should
+receive/see that post in their feeds. For this fanout service is used. This kind of service delivers data to all
+interested parties. There are two types of fanout services: fanout on write and fanout on read.
+
+Fanout on write, writes/updates feed of all the friends/people interested in. Pros: updates feeds immediately, that is
+feeds are being pre-computed and feed delivery is fast. Cons: pre-computation takes time and might be inefficient since
+some of the people are reading their feeds rarely. Pre-computation might take a lot of time when user have many friends
+— this is called hotkey problem. 
+
+Fanout on read means feed is updated when user requests it. Pros: no extra pre-computation required. Cons: feed request might be executing slowly.
+
+
+--- 
+_chapter 12_  
+
+Chat system 
+
+Ways to simulate full-duplex connection: polling, long polling.  
+Polling is simple and a well-known techinque — you just ask server periodically about new messages. Client opens
+connection, asking for any info for it, and closes it. And then again opens it. 
+Long polling is a bit more complex — client keeps connection open until server does have some info/messages. Client
+gets the messages, closes connection and immediately opens up a new connection.  
+
+Web socket is the most common solution to establish full-duplex connection. WS uses HTTP connection to establish
+connection between client and server. When connection is established, WS does protocol switch from HTTP to web socket
+protocol. 
+
+Storage.
+For user profile, settings, friend list and etc. a robust relational database is a good solution. For chat messages,
+when users access only recent chat story, a key-value storage is a optimal solution. Facebook messenger uses HBase
+storage and Discord uses Cassandra.
+
+
+---
+_chapter 13_
+
+Autocomplete system
 
 
 
@@ -139,4 +286,18 @@ _chapter 7_
 
 
 
+
+--- 
+_chapter 15_  
+
+Google drive 
+
+One of the notable features of any mature file sync system is that it must have a block server. Block server is able to
+split a file by blocks, e.g. Dropbox max block size is 6Mb. Every block is identified by hash value. A file can be
+re-assembled from these blocks. In order to understand which blocks to what file belong and in what order, block server
+should somehow save metadata information about original file and blocks. Typically metadata is being saved in some
+database. 
+
+Files that are accessed rarely might/should be moved to the "cold" storage. It is a typically much slower but cheaper
+type of storage.
 
