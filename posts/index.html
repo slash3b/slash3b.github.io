@@ -16,7 +16,7 @@
 <link rel=mask-icon href=https://slash3b.github.io/safari-pinned-tab.svg>
 <meta name=theme-color content="#2e2e33">
 <meta name=msapplication-TileColor content="#2e2e33">
-<meta name=generator content="Hugo 0.89.4">
+<meta name=generator content="Hugo 0.91.2">
 <link rel=alternate type=application/rss+xml href=https://slash3b.github.io/posts/index.xml>
 <noscript>
 <style>#theme-toggle,.top-link{display:none}</style>
@@ -49,6 +49,20 @@
 <header class=page-header>
 <h1>Posts</h1>
 </header>
+<article class=post-entry>
+<header class=entry-header>
+<h2>Simple case of profiler usage in golang
+</h2>
+</header>
+<section class=entry-content>
+<p>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
+But it was not the fastest one.
+But then I though — how do I profile buildTree function and see what actually takes time in my program?
+Golang has an excellent set of tool available, just check an output of go tool. One of the item in a list you’ll see is pprof which is a Golang profiler....</p>
+</section>
+<footer class=entry-footer>December 28, 2021</footer>
+<a class=entry-link aria-label="post link to Simple case of profiler usage in golang" href=https://slash3b.github.io/posts/simple-case-of-golang-profiler-usage/></a>
+</article>
 <article class=post-entry>
 <header class=entry-header>
 <h2>All sizes of go patterns
@@ -166,20 +180,6 @@ Invariant: if the type of the super-type constrain the type of the subtype. In p
 </section>
 <footer class=entry-footer>February 29, 2020</footer>
 <a class=entry-link aria-label="post link to Variance in PHP" href=https://slash3b.github.io/posts/2020-02-29-variance-php/></a>
-</article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>ACID concept
-</h2>
-</header>
-<section class=entry-content>
-<p>I really like how Martin Kleppmann described ACID in his book, hence a little excerpt to remember.
-ACID stands for Atomicity, Consistency, Isolation, and Durability
-It was first coined by Andreas Reuter and Theo Härder in 1983 in attempt to describe all that is necessary for the database to be fault-tolerant as much as possible.
-Atomicity Database should support transaction, namely you should be able to group you request statemets and execute them at once....</p>
-</section>
-<footer class=entry-footer>February 8, 2020</footer>
-<a class=entry-link aria-label="post link to ACID concept" href=https://slash3b.github.io/posts/2020-02-08-acid-in-databases-concept/></a>
 </article>
 <footer class=page-footer>
 <nav class=pagination>
