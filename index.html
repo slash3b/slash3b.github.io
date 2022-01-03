@@ -54,10 +54,25 @@
 <p>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
 But it was not the fastest one.
 But then I though — how do I profile buildTree function and see what actually takes time in my program?
-Golang has an excellent set of tool available, just check an output of go tool. One of the item in a list you’ll see is pprof which is a Golang profiler....</p>
+Golang has an excellent set of tool available, just check an output of go tool. One of the items in a list you’ll see is pprof which is a Golang profiler....</p>
 </section>
 <footer class=entry-footer>December 28, 2021</footer>
 <a class=entry-link aria-label="post link to Simple case of profiler usage in golang" href=https://slash3b.github.io/posts/simple-case-of-golang-profiler-usage/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
+<h2>Notes on System Design
+</h2>
+</header>
+<section class=entry-content>
+<p>These are hectic notes on a book “System design interview” by Alex Xu.
+chapter 1
+read-through cache strategy — check if we have a response cached, if we do return it, if not then fetch data from a database, cache it and return result
+GeoDNS is a patch for BIND DNS server software that allows for geographical split horizon
+A few words about caching strategy....</p>
+</section>
+<footer class=entry-footer>October 30, 2021</footer>
+<a class=entry-link aria-label="post link to Notes on System Design" href=https://slash3b.github.io/posts/notes-on-system-design/></a>
 </article>
 <article class=post-entry>
 <header class=entry-header>
@@ -163,20 +178,6 @@ class Node: def __init__(self, value=None): self.next = None self.value = value 
 <footer class=entry-footer>March 11, 2020</footer>
 <a class=entry-link aria-label="post link to Detect cycle in singly linked list (python)" href=https://slash3b.github.io/posts/2020-03-14-detect-cycle-in-linked-list/></a>
 </article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Variance in PHP
-</h2>
-</header>
-<section class=entry-content>
-<p>Disclaimer: I might be wrong about variance. Buyer beware!
-Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.
-In general, a type constructor can be:
-Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well....</p>
-</section>
-<footer class=entry-footer>February 29, 2020</footer>
-<a class=entry-link aria-label="post link to Variance in PHP" href=https://slash3b.github.io/posts/2020-02-29-variance-php/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=next href=https://slash3b.github.io/page/2/>Next Page »</a>
@@ -184,7 +185,7 @@ Invariant: if the type of the super-type constrain the type of the subtype. In p
 </footer>
 </main>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://slash3b.github.io>Random notes to myself</a></span>
+<span>&copy; 2022 <a href=https://slash3b.github.io>Random notes to myself</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &

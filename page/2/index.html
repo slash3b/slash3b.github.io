@@ -47,6 +47,20 @@
 <main class=main>
 <article class=post-entry>
 <header class=entry-header>
+<h2>Variance in PHP
+</h2>
+</header>
+<section class=entry-content>
+<p>Disclaimer: I might be wrong about variance. Buyer beware!
+Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.
+In general, a type constructor can be:
+Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well....</p>
+</section>
+<footer class=entry-footer>February 29, 2020</footer>
+<a class=entry-link aria-label="post link to Variance in PHP" href=https://slash3b.github.io/posts/2020-02-29-variance-php/></a>
+</article>
+<article class=post-entry>
+<header class=entry-header>
 <h2>ACID concept
 </h2>
 </header>
@@ -167,21 +181,6 @@ So basically since this version it is not hypertext but hypermedia protocol....<
 <footer class=entry-footer>March 15, 2019</footer>
 <a class=entry-link aria-label="post link to HTTP versions difference" href=https://slash3b.github.io/posts/2019-03-15-http-versions-difference/></a>
 </article>
-<article class=post-entry>
-<header class=entry-header>
-<h2>Visitor Design Pattern
-</h2>
-</header>
-<section class=entry-content>
-<p>Visitor design pattern is one of many patterns that fall under category “Behavioral patterns”
-Allows to move part of the logic/algorithm from one class to another, so you can extend/add new behavior to the initial class without changing its code.
-One of the ways to follow “open/closed” principle.
-Here is an example:
-interface Visitor { // quite reasonable to a visitor to be able to "visit" other classes public function visit(Person $person); } interface Person { public function accept(Visitor $visitor); } // so these two interfaces know about each other class RealVisitor implements Visitor { public function visit(Person $person) { // this sequence of "operations" is quite naive // but you can implement here whatever you want // instance of Person interface can be changed however you want // no need to update/change class itself $person->name = 'Mr....</p>
-</section>
-<footer class=entry-footer>February 17, 2019</footer>
-<a class=entry-link aria-label="post link to Visitor Design Pattern" href=https://slash3b.github.io/posts/2019-02-17-visitor-design-pattern/></a>
-</article>
 <footer class=page-footer>
 <nav class=pagination>
 <a class=prev href=https://slash3b.github.io/>« Prev Page</a>
@@ -190,7 +189,7 @@ interface Visitor { // quite reasonable to a visitor to be able to "visit" other
 </footer>
 </main>
 <footer class=footer>
-<span>&copy; 2021 <a href=https://slash3b.github.io>Random notes to myself</a></span>
+<span>&copy; 2022 <a href=https://slash3b.github.io>Random notes to myself</a></span>
 <span>
 Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
