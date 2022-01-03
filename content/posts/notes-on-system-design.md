@@ -2,8 +2,10 @@
 title: "Notes on System Design"
 date: 2021-10-30T17:29:38+03:00
 tags: ["system design", "cache", "high load"]
-draft: true
+draft: false
 ---
+
+These are hectic notes on a book "System design interview" by Alex Xu.
 
 
 _chapter 1_
@@ -280,11 +282,41 @@ _chapter 13_
 
 Autocomplete system
 
+Can be made of Data gathering service and Data query service. Data gathering happens as user types search queries.
+Search queries are being saved into simple query frequency table which is a key-value table where key is a search term 
+and values is the number of times user did query. Data query service basically returns all matching keys from frequency
+table. e.g. "tw" would match and return terms like "twitter", "twitch", "two" (terms are sorted by desc search frequency)
+
+It works for a smaller system, but it does not scale very much. 
+Trie data structure is needed for a mature, more fit solution to autocomplete system.  
+
+Each node in a trie, we are going to use, should also have a frequency number (weight) which is used to get top _k_
+queries by given prefix. We can also cache top _k_ search queries for every node.
 
 
+---
+_chapter 14_
+
+Design Youtube
 
 
+Video streaming flow.
+Streaming protocol — is a standardized way to control data transfer for video streaming. There are a few streaming
+protocols to chose from: MPEG-DASH, Apple HLS, microsoft smooth streaming, Adobe HDS.
 
+There are many types of encoding formats, but most of them consist of two parts — container and codec.
+You can tell container by file extension, e.g. .avi, .mpeg, .mkv and etc. A container is like a box that contains video,
+audio and metadata altogether. Codec is a compression and decompression algorithm that should reduce size of a files in
+container not loosing any quality.  
+
+Safety optimization — pre-signed URL. Client, first, does request to e.g. `/upload` endpoint that does auth checks and
+returns pre-signed URL, which client uses to upload a file. Amazon S3 call is pre-signed URL, while Microsoft Asure
+calls it Shared Access Signature. 
+
+Cost saving optimization. 
+- Not everything should be stored in CDN. CDN on a large scale is expensive. We can store in CDN only the most popular videos.
+- Less popular videos we can store in our own storage and for these videos we can make less kinds of video formats.
+- Sometimes video is popular in a specific region only, so it makes less sense to store it globally.
 
 
 --- 

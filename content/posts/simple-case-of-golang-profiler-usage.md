@@ -14,7 +14,7 @@ But then I though — how do I profile `buildTree` function and see what actuall
 in my program?
 
 Golang has an excellent set of tool available, just check an output of `go tool`.
-One of the item in a list you'll see is `pprof` which is a Golang profiler. 
+One of the items in a list you'll see is `pprof` which is a Golang profiler. 
 
 `pprof` requires [graphviz](https://www.graphviz.org/download/) to be installed.
 
