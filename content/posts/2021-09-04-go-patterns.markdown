@@ -166,11 +166,48 @@ func main() {
 ### Worker pool
 #### a pool of workers eager to process your data 
 
+A pool of worker goroutines ready to process incoming channel. 
+Example below uses unbuffered channel but it can use buffered as well if you need it.
+
 ```
+package main
 
+import (
+    "fmt"
+)
 
+func main() {
+    in := make(chan int)
+    out := make(chan int)
 
+    for i := 0; i < 5; i++ {
+        go worker(i, in, out)
+    }
 
+    go func() {
+        defer close(in)
+        for i := 0; i < 5; i++ {
+            in <- i
+        }
+    }()
+
+    for i := 0; i < 5; i++ {
+        fmt.Printf("--> reseived result %d from `out` channel \n", <-out)
+    }
+
+    fmt.Println("END")
+
+}
+
+func worker(id int, in <-chan int, out chan<- int) {
+    for v := range in {
+        result := v * 2
+        out <- v
+        fmt.Printf(" <-- worker #%d have sent value: %d \n", id, result)
+    }
+
+    fmt.Println("exiting worker #", id)
+}
 ```
 
 
