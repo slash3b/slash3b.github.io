@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2021-09-04
-title: "All sizes of go patterns"
+title: "Golang channel tricks and patterns"
 ---
 
 Concurrency is the composition of independently executing computations.  
@@ -10,9 +10,15 @@ Goroutines are not threads, but it is not wrong to think about goroutines as thr
 In fact in runtime goroutines are multiplexed onto threads that are created as needed in order to make sure
 no goroutine ever blocks. 
 
-### Patterns. 
+- [Generator](#generator)
+- [Multiplexer](#multiplexer)
+- [nil channel trick](#nil-channel-trick)
+- [Worker pool](#worker-pool)
 
-Generator. 
+### <a name="generator"> Generator. Function that returns never closed channel. </a>  
+
+Basically `generate` func returns unbuffered channel that is never closed and hence returns ever increasing counter. 
+
 ```
 package main
 
@@ -47,78 +53,134 @@ func generate() <-chan string {
 
 ```
 
-Fan-in function or Multiplexer.
+### Multiplexer 
+#### Otherwise knows as fan-in function
+
+Simple pattern in which two channels communicate with "fan in" channel concurrently. 
 
 ```
 package main
 
 import (
-	"fmt"
+    "fmt"
+    "math/rand"
+    "time"
 )
 
-func sayHey() <-chan string {
-	heyCh := make(chan string)
+func sayHey(prefix string) <-chan string {
+    heyCh := make(chan string)
 
-	go func() {
-		for {
-			// imagine it takes some random time to output "hey"
-			heyCh <- "hey"
-		}
-	}()
+    go func() {
+        for {
+            // so it takes some time to output "hey"
+            time.Sleep(time.Second * time.Duration(rand.Intn(4)))
+            heyCh <- fmt.Sprintf("hey %s", prefix)
+        }
+    }()
 
-	return heyCh
+    return heyCh
 }
 
 func fanIn(a, b <-chan string) <-chan string {
-	fanInChannel := make(chan string)
+    fanInChannel := make(chan string)
 
-	go func() {
+    go func() {
 
-		for {
-			select {
-			case ans := <-a:
-				fanInChannel <- ans
-			case ans := <-b:
-				fanInChannel <- ans
-			}
-		}
-	}()
+        for {
+            select {
+            case fanInChannel <- <-a:
+            case fanInChannel <- <-b:
+            }
+        }
+    }()
 
-	return fanInChannel
+    return fanInChannel
 }
 
 func main() {
+    rand.Seed(time.Now().UnixNano())
 
-	a := sayHey()
-	b := sayHey()
+    a := sayHey("A")
+    b := sayHey("B")
 
-	fan := fanIn(a, b)
+    fan := fanIn(a, b)
 
-	for i := 0; i < 6; i++ {
-		fmt.Println(i, <-fan)
-	}
+    for i := 0; i < 6; i++ {
+        fmt.Println(i, <-fan)
+    }
 
-	fmt.Println("done!")
+    fmt.Println("done!")
 }
+
 ```
 
-NOTE.
+#### NOTE.
 
-In these examples individual components we use are a sequential code and we are composing
-their independent execution. 
+> In these examples individual components we use are a sequential code and we are composing
+> their independent execution. 
+> 
+> Channels are a first-class values in go. It means we can pass a channel to a channel, or e.g. a function to a function. 
+> 
 
 
-Worker pool
+### nil channel trick 
+#### way to disable a `case` in `select` 
+
 ```
-todo
+
+package main
+
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+func main() {
+
+    rand.Seed(time.Now().UnixNano())
+    a, b := make(chan string), make(chan string)
+    go func() { a <- "A" }()
+    go func() { b <- "B" }()
+
+    // here, we randomly "nullifying" one of the channels,
+    // effectively disabling `case` in `select`
+    if 0 == rand.Intn(2) {
+        a = nil
+    } else {
+        b = nil
+    }
+
+    select {
+    case out := <-a:
+        fmt.Println(out)
+    case out := <-b:
+        fmt.Println(out)
+    }
+
+}
+
+
+```
+
+### Worker pool
+#### a pool of workers eager to process your data 
+
 ```
 
 
-Rate limiter
+
+
+```
+
+
+### Rate limiter
+
 simple rate limiter using a buffered channel 
 wrap handler with a func that tries to add to channel
 and defers release. If lenght of buffered channel is 10
 then when we have 10 ongoing requests will be pending 
+
 ```
 	rateLimiterMiddleware := func(f func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
 
@@ -135,3 +197,4 @@ then when we have 10 ongoing requests will be pending
 
 Sources:
 - https://www.youtube.com/watch?v=f6kdp27TYZs
+- https://www.youtube.com/watch?v=QDDwwePbDtw
