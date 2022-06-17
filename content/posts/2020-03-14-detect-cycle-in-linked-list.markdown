@@ -58,7 +58,7 @@ Here is algorithm description carefully paster from wiki:
 
 My wife [Tatiana Timoshina](https://onboard.studio/) made this nice animation: 
 
-<img src="/assets/images/hare.gif">  
+![detect cycle in singly linked list](/images/hare.gif 'two pointers cycle detection')
 
 Blue runner runs twice as fast. Orange and blue runners meet exactly when orange finishes its first circle. 
 
