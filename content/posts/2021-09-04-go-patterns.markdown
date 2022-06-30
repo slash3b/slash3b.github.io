@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2021-09-04
-title: "Golang channel tricks and patterns"
+title: "Golang concurrency tricks and patterns"
 ---
 
 Concurrency is the composition of independently executing computations.  
@@ -14,6 +14,7 @@ no goroutine ever blocks.
 - [Multiplexer](#multiplexer)
 - [nil channel trick](#nil-channel-trick)
 - [Worker pool](#worker-pool)
+- [Confinement](#confinement)
 
 ### <a name="generator"> Generator. Function that returns never closed channel. </a>  
 
@@ -219,19 +220,62 @@ and defers release. If lenght of buffered channel is 10
 then when we have 10 ongoing requests will be pending 
 
 ```
-	rateLimiterMiddleware := func(f func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
+rateLimiterMiddleware := func(f func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
 
-		limitingBuffer := make(chan struct{}, 10)
-		return func(w http.ResponseWriter, r *http.Request) {
+    limitingBuffer := make(chan struct{}, 10)
+    return func(w http.ResponseWriter, r *http.Request) {
 
-			limitingBuffer <- struct{}{}
-			defer func() { <-limitingBuffer }()
+        limitingBuffer <- struct{}{}
+        defer func() { <-limitingBuffer }()
 
-			f(w, r)
-		}
-	}
+        f(w, r)
+    }
+}
 ```
+
+### Confinement   
+#### safety operations with concurrent code   
+
+Apart from well know way to work with concurrent code in Go, sync primitives and channels, 
+there are other two: *data confinement* and *data immutability*.   
+
+Data immutability is a simple and yet powerfull techique. Every goroutine operates on its own
+copy of a data. This leads to easied data management and low cognitive load.       
+
+Data confinement makes data implicitly available only to one process/goroutine at a time.    
+Data confinements comes in two flavors: ad-hoc and lexical.    
+
+Ad-hoc confinement is a convention between programmers and your code base on how data is used.   
+In some sense, generator pattern from above is a good example of data confinement. Generator can be used
+concurrently but only one goroutine can get generated value at a time.    
+
+Lexical confinement. Lexical confinement means usage of lexical scope to hide data we do not want to be used
+concurrently. Example:
+```
+func example() <-chan int {
+	a := make(chan int)
+
+	go func() {
+		defer close(a)
+		for i := 0; i < 5; i++ {
+				a <- i
+		}
+	}()
+
+	return a
+}
+```
+
+Main benefit of a confinement is a reduced cognitive load and "better" simplicity of a program.   
+
+### Additional but very important notes
+> Goroutines are **not** garbage collected
+____
 
 Sources:
 - https://www.youtube.com/watch?v=f6kdp27TYZs
 - https://www.youtube.com/watch?v=QDDwwePbDtw
+- Concurrency in Go by Cox-Buday K.
+- https://web.mit.edu/6.005/www/fa15/classes/20-thread-safety/#strategy_1_confinement
+- https://web.mit.edu/6.005/www/fa15/
+
