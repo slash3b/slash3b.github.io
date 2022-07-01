@@ -15,6 +15,7 @@ no goroutine ever blocks.
 - [nil channel trick](#nil-channel-trick)
 - [Worker pool](#worker-pool)
 - [Confinement](#confinement)
+- [Error handling](#error-handling)
 
 ### <a name="generator"> Generator. Function that returns never closed channel. </a>  
 
@@ -267,6 +268,24 @@ func example() <-chan int {
 ```
 
 Main benefit of a confinement is a reduced cognitive load and "better" simplicity of a program.   
+
+### Error handling
+#### Or how to be a good lad and stop ignoring/hiding your errors
+
+In terms of concurrency sometimes it might be hard to understand how, when and who should handle an error.   
+
+Do not skip/ignore/hide an error that happened inside your goroutine. Bind err with response/outcome and return them together,
+e.g. in a `Result` struct:  
+
+```
+type Result struct {
+    Error error
+    Response *http.Response
+}
+```
+
+This will allow you to take more intelligent decision about error at the layer where we actually process results.  
+
 
 ### Additional but very important notes
 > Goroutines are **not** garbage collected
