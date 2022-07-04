@@ -16,6 +16,7 @@ no goroutine ever blocks.
 - [Worker pool](#worker-pool)
 - [Confinement](#confinement)
 - [Error handling](#error-handling)
+- [Goroutines](#goroutines)
 
 ### <a name="generator"> Generator. Function that returns never closed channel. </a>  
 
@@ -287,8 +288,42 @@ type Result struct {
 This will allow you to take more intelligent decision about error at the layer where we actually process results.  
 
 
-### Additional but very important notes
-> Goroutines are **not** garbage collected
+
+### Goroutines   
+#### Additional but very important notes and some bits of theory    
+#### This is based on book "Concurrency in Go"
+
+> *Sheduler* is a part of OS and it is responsible for resource allocation that needed to run tasks. Task might be a
+> process, thread, or data flow. **Scheduler is responsible for multitasking that makes possible to run multiple programs
+> on a single CPU core.**   
+
+Goroutine is a function that is running concurrently. Technically, goroutine is a *coroutine*. 
+
+> Coroutines, and thus goroutines, are implicitly concurrent constructs, but concur‐
+> rency is not a property of a coroutine: something must host several coroutines simul‐
+> taneously and give each an opportunity to execute—otherwise, they wouldn’t be
+> concurrent! Note that this does not imply that coroutines are implicitly parallel. It is
+> certainly possible to have several coroutines executing sequentially to give the illusion
+> of parallelism, and in fact this happens all the time in Go.
+>
+> Go’s mechanism for hosting goroutines is an implementation of what’s called an M:N
+> scheduler, which means it maps M green threads to N OS threads. Goroutines are then
+> scheduled onto the green threads. When we have more goroutines than green threads
+> available, the scheduler handles the distribution of the goroutines across the available
+> threads and ensures that when these goroutines become blocked, other goroutines
+> can be run.
+
+> Go follows a model of concurrency called the fork-join model. The word fork refers
+> to the fact that at any point in the program, it can split off a child branch of execution
+> to be run concurrently with its parent. The word join refers to the fact that at some
+> point in the future, these concurrent branches of execution will join back together.
+> Where the child rejoins the parent is called a join point
+
+So the join point is the place where goroutines sync, and it is done with sync primitives available in golang.   
+
+Go handles multiplexing goroutines onto OS threads for you. The algorithm it uses to do this is known as a *work stealing strategy*.   
+
+> Goroutines are **not** garbage collected    
 ____
 
 Sources:
@@ -297,4 +332,5 @@ Sources:
 - Concurrency in Go by Cox-Buday K.
 - https://web.mit.edu/6.005/www/fa15/classes/20-thread-safety/#strategy_1_confinement
 - https://web.mit.edu/6.005/www/fa15/
+- https://graphitemaster.github.io/fibers/  
 
