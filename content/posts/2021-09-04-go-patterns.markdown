@@ -333,4 +333,5 @@ Sources:
 - https://web.mit.edu/6.005/www/fa15/classes/20-thread-safety/#strategy_1_confinement
 - https://web.mit.edu/6.005/www/fa15/
 - https://graphitemaster.github.io/fibers/  
+- https://github.com/luk4z7/go-concurrency-guide  
 
