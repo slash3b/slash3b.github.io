@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>SOLID on Random notes to myself</title>
+    <link>https://slash3b.github.io/tags/solid/</link>
+    <description>Recent content in SOLID on Random notes to myself</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Jun 2022 17:29:38 +0200</lastBuildDate><atom:link href="https://slash3b.github.io/tags/solid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SOLID Go</title>
+      <link>https://slash3b.github.io/posts/2022-06-07-solid-go/</link>
+      <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
+      
+      <guid>https://slash3b.github.io/posts/2022-06-07-solid-go/</guid>
+      <description>SOLID is a famous cargo-cult that is used to poke &amp;ldquo;bad&amp;rdquo; code during code review. Jokes aside there are some solid, pun intended, ideas within SOLID. This post is yet another attempt to dismantle this set of principles and understand them better.
+The SOLID stands for(pasted from wiki):
+ S ingle-responsibility principle: &amp;ldquo;There should never be more than one reason for a class to change.&amp;ldquo;In other words, every class should have only one responsibility O pen–closed principle: &amp;ldquo;Software entities &amp;hellip; should be open for extension, but closed for modification.</description>
+    </item>
+    
+  </channel>
+</rss>

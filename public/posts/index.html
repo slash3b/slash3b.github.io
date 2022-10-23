@@ -1,31 +1,281 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Posts | Random notes to myself</title><meta name=keywords content><meta name=description content="Posts - Random notes to myself"><meta name=author content><link rel=canonical href=https://slash3b.github.io/posts/><link crossorigin=anonymous href=/assets/css/stylesheet.min.61dfb3f0b4cda95d2ccb867f9a3b244ce5d23e12492bcc3c277df594c7bc1adf.css integrity="sha256-Yd+z8LTNqV0sy4Z/mjskTOXSPhJJK8w8J331lMe8Gt8=" rel="preload stylesheet" as=style><link rel=icon href=https://slash3b.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://slash3b.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://slash3b.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://slash3b.github.io/apple-touch-icon.png><link rel=mask-icon href=https://slash3b.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.68.3"><link rel=alternate type=application/rss+xml href=https://slash3b.github.io/posts/index.xml><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme: rgb(29, 30, 32);--entry: rgb(46, 46, 51);--primary: rgb(218, 218, 219);--secondary: rgb(155, 156, 157);--tertiary: rgb(65, 66, 68);--content: rgb(196, 196, 197);--hljs-bg: rgb(46, 46, 51);--code-bg: rgb(55, 56, 62);--border: rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="Posts"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://slash3b.github.io/posts/"><meta name=twitter:card content="summary"><meta name=twitter:title content="Posts"><meta name=twitter:description content><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":2,"name":"Posts","item":"https://slash3b.github.io/posts/"}]}</script></head><body class=list id=top><script>if(localStorage.getItem("pref-theme")==="dark"){document.body.classList.add('dark');}else if(localStorage.getItem("pref-theme")==="light"){document.body.classList.remove('dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.body.classList.add('dark');}</script><header class=header><nav class=nav><div class=logo><a href=https://slash3b.github.io accesskey=h title="Random notes to myself (Alt + H)">Random notes to myself</a>
-<span class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></span></div><ul id=menu></ul></nav></header><main class=main><header class=page-header><h1>Posts</h1></header><article class=post-entry><header class=entry-header><h2>All sizes of go patterns</h2></header><section class=entry-content><p>Concurrency is the composition of independently executing computations.
-Goroutines are not threads, but it is not wrong to think about goroutines as threads. In fact in runtime goroutines are multiplexed onto threads that are created as needed in order to make sure no goroutine ever blocks.
-Patterns. Generator.
-package main import ( "fmt" "strconv" ) func main() { out := generate() for i := 0; i &lt; 5; i++ { fmt....</p></section><footer class=entry-footer>September 4, 2021</footer><a class=entry-link aria-label="post link to All sizes of go patterns" href=https://slash3b.github.io/posts/2021-09-04-go-patterns/></a></article><article class=post-entry><header class=entry-header><h2>Notes on 'Go in action' book</h2></header><section class=entry-content><p>Slice takes 24 bit of memory — 8 bit for pointer, 8 for len and 8 for capacity.
-Passing a slice between functions is okay, since it is copied BUT in the copied version we still have the correct pointer.
-Reference types in Go:
-string slice map channel interface function The decision to use value or pointer receiver should not be based on whether method is mutating given value or not....</p></section><footer class=entry-footer>July 18, 2021</footer><a class=entry-link aria-label="post link to Notes on 'Go in action' book" href=https://slash3b.github.io/posts/2021-06-26-go-in-action-notes/></a></article><article class=post-entry><header class=entry-header><h2>Milestone notes</h2></header><section class=entry-content><p>How it went:
-I did manage to escape sucky job at Pentalog. What a relief! My wife Tatiana was looking through local job ad board and found an ad for Go. I managed to land it, yay! It is an interesting project and I like it. Teams seems to be strong and much saner. There is a lot of stuff to do. And I’m writing Golang which is amazing! It is a little dream that came true....</p></section><footer class=entry-footer>December 31, 2020</footer><a class=entry-link aria-label="post link to Milestone notes" href=https://slash3b.github.io/posts/2020-12-31-milestone-notes/></a></article><article class=post-entry><header class=entry-header><h2>Notes on Building Microservices by Sam Newman</h2></header><section class=entry-content><p>Chapter 3 notes. How to model services. What makes a good service:
-loose coupling high cohesion Loose coupling means a change to one service should not require a change in another service. Tight coupling might means “chatty” communication, or wrong integration style was chosen that binds services tightly.
-High cohesion — we want related behavior to be in the same service, and unrelated behavior to live in another service....</p></section><footer class=entry-footer>December 26, 2020</footer><a class=entry-link aria-label="post link to Notes on Building Microservices by Sam Newman" href=https://slash3b.github.io/posts/2020-12-26-building-microservices-notes/></a></article><article class=post-entry><header class=entry-header><h2>A philosophy of software design by John Ousterhout</h2></header><section class=entry-content><p>I like that book and decided to make a “short” version for myself to remember it better.
-The book is only 190 pages long but it has lots of valuable advices and author takes things straight to the point.
-This is just my own “retelling” of the book. If you are reading this I encourage you to first buy and read the whole book and only then this text below might make sense to you....</p></section><footer class=entry-footer>September 5, 2020</footer><a class=entry-link aria-label="post link to A philosophy of software design by John Ousterhout" href=https://slash3b.github.io/posts/2020-09-05-a-philosophy-of-software-design/></a></article><article class=post-entry><header class=entry-header><h2>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</h2></header><section class=entry-content><p>Designing Data-Intensive Applications by Martin Kleppmann is an amazing journey into the world of distributed systems. It is a must read, especially if you are like me — self-taught programmer. I think it will be usefull even if you do not plan to work with distributed systems, it is just interesting per se.
-I really learned a lot, than you Martin!
-I have a feeling that I managed to digest and remember around 5% of the information, and the book contains a lot of good stuff, I mean a lot....</p></section><footer class=entry-footer>May 8, 2020</footer><a class=entry-link aria-label="post link to Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems" href=https://slash3b.github.io/posts/2020-05-08-design-data-intensive-applications/></a></article><article class=post-entry><header class=entry-header><h2>join-fetched queries in doctrine for lost dummies</h2></header><section class=entry-content><p>what is JOIN FETCH exactly? So it was not clear from the start and search engine results might confuse you even further. Here it goes — JOIN FETCH is not an SQL feature and it does not relate to FETCH keyword in t-sql or any other sql dialect that uses it.
-Note: hydration is the process of turning fetched rows from the database into object/entities. Embarrased to admit that I did not knew exactly what it is....</p></section><footer class=entry-footer>April 25, 2020</footer><a class=entry-link aria-label="post link to join-fetched queries in doctrine for lost dummies" href=https://slash3b.github.io/posts/2020-04-25-sql-fetch-doctrine-php/></a></article><article class=post-entry><header class=entry-header><h2>Detect cycle in singly linked list (python)</h2></header><section class=entry-content><p>As I’m improving my data structures knowledge and understanding I’m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.
-Singly-linked list consits of nodes that reference one another. A node could look like this: {% highlight python %}
-class Node: def init(self, value=None): self.next = None self.value = value
-{% endhighlight %} So it has two properties — next that contains next element, and value that contains data....</p></section><footer class=entry-footer>March 11, 2020</footer><a class=entry-link aria-label="post link to Detect cycle in singly linked list (python)" href=https://slash3b.github.io/posts/2020-03-14-detect-cycle-in-linked-list/></a></article><article class=post-entry><header class=entry-header><h2>Variance in PHP</h2></header><section class=entry-content><p>Disclaimer: I might be wrong about variance. Buyer beware!
-Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.
-In general, a type constructor can be:
-Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well....</p></section><footer class=entry-footer>February 29, 2020</footer><a class=entry-link aria-label="post link to Variance in PHP" href=https://slash3b.github.io/posts/2020-02-29-variance-php/></a></article><article class=post-entry><header class=entry-header><h2>ACID concept</h2></header><section class=entry-content><p>I really like how Martin Kleppmann described ACID in his book, hence a little excerpt to remember.
-ACID stands for Atomicity, Consistency, Isolation, and Durability
-It was first coined by Andreas Reuter and Theo Härder in 1983 in attempt to describe all that is necessary for the database to be fault-tolerant as much as possible.
-Atomicity Database should support transaction, namely you should be able to group you request statemets and execute them at once....</p></section><footer class=entry-footer>February 8, 2020</footer><a class=entry-link aria-label="post link to ACID concept" href=https://slash3b.github.io/posts/2020-02-08-acid-in-databases-concept/></a></article><footer class=page-footer><nav class=pagination><a class=next href=https://slash3b.github.io/posts/page/2/>Next Page »</a></nav></footer></main><footer class=footer><span>&copy; 2021 <a href=https://slash3b.github.io>Random notes to myself</a></span>
-<span>Powered by
-<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
-        <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z" /></svg></a><script>let menu=document.getElementById('menu')
-menu.scrollLeft=localStorage.getItem("menu-scroll-position");menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft);}
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();var id=this.getAttribute("href").substr(1);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({behavior:"smooth"});}else{document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();}
-if(id==="top"){history.replaceState(null,null," ");}else{history.pushState(null,null,`#${id}`);}});});</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){if(document.body.scrollTop>800||document.documentElement.scrollTop>800){mybutton.style.visibility="visible";mybutton.style.opacity="1";}else{mybutton.style.visibility="hidden";mybutton.style.opacity="0";}};</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{if(document.body.className.includes("dark")){document.body.classList.remove('dark');localStorage.setItem("pref-theme",'light');}else{document.body.classList.add('dark');localStorage.setItem("pref-theme",'dark');}})</script></body></html>
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Posts | Random notes to myself</title>
+<meta name="keywords" content="">
+<meta name="description" content="Posts - Random notes to myself">
+<meta name="author" content="">
+<link rel="canonical" href="https://slash3b.github.io/posts/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.41f2d211c00e636a3c229c52ef2d4299a66891ae66771098993b13bca7972ae6.css" integrity="sha256-QfLSEcAOY2o8IpxS7y1CmaZoka5mdxCYmTsTvKeXKuY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://slash3b.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://slash3b.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://slash3b.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://slash3b.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://slash3b.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="https://slash3b.github.io/posts/index.xml">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --hljs-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://slash3b.github.io/posts/" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Posts",
+      "item": "https://slash3b.github.io/posts/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://slash3b.github.io" accesskey="h" title="Random notes to myself (Alt + H)">Random notes to myself</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header">
+  <h1>
+    Posts
+  </h1>
+</header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Bandwidth — amount of data we can send over a period of time Latency — time it takes to send a request and receive a response</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-24 17:29:38 +0200 +0200'>June 24, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to " href="https://slash3b.github.io/posts/2022-07-25-networking-notes/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>VIM cheat sheet
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>These are my notes on “Mastering VIM” by Ruslan Osipov. Also contains my own knowledge.
+dd — delete line
+cc — delete line and go into INSERT mode
+Movements  uppercase is for “words separated by whitespace”
+ e or E — move to the End of the word w or W — move between Words b or B — move Back _ jump to the beginning of the line...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-24 17:29:38 +0200 +0200'>June 24, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to VIM cheat sheet" href="https://slash3b.github.io/posts/2022-06-24-vim-notes/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>SOLID Go
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>SOLID is a famous cargo-cult that is used to poke “bad” code during code review. Jokes aside there are some solid, pun intended, ideas within SOLID. This post is yet another attempt to dismantle this set of principles and understand them better.
+The SOLID stands for(pasted from wiki):
+ S ingle-responsibility principle: “There should never be more than one reason for a class to change.“In other words, every class should have only one responsibility O pen–closed principle: “Software entities … should be open for extension, but closed for modification....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-06 17:29:38 +0200 +0200'>June 6, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to SOLID Go" href="https://slash3b.github.io/posts/2022-06-07-solid-go/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Notes on Garbage Collection in Golang
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Garbage Collection is a process of freeing memory that is allocated and contains some data that is not being used.
+Notes:
+ by doing escape analysis GC mechanism decides what goes to heap and what stays on stack use -gcflags &#39;-m&#39; flag to get escape analysis info, e.g. go run -gcflags &#39;-m&#39; main.go another way to look into what GC is doing during runtime is to run program with GODEBUG=gctrace=1 GC runs consurrently with main program running main running program is called “mutator” Golang Garbage Collection uses “tricolor algorithm” otherwise known as tricolor mark and sweep algorithm....</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-06-05 17:29:38 +0200 +0200'>June 5, 2022</span></footer>
+  <a class="entry-link" aria-label="post link to Notes on Garbage Collection in Golang" href="https://slash3b.github.io/posts/2022-06-05-notes-on-garbage-collection-in-go/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>Simple case of profiler usage in golang
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
+But it was not the fastest one.
+But then I though — how do I profile buildTree function and see what actually takes time in my program?
+Golang has an excellent set of tool available, just check an output of go tool. One of the items in a list you’ll see is pprof which is a Golang profiler....</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-28 17:29:38 +0200 EET'>December 28, 2021</span></footer>
+  <a class="entry-link" aria-label="post link to Simple case of profiler usage in golang" href="https://slash3b.github.io/posts/2021-12-28-simple-case-of-golang-profiler-usage/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="next" href="https://slash3b.github.io/posts/page/2/">Next »</a>
+  </nav>
+</footer>
+    </main>
+    
+<footer class="footer">
+    <span>&copy; 2022 <a href="https://slash3b.github.io">Random notes to myself</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
