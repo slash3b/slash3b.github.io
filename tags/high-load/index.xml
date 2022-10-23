@@ -1,5 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>high load on Random notes to myself</title><link>https://slash3b.github.io/tags/high-load/</link><description>Recent content in high load on Random notes to myself</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 30 Oct 2021 17:29:38 +0300</lastBuildDate><atom:link href="https://slash3b.github.io/tags/high-load/index.xml" rel="self" type="application/rss+xml"/><item><title>Notes on System Design</title><link>https://slash3b.github.io/posts/2021-10-30-notes-on-system-design/</link><pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate><guid>https://slash3b.github.io/posts/2021-10-30-notes-on-system-design/</guid><description>These are hectic notes on a book &amp;ldquo;System design interview&amp;rdquo; by Alex Xu.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>high load on Random notes to myself</title>
+    <link>https://slash3b.github.io/tags/high-load/</link>
+    <description>Recent content in high load on Random notes to myself</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Oct 2021 17:29:38 +0300</lastBuildDate><atom:link href="https://slash3b.github.io/tags/high-load/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Notes on System Design</title>
+      <link>https://slash3b.github.io/posts/2021-10-30-notes-on-system-design/</link>
+      <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
+      
+      <guid>https://slash3b.github.io/posts/2021-10-30-notes-on-system-design/</guid>
+      <description>These are hectic notes on a book &amp;ldquo;System design interview&amp;rdquo; by Alex Xu.
 chapter 1
 read-through cache strategy — check if we have a response cached, if we do return it, if not then fetch data from a database, cache it and return result
 GeoDNS is a patch for BIND DNS server software that allows for geographical split horizon
-A few words about caching strategy. Your caching strategy depends on your data access patterns.</description></item></channel></rss>
+A few words about caching strategy. Your caching strategy depends on your data access patterns.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://slash3b.github.io/sitemap.xml

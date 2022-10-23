@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>pprof on Random notes to myself</title><link>https://slash3b.github.io/tags/pprof/</link><description>Recent content in pprof on Random notes to myself</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 28 Dec 2021 17:29:38 +0200</lastBuildDate><atom:link href="https://slash3b.github.io/tags/pprof/index.xml" rel="self" type="application/rss+xml"/><item><title>Simple case of profiler usage in golang</title><link>https://slash3b.github.io/posts/2021-12-28-simple-case-of-golang-profiler-usage/</link><pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate><guid>https://slash3b.github.io/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid><description>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>pprof on Random notes to myself</title>
+    <link>https://slash3b.github.io/tags/pprof/</link>
+    <description>Recent content in pprof on Random notes to myself</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Dec 2021 17:29:38 +0200</lastBuildDate><atom:link href="https://slash3b.github.io/tags/pprof/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simple case of profiler usage in golang</title>
+      <link>https://slash3b.github.io/posts/2021-12-28-simple-case-of-golang-profiler-usage/</link>
+      <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
+      
+      <guid>https://slash3b.github.io/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid>
+      <description>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
 But it was not the fastest one.
 But then I though — how do I profile buildTree function and see what actually takes time in my program?
-Golang has an excellent set of tool available, just check an output of go tool. One of the items in a list you&amp;rsquo;ll see is pprof which is a Golang profiler.</description></item></channel></rss>
+Golang has an excellent set of tool available, just check an output of go tool. One of the items in a list you&amp;rsquo;ll see is pprof which is a Golang profiler.</description>
+    </item>
+    
+  </channel>
+</rss>
