@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Random notes to myself</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jun 2022 17:29:38 +0200</lastBuildDate><atom:link href="https://slash3b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Nov 2022 01:00:00 +0200</lastBuildDate><atom:link href="https://slash3b.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Case of a leaking timer in go</title>
+      <link>https://slash3b.github.io/posts/2022-11-13-go-memory-leak-timer/</link>
+      <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
+      
+      <guid>https://slash3b.github.io/posts/2022-11-13-go-memory-leak-timer/</guid>
+      <description>It was only an accident that I read a post on ArangoDB site and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have it in form of a blogpost.
+Here is how leak looked like:
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { messags := make(chan string) for { select { case msg := &amp;lt;- messages: // do smth with msg fmt.</description>
+    </item>
+    
     <item>
       <title>VIM cheat sheet</title>
       <link>https://slash3b.github.io/posts/2022-06-24-vim-notes/</link>
