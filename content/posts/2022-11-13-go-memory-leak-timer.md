@@ -1,6 +1,6 @@
 ---
 title: "Case of a leaking timer in go"
-date: 2022-11-13T17:29:38+02:00
+date: 2022-11-13T01:00:00+02:00
 tags: ["memory leak", "go", "time.After"]
 ---
 
