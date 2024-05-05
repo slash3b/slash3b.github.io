@@ -2,48 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Random notes to myself</title>
-    <link>http://localhost:1313/</link>
+    <link>https://localhost:1313/</link>
     <description>Recent content on Random notes to myself</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.6</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate>
+    <atom:link href="https://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go slices mind-twister</title>
-      <link>http://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</link>
+      <link>https://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</link>
       <pubDate>Sun, 05 May 2024 15:48:38 +0300</pubDate>
-      
-      <guid>http://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</guid>
+      <guid>https://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</guid>
       <description>Hello world.
 Links:
 foo </description>
     </item>
-    
     <item>
       <title></title>
-      <link>http://localhost:1313/posts/2022-07-25-networking-notes/</link>
+      <link>https://localhost:1313/posts/2022-07-25-networking-notes/</link>
       <pubDate>Sat, 24 Jun 2023 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/posts/2022-07-25-networking-notes/</guid>
+      <guid>https://localhost:1313/posts/2022-07-25-networking-notes/</guid>
       <description>Bandwidth — amount of data we can send over a period of time Latency — time it takes to send a request and receive a response</description>
     </item>
-    
     <item>
       <title>Case of a leaking timer in go</title>
-      <link>http://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</link>
+      <link>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</link>
       <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
-      
-      <guid>http://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</guid>
+      <guid>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</guid>
       <description>It was only an accident that I read a post on ArangoDB site and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have it in form of a blogpost.
 Here is how leak looked like:
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { messags := make(chan string) for { select { case msg := &amp;lt;- messages: // do smth with msg fmt.</description>
     </item>
-    
     <item>
       <title>VIM cheat sheet</title>
-      <link>http://localhost:1313/posts/2022-06-24-vim-notes/</link>
+      <link>https://localhost:1313/posts/2022-06-24-vim-notes/</link>
       <pubDate>Fri, 24 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/posts/2022-06-24-vim-notes/</guid>
+      <guid>https://localhost:1313/posts/2022-06-24-vim-notes/</guid>
       <description>These are my notes on &amp;ldquo;Mastering VIM&amp;rdquo; by Ruslan Osipov. Also contains my own knowledge.
 dd — delete line
 cc — delete line and go into INSERT mode
@@ -51,205 +45,169 @@ Movements uppercase is for &amp;ldquo;words separated by whitespace&amp;rdquo;
 e or E — move to the End of the word w or W — move between Words b or B — move Back _ jump to the beginning of the line
 :N where N is a number line.</description>
     </item>
-    
     <item>
       <title>SOLID Go</title>
-      <link>http://localhost:1313/posts/2022-06-07-solid-go/</link>
+      <link>https://localhost:1313/posts/2022-06-07-solid-go/</link>
       <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/posts/2022-06-07-solid-go/</guid>
+      <guid>https://localhost:1313/posts/2022-06-07-solid-go/</guid>
       <description>SOLID is a famous cargo-cult that is used to poke &amp;ldquo;bad&amp;rdquo; code during code review. Jokes aside there are some solid, pun intended, ideas within SOLID. This post is yet another attempt to dismantle this set of principles and understand them better.
 The SOLID stands for(pasted from wiki):
 S ingle-responsibility principle: &amp;ldquo;There should never be more than one reason for a class to change.&amp;ldquo;In other words, every class should have only one responsibility O pen–closed principle: &amp;ldquo;Software entities &amp;hellip; should be open for extension, but closed for modification.</description>
     </item>
-    
     <item>
       <title>Notes on Garbage Collection in Golang</title>
-      <link>http://localhost:1313/posts/2022-06-05-notes-on-garbage-collection-in-go/</link>
+      <link>https://localhost:1313/posts/2022-06-05-notes-on-garbage-collection-in-go/</link>
       <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/posts/2022-06-05-notes-on-garbage-collection-in-go/</guid>
+      <guid>https://localhost:1313/posts/2022-06-05-notes-on-garbage-collection-in-go/</guid>
       <description>Garbage Collection is a process of freeing memory that is allocated and contains some data that is not being used.
 Notes:
 by doing escape analysis GC mechanism decides what goes to heap and what stays on stack use -gcflags &#39;-m&#39; flag to get escape analysis info, e.g. go run -gcflags &#39;-m&#39; main.go another way to look into what GC is doing during runtime is to run program with GODEBUG=gctrace=1 GC runs consurrently with main program running main running program is called &amp;ldquo;mutator&amp;rdquo; Golang Garbage Collection uses &amp;ldquo;tricolor algorithm&amp;rdquo; otherwise known as tricolor mark and sweep algorithm.</description>
     </item>
-    
     <item>
       <title>Simple case of profiler usage in golang</title>
-      <link>http://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</link>
+      <link>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</link>
       <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid>
+      <guid>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid>
       <description>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
 But it was not the fastest one.
 But then I though — how do I profile buildTree function and see what actually takes time in my program?
 Golang has an excellent set of tool available, just check an output of go tool. One of the items in a list you&amp;rsquo;ll see is pprof which is a Golang profiler.</description>
     </item>
-    
     <item>
       <title>Notes on System Design</title>
-      <link>http://localhost:1313/posts/2021-10-30-notes-on-system-design/</link>
+      <link>https://localhost:1313/posts/2021-10-30-notes-on-system-design/</link>
       <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
-      
-      <guid>http://localhost:1313/posts/2021-10-30-notes-on-system-design/</guid>
+      <guid>https://localhost:1313/posts/2021-10-30-notes-on-system-design/</guid>
       <description>These are hectic notes on a book &amp;ldquo;System design interview&amp;rdquo; by Alex Xu.
 chapter 1
 read-through cache strategy — check if we have a response cached, if we do return it, if not then fetch data from a database, cache it and return result
 GeoDNS is a patch for BIND DNS server software that allows for geographical split horizon
 A few words about caching strategy. Your caching strategy depends on your data access patterns.</description>
     </item>
-    
     <item>
       <title>Golang concurrency tricks and patterns</title>
-      <link>http://localhost:1313/posts/2021-09-04-go-patterns/</link>
+      <link>https://localhost:1313/posts/2021-09-04-go-patterns/</link>
       <pubDate>Sat, 04 Sep 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2021-09-04-go-patterns/</guid>
+      <guid>https://localhost:1313/posts/2021-09-04-go-patterns/</guid>
       <description>Concurrency is the composition of independently executing computations.
 Goroutines are not threads, but it is not wrong to think about goroutines as threads. In fact in runtime goroutines are multiplexed onto threads that are created as needed in order to make sure no goroutine ever blocks.
 Generator Multiplexer nil channel trick Worker pool Confinement Error handling Goroutines Generator. Function that returns never closed channel. Basically generate func returns unbuffered channel that is never closed and hence returns ever increasing counter.</description>
     </item>
-    
     <item>
       <title>Notes on &#39;Go in action&#39; book</title>
-      <link>http://localhost:1313/posts/2021-06-26-go-in-action-notes/</link>
+      <link>https://localhost:1313/posts/2021-06-26-go-in-action-notes/</link>
       <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2021-06-26-go-in-action-notes/</guid>
+      <guid>https://localhost:1313/posts/2021-06-26-go-in-action-notes/</guid>
       <description>Slice takes 24 bit of memory — 8 bit for pointer, 8 for len and 8 for capacity.
 Passing a slice between functions is okay, since it is copied BUT in the copied version we still have the correct pointer.
 Reference types in Go:
 string slice map channel interface function The decision to use value or pointer receiver should not be based on whether method is mutating given value or not.</description>
     </item>
-    
     <item>
       <title>Milestone notes</title>
-      <link>http://localhost:1313/posts/2020-12-31-milestone-notes/</link>
+      <link>https://localhost:1313/posts/2020-12-31-milestone-notes/</link>
       <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-12-31-milestone-notes/</guid>
+      <guid>https://localhost:1313/posts/2020-12-31-milestone-notes/</guid>
       <description>How it went:
 I did manage to escape sucky job at Pentalog. What a relief! My wife Tatiana was looking through local job ad board and found an ad for Go. I managed to land it, yay! It is an interesting project and I like it. Teams seems to be strong and much saner. There is a lot of stuff to do. And I&amp;rsquo;m writing Golang which is amazing! It is a little dream that came true.</description>
     </item>
-    
     <item>
       <title>Notes on Building Microservices by Sam Newman</title>
-      <link>http://localhost:1313/posts/2020-12-26-building-microservices-notes/</link>
+      <link>https://localhost:1313/posts/2020-12-26-building-microservices-notes/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-12-26-building-microservices-notes/</guid>
+      <guid>https://localhost:1313/posts/2020-12-26-building-microservices-notes/</guid>
       <description>Chapter 3 notes. How to model services. What makes a good service:
 loose coupling high cohesion Loose coupling means a change to one service should not require a change in another service. Tight coupling might means &amp;ldquo;chatty&amp;rdquo; communication, or wrong integration style was chosen that binds services tightly.
 High cohesion — we want related behavior to be in the same service, and unrelated behavior to live in another service.
 Bounded context helps with those two aspects of a good service.</description>
     </item>
-    
     <item>
       <title>A philosophy of software design by John Ousterhout</title>
-      <link>http://localhost:1313/posts/2020-09-05-a-philosophy-of-software-design/</link>
+      <link>https://localhost:1313/posts/2020-09-05-a-philosophy-of-software-design/</link>
       <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-09-05-a-philosophy-of-software-design/</guid>
+      <guid>https://localhost:1313/posts/2020-09-05-a-philosophy-of-software-design/</guid>
       <description>I like that book and decided to make a &amp;ldquo;short&amp;rdquo; version for myself to remember it better.
 The book is only 190 pages long but it has lots of valuable advices and author takes things straight to the point.
 This is just my own &amp;ldquo;retelling&amp;rdquo; of the book. If you are reading this I encourage you to first buy and read the whole book and only then this text below might make sense to you.</description>
     </item>
-    
     <item>
       <title>Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems</title>
-      <link>http://localhost:1313/posts/2020-05-08-design-data-intensive-applications/</link>
+      <link>https://localhost:1313/posts/2020-05-08-design-data-intensive-applications/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-05-08-design-data-intensive-applications/</guid>
+      <guid>https://localhost:1313/posts/2020-05-08-design-data-intensive-applications/</guid>
       <description>Designing Data-Intensive Applications by Martin Kleppmann is an amazing journey into the world of distributed systems. It is a must read, especially if you are like me — self-taught programmer. I think it will be usefull even if you do not plan to work with distributed systems, it is just interesting per se.
 I really learned a lot, than you Martin!
 I have a feeling that I managed to digest and remember around 5% of the information, and the book contains a lot of good stuff, I mean a lot.</description>
     </item>
-    
     <item>
       <title>join-fetched queries in doctrine for lost dummies</title>
-      <link>http://localhost:1313/posts/2020-04-25-sql-fetch-doctrine-php/</link>
+      <link>https://localhost:1313/posts/2020-04-25-sql-fetch-doctrine-php/</link>
       <pubDate>Sat, 25 Apr 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-04-25-sql-fetch-doctrine-php/</guid>
+      <guid>https://localhost:1313/posts/2020-04-25-sql-fetch-doctrine-php/</guid>
       <description>what is JOIN FETCH exactly? So it was not clear from the start and search engine results might confuse you even further. Here it goes — JOIN FETCH is not an SQL feature and it does not relate to FETCH keyword in t-sql or any other sql dialect that uses it.
 Note: hydration is the process of turning fetched rows from the database into object/entities. Embarrased to admit that I did not knew exactly what it is.</description>
     </item>
-    
     <item>
       <title>Detect cycle in singly linked list (python)</title>
-      <link>http://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/</link>
+      <link>https://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/</guid>
+      <guid>https://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/</guid>
       <description>As I&amp;rsquo;m improving my data structures knowledge and understanding I&amp;rsquo;m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.
 Singly-linked list consits of nodes that reference one another. A node could look like this:
 class Node: def __init__(self, value=None): self.next = None self.value = value So it has two properties — next that contains next element, and value that contains data. Could be more complex than this but lets not complicate.</description>
     </item>
-    
     <item>
       <title>Variance in PHP</title>
-      <link>http://localhost:1313/posts/2020-02-29-variance-php/</link>
+      <link>https://localhost:1313/posts/2020-02-29-variance-php/</link>
       <pubDate>Sat, 29 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-02-29-variance-php/</guid>
+      <guid>https://localhost:1313/posts/2020-02-29-variance-php/</guid>
       <description>Disclaimer: I might be wrong about variance. Buyer beware!
 Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.
 In general, a type constructor can be:
 Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well.</description>
     </item>
-    
     <item>
       <title>ACID concept</title>
-      <link>http://localhost:1313/posts/2020-02-08-acid-in-databases-concept/</link>
+      <link>https://localhost:1313/posts/2020-02-08-acid-in-databases-concept/</link>
       <pubDate>Sat, 08 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-02-08-acid-in-databases-concept/</guid>
+      <guid>https://localhost:1313/posts/2020-02-08-acid-in-databases-concept/</guid>
       <description>I really like how Martin Kleppmann described ACID in his book, hence a little excerpt to remember.
 ACID stands for Atomicity, Consistency, Isolation, and Durability
 It was first coined by Andreas Reuter and Theo Härder in 1983 in attempt to describe all that is necessary for the database to be fault-tolerant as much as possible.
 Atomicity Database should support transaction, namely you should be able to group you request statemets and execute them at once.</description>
     </item>
-    
     <item>
       <title>Milestone notes</title>
-      <link>http://localhost:1313/posts/2020-01-04-milestone-notes/</link>
+      <link>https://localhost:1313/posts/2020-01-04-milestone-notes/</link>
       <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2020-01-04-milestone-notes/</guid>
+      <guid>https://localhost:1313/posts/2020-01-04-milestone-notes/</guid>
       <description>For this new year I plan to:
 find a better job where I will be appreciated as a professional Current job sucks, it boils down to this — I want to paint pictures and I hope one day to be able to create a masterpiece, but I&amp;rsquo;m forced to paint fences with guys who are totally happy to paint fences till the rest of their lives be better at algorithmic problems, I&amp;rsquo;m better now, but still suck.</description>
     </item>
-    
     <item>
       <title>My chaotic notes on REST API</title>
-      <link>http://localhost:1313/posts/2019-09-28-my-chaotic-notes-on-rest-api/</link>
+      <link>https://localhost:1313/posts/2019-09-28-my-chaotic-notes-on-rest-api/</link>
       <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-09-28-my-chaotic-notes-on-rest-api/</guid>
+      <guid>https://localhost:1313/posts/2019-09-28-my-chaotic-notes-on-rest-api/</guid>
       <description>REST is paradigm or architectural style that defines your API.
 One of the most important and yet simple REST consept is resouce/endpoint, I really like resource term so I&amp;rsquo;m going to use it here. In REST paradigm URL is a resource, e.g. — http://example.org/test/foo.
 You should strive not to use verbs in URL. The only verbs you need are HTTP verbs — GET, HEAD, POST, PUT, PATCH, OPTIONS, TRACE.
 Subresource in REST looks like this — /posts/{id}/author.</description>
     </item>
-    
     <item>
       <title>Active record vs. Data Mapper</title>
-      <link>http://localhost:1313/posts/2019-07-10-active-record-vs-data-mapper/</link>
+      <link>https://localhost:1313/posts/2019-07-10-active-record-vs-data-mapper/</link>
       <pubDate>Wed, 10 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-07-10-active-record-vs-data-mapper/</guid>
+      <guid>https://localhost:1313/posts/2019-07-10-active-record-vs-data-mapper/</guid>
       <description>In Object-oriented programming we often need to persist object to the database for later retrieval. For that to work smart people invented Object-Relation Mapper that does object to db conversion and vise versa. Such ORM object are usually called entities and are passed around in application and are subject to CRUD operations.
 ORM implies existence of DBAL(Database Abstraction Layer) and Data Access Layer.
 DBAL abstracts Quering language details of different databases and supports many databases at once.</description>
     </item>
-    
     <item>
       <title>Proxy Design Pattern</title>
-      <link>http://localhost:1313/posts/2019-06-08-proxy-pattern-in-php/</link>
+      <link>https://localhost:1313/posts/2019-06-08-proxy-pattern-in-php/</link>
       <pubDate>Sat, 08 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-06-08-proxy-pattern-in-php/</guid>
+      <guid>https://localhost:1313/posts/2019-06-08-proxy-pattern-in-php/</guid>
       <description>Proxy Design Pattern First, some definitions.
 Wikipedia:
 In computer programming, the proxy pattern is a software design pattern. A proxy, in its most general form, is a class functioning as an interface to something else
@@ -257,56 +215,46 @@ Design Patterns. Elements of Reusable Object-Oriented Software:
 Provide a surrogate or placeholder for another object to control access to it.
 There are a few reasons to use Proxy pattern and control access to the underlying object:</description>
     </item>
-    
     <item>
       <title>Mixed feelings about being programmer in Moldova</title>
-      <link>http://localhost:1313/posts/2019-05-30-ashamed/</link>
+      <link>https://localhost:1313/posts/2019-05-30-ashamed/</link>
       <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-05-30-ashamed/</guid>
+      <guid>https://localhost:1313/posts/2019-05-30-ashamed/</guid>
       <description>This is just a personal rant on the current situation.
 Moldova is a third world country, Moldova is a very poor country. In the capital - Chishinau, on average you earn ~500 euros per month. That&amp;rsquo;s bearable but basically not enough. Not enough to feel yourself steady on your legs so to speak.
 On the other side if you are an IT &amp;ldquo;specialist&amp;rdquo;, lets use this vague term, then you can earn from ~1k euros per month.</description>
     </item>
-    
     <item>
       <title>How to send request to UNIX socket</title>
-      <link>http://localhost:1313/posts/2019-05-12-debud-unix-socket/</link>
+      <link>https://localhost:1313/posts/2019-05-12-debud-unix-socket/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-05-12-debud-unix-socket/</guid>
+      <guid>https://localhost:1313/posts/2019-05-12-debud-unix-socket/</guid>
       <description>This is one of those notes to myself, so I can remmber it better or find it later more easy.
 I was recently strugging with permission problem for the unix socket, the mistake was quite silly - I did not turn permission bit on for the folder with socket file. And before I found the solution I tried to debug socket and I found that you can curl socket with</description>
     </item>
-    
     <item>
       <title>Stream redirection tl;dr</title>
-      <link>http://localhost:1313/posts/2019-04-30-streams_redirection/</link>
+      <link>https://localhost:1313/posts/2019-04-30-streams_redirection/</link>
       <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-04-30-streams_redirection/</guid>
+      <guid>https://localhost:1313/posts/2019-04-30-streams_redirection/</guid>
       <description>I love terminal, it is so simple and so reliable. When I&amp;rsquo;m in doubt, when I&amp;rsquo;m not sure the GUI I&amp;rsquo;m working with gives me correct representation I always turn to the terminal as an ultimate source of truth.
 Every process has at least three communication channels a.k.a. streams attached to it:
 STDIN. Standard input with file descriptor 0 STDOUT. Standard output with file decriptor 1 STDERR. Standard error with file descriptor 2 Usually when we work with streams we use file descriptor numbers.</description>
     </item>
-    
     <item>
       <title>Composition vs. Inheritance in PHP, tl;dr version</title>
-      <link>http://localhost:1313/posts/2019-04-13-inheritance-and-composition-in-php/</link>
+      <link>https://localhost:1313/posts/2019-04-13-inheritance-and-composition-in-php/</link>
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-04-13-inheritance-and-composition-in-php/</guid>
+      <guid>https://localhost:1313/posts/2019-04-13-inheritance-and-composition-in-php/</guid>
       <description>After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:
 So inheritance is awesome way to reuse code between objects but it comes at cost.
 When class inherit from parent class there is no way to not implement methods/reduce parent&amp;rsquo;s code. You have to implement everything according to parent class You need to make sure you are compatible with parent&amp;rsquo;s class in case override something Child class may know about parent&amp;rsquo;s methods implementation, in case they are not private, which breaks incapsulation Inheritance means deep coupling between parent and child classes Composition is just another way to inherit other classes Basically you do not inherit class directly but get it injected into the constructor or via setter method.</description>
     </item>
-    
     <item>
       <title>HTTP versions difference</title>
-      <link>http://localhost:1313/posts/2019-03-15-http-versions-difference/</link>
+      <link>https://localhost:1313/posts/2019-03-15-http-versions-difference/</link>
       <pubDate>Fri, 15 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-03-15-http-versions-difference/</guid>
+      <guid>https://localhost:1313/posts/2019-03-15-http-versions-difference/</guid>
       <description>Here is the differences between HTTP versions with comments in plain english.
 HTTP 1.0 capabilities: Request may consist of multiple newline separated header fields.
 Response object is prefixed with a response status line.
@@ -315,58 +263,48 @@ Response object is not limited to hypertext.
 So basically since this version it is not hypertext but hypermedia protocol.
 The connection between server and client is closed after every request.</description>
     </item>
-    
     <item>
       <title>Visitor Design Pattern</title>
-      <link>http://localhost:1313/posts/2019-02-17-visitor-design-pattern/</link>
+      <link>https://localhost:1313/posts/2019-02-17-visitor-design-pattern/</link>
       <pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2019-02-17-visitor-design-pattern/</guid>
+      <guid>https://localhost:1313/posts/2019-02-17-visitor-design-pattern/</guid>
       <description>Visitor design pattern is one of many patterns that fall under category &amp;ldquo;Behavioral patterns&amp;rdquo;
 Allows to move part of the logic/algorithm from one class to another, so you can extend/add new behavior to the initial class without changing its code.
 One of the ways to follow &amp;ldquo;open/closed&amp;rdquo; principle.
 Here is an example:
 interface Visitor { // quite reasonable to a visitor to be able to &amp;#34;visit&amp;#34; other classes public function visit(Person $person); } interface Person { public function accept(Visitor $visitor); } // so these two interfaces know about each other class RealVisitor implements Visitor { public function visit(Person $person) { // this sequence of &amp;#34;operations&amp;#34; is quite naive // but you can implement here whatever you want // instance of Person interface can be changed however you want // no need to update/change class itself $person-&amp;gt;name = &amp;#39;Mr.</description>
     </item>
-    
     <item>
       <title>tcpdump tiny cheat sheet</title>
-      <link>http://localhost:1313/posts/2018-11-10-tcpdump-how-to/</link>
+      <link>https://localhost:1313/posts/2018-11-10-tcpdump-how-to/</link>
       <pubDate>Sat, 10 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2018-11-10-tcpdump-how-to/</guid>
+      <guid>https://localhost:1313/posts/2018-11-10-tcpdump-how-to/</guid>
       <description>tcpdump is such an amazing tool, even knowing just basic parameters you can do a lot.
 show list of available interfaces sudo tcpdump -D show packets with X argument. Use A in case you want to see only textual info and skip binary in hex sudo tcpdump -X track only specific port sudo tcpdump &amp;#39;port 8888&amp;#39; do not resolve host names, lets you see IP addresses sudo tcpdump -nn With all those arguments combined you can track connection to the program opened on local machine on port 8888 and see the following:</description>
     </item>
-    
     <item>
       <title>Mutation testing in PHP</title>
-      <link>http://localhost:1313/posts/2018-08-02-mutation-testing-in-php/</link>
+      <link>https://localhost:1313/posts/2018-08-02-mutation-testing-in-php/</link>
       <pubDate>Thu, 02 Aug 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2018-08-02-mutation-testing-in-php/</guid>
+      <guid>https://localhost:1313/posts/2018-08-02-mutation-testing-in-php/</guid>
       <description>Today at my job I did an internal presentation on mutation testing in PHP.
 Here is the presentation:
 What it lacks is the live example of how it is done. So I&amp;rsquo;m going to just short list here an example.
 For this code intro I&amp;rsquo;m going to use PHP7.2. The only PHP class we have is this one below, and it is pretty much naive but is usefull for our example:</description>
     </item>
-    
     <item>
       <title>Amazing GIT for seasoned developer.</title>
-      <link>http://localhost:1313/posts/2016-12-11-amazing-git-for-seasoned-developer/</link>
+      <link>https://localhost:1313/posts/2016-12-11-amazing-git-for-seasoned-developer/</link>
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2016-12-11-amazing-git-for-seasoned-developer/</guid>
+      <guid>https://localhost:1313/posts/2016-12-11-amazing-git-for-seasoned-developer/</guid>
       <description>At first, like so many others I didn&amp;rsquo;t use git to full extent, the tool belt of git add, git commit, git push, git pull allowed me to survive through the day. At some point I realized that I need to enforce my GIT knowledge.
 In short GIT has an insanely rich eco system of different tools designed to do only one thing but do it very good. This is not a post but rather a set of things I would like to remember about GIT.</description>
     </item>
-    
     <item>
       <title>How to sign your commit with GPG</title>
-      <link>http://localhost:1313/posts/2018-05-20-how-to-sign-git-commit-with-gpg/</link>
+      <link>https://localhost:1313/posts/2018-05-20-how-to-sign-git-commit-with-gpg/</link>
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2018-05-20-how-to-sign-git-commit-with-gpg/</guid>
+      <guid>https://localhost:1313/posts/2018-05-20-how-to-sign-git-commit-with-gpg/</guid>
       <description>First step - creating the key itself.
 Note that I&amp;rsquo;m using Fedora and for some rason I have to use gpg2 though gpg is available also for some reason.
 Generate your key:
@@ -376,82 +314,66 @@ I chose &amp;lsquo;0 = key does not expire&amp;rsquo; option.
 To view fingerprint for the newly created key use:
 gpg2 --fingerprint &amp;lt;your@email.</description>
     </item>
-    
     <item>
       <title>wip: GraphQL and Symfony</title>
-      <link>http://localhost:1313/posts/2017-12-16-graphql-php-symfony/</link>
+      <link>https://localhost:1313/posts/2017-12-16-graphql-php-symfony/</link>
       <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2017-12-16-graphql-php-symfony/</guid>
+      <guid>https://localhost:1313/posts/2017-12-16-graphql-php-symfony/</guid>
       <description>Disclaimer: this post is my own understanding of graphQL and how it may be implemented with Symfony. I&amp;rsquo;m quite sure this is not a &amp;ldquo;best practice&amp;rdquo; guide and this post may contain erros, so please remember this. I do not encourage anybody to build API the way it is described here. I would be really glad if you would leave your opinion in the comments below. Thanks for reading!
 In wikipedia we may find the following explanation:</description>
     </item>
-    
     <item>
       <title>New features in PHP 7&#43;</title>
-      <link>http://localhost:1313/posts/2017-10-08-php7-new-features/</link>
+      <link>https://localhost:1313/posts/2017-10-08-php7-new-features/</link>
       <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2017-10-08-php7-new-features/</guid>
+      <guid>https://localhost:1313/posts/2017-10-08-php7-new-features/</guid>
       <description>This post serves as a reminder, it is so easy to forget things nowadays. So here you go all in one list of PHP 7+ new features.
 Beware though, it is not 100% full, but 85-90% I think, I did omit some not-so-important features. I would be so glad if this article helped to save your time.
 Changes introduced in 7.0 Scalar type declarations
 An option to make PHP more stict on typing.</description>
     </item>
-    
     <item>
       <title>Discovery of an advanced JOIN clause in MySQL</title>
-      <link>http://localhost:1313/posts/2017-08-30-additional-criteria-in-the-join-clause/</link>
+      <link>https://localhost:1313/posts/2017-08-30-additional-criteria-in-the-join-clause/</link>
       <pubDate>Mon, 04 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2017-08-30-additional-criteria-in-the-join-clause/</guid>
+      <guid>https://localhost:1313/posts/2017-08-30-additional-criteria-in-the-join-clause/</guid>
       <description>A little disclaimer: this is just a short self-initialized-probably-never-released postmortem note.
 Today at work I was silly enough not to ask help from my colleagues, I&amp;rsquo;ve decided to deal with the problem myself and came up with a shitty solution.
 During code review horrible hackery was revaled and I was taugh to live a simple life.
 Lets consider the following - there are two tables:
 SELECT * FROM docs | id | rev | content | |----|-----|---------------------------------------------------| | 1 | 1 | The earth is flat | | 2 | 1 | One hundred angels can dance on the head of a pin | SELECT * FROM docvalues | id | doc_id | property_id | value | |----|--------|-------------|--------| | 1 | 1 | 10 | First | | 2 | 1 | 10 | Second | | 3 | 1 | 8 | Third | | 4 | 2 | 10 | Fourth | | 5 | 2 | 9 | Fifth | | 6 | 2 | 10 | Sixth | And what we need is to select all docs with docvalues where property_id is 9, thus we intend to get NULL result for those who does not have corresponding record in the docvalues.</description>
     </item>
-    
     <item>
       <title>PHP yield tl;dr</title>
-      <link>http://localhost:1313/posts/2017-08-30-php-yield-tldr/</link>
+      <link>https://localhost:1313/posts/2017-08-30-php-yield-tldr/</link>
       <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2017-08-30-php-yield-tldr/</guid>
+      <guid>https://localhost:1313/posts/2017-08-30-php-yield-tldr/</guid>
       <description>If you would like to run some php code samples, your own machine is fine, but I would recomment you to use 3v4l.org as a way to execute the code with ~200 different PHP version. That is pretty awesome.
 So for some time I avoided the yeild and all generator related stuff, honestly I did not get it from the first time and from the second time too&amp;hellip; as usual It took some time and perseverence from my side to grok that.</description>
     </item>
-    
     <item>
       <title>PHP variadic functions</title>
-      <link>http://localhost:1313/posts/2017-07-30-php-variadic-functions/</link>
+      <link>https://localhost:1313/posts/2017-07-30-php-variadic-functions/</link>
       <pubDate>Sun, 30 Jul 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2017-07-30-php-variadic-functions/</guid>
+      <guid>https://localhost:1313/posts/2017-07-30-php-variadic-functions/</guid>
       <description>So at first what is a variadic function ? A variadic function is a function that accepts a variable number of arguments, that is it!
 Starting from PHP 5.6 version we can write it using a special &amp;ldquo;splat&amp;rdquo; operator = ... So the simplest example would be this:
 function variadic(...$args) { return $args; } var_dump(variadic(1,2,3,4)); // and you get it in form of the array [1,2,3,4] In the earlier versions of PHP func_get_args() and func_num_args() were used in order to create variadic functions.</description>
     </item>
-    
     <item>
       <title>Encoging tl;dr</title>
-      <link>http://localhost:1313/posts/2017-05-28-encoding-tldr/</link>
+      <link>https://localhost:1313/posts/2017-05-28-encoding-tldr/</link>
       <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2017-05-28-encoding-tldr/</guid>
+      <guid>https://localhost:1313/posts/2017-05-28-encoding-tldr/</guid>
       <description>Well, this is my own version of TLDR for an amazing post by David C. Zentgraf. As a self-starter I always struggle to find a good source of information which would give me ample view on the subject and the post writtend by David revealed the whole world of encoding to me.
 Every text is just a sequence of bytes. Period. There are 128 symbols defined in ASCII table and out of 8 bits ASCII uses only 7.</description>
     </item>
-    
     <item>
       <title>Pragmatic Programmer synopsis</title>
-      <link>http://localhost:1313/posts/2017-01-14-pragmatic-programmer-synopsis/</link>
+      <link>https://localhost:1313/posts/2017-01-14-pragmatic-programmer-synopsis/</link>
       <pubDate>Sat, 14 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/posts/2017-01-14-pragmatic-programmer-synopsis/</guid>
+      <guid>https://localhost:1313/posts/2017-01-14-pragmatic-programmer-synopsis/</guid>
       <description>Here are all the tips from the book Pragmatic Programmer. It was published in October, 1999 and since then became one the best known books about software engineering. Just as I started to write this post, I found that Jeff Atwood already wrote about this post. But I like to finish what I started, so let there be yet another post praising this great book. The list is mostly copy-paste, some day I&amp;rsquo;ll have time to add my own comments to each Tip, though most if the Tips are pretty self-explanatory.</description>
     </item>
-    
-    
   </channel>
 </rss>

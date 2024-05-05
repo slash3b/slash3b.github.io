@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Nvim on Random notes to myself</title>
-    <link>http://localhost:1313/tags/nvim/</link>
+    <link>https://localhost:1313/tags/nvim/</link>
     <description>Recent content in Nvim on Random notes to myself</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.6</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jun 2022 17:29:38 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/nvim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jun 2022 17:29:38 +0200</lastBuildDate>
+    <atom:link href="https://localhost:1313/tags/nvim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VIM cheat sheet</title>
-      <link>http://localhost:1313/posts/2022-06-24-vim-notes/</link>
+      <link>https://localhost:1313/posts/2022-06-24-vim-notes/</link>
       <pubDate>Fri, 24 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/posts/2022-06-24-vim-notes/</guid>
+      <guid>https://localhost:1313/posts/2022-06-24-vim-notes/</guid>
       <description>These are my notes on &amp;ldquo;Mastering VIM&amp;rdquo; by Ruslan Osipov. Also contains my own knowledge.
 dd — delete line
 cc — delete line and go into INSERT mode
@@ -20,6 +20,5 @@ Movements uppercase is for &amp;ldquo;words separated by whitespace&amp;rdquo;
 e or E — move to the End of the word w or W — move between Words b or B — move Back _ jump to the beginning of the line
 :N where N is a number line.</description>
     </item>
-    
   </channel>
 </rss>

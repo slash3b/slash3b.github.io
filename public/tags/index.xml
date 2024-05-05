@@ -2,163 +2,130 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tags on Random notes to myself</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://localhost:1313/tags/</link>
     <description>Recent content in Tags on Random notes to myself</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.6</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate>
+    <atom:link href="https://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Go</title>
-      <link>http://localhost:1313/tags/go/</link>
-      <pubDate>Sun, 05 May 2024 15:48:38 +0300</pubDate>
-      
-      <guid>http://localhost:1313/tags/go/</guid>
+      <link>https://localhost:1313/tags/go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/go/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Networking</title>
-      <link>http://localhost:1313/tags/networking/</link>
-      <pubDate>Sat, 24 Jun 2023 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/networking/</guid>
+      <link>https://localhost:1313/tags/networking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/networking/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Memory Leak</title>
-      <link>http://localhost:1313/tags/memory-leak/</link>
-      <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/memory-leak/</guid>
+      <link>https://localhost:1313/tags/memory-leak/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/memory-leak/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Time.After</title>
-      <link>http://localhost:1313/tags/time.after/</link>
-      <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/time.after/</guid>
+      <link>https://localhost:1313/tags/time.after/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/time.after/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Nvim</title>
-      <link>http://localhost:1313/tags/nvim/</link>
-      <pubDate>Fri, 24 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/nvim/</guid>
+      <link>https://localhost:1313/tags/nvim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/nvim/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Vim</title>
-      <link>http://localhost:1313/tags/vim/</link>
-      <pubDate>Fri, 24 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/vim/</guid>
+      <link>https://localhost:1313/tags/vim/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/vim/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Golang</title>
-      <link>http://localhost:1313/tags/golang/</link>
-      <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/golang/</guid>
+      <link>https://localhost:1313/tags/golang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/golang/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SOLID</title>
-      <link>http://localhost:1313/tags/solid/</link>
-      <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/solid/</guid>
+      <link>https://localhost:1313/tags/solid/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/solid/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Garbage</title>
-      <link>http://localhost:1313/tags/garbage/</link>
-      <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/garbage/</guid>
+      <link>https://localhost:1313/tags/garbage/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/garbage/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>GC</title>
-      <link>http://localhost:1313/tags/gc/</link>
-      <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/gc/</guid>
+      <link>https://localhost:1313/tags/gc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/gc/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Sweep</title>
-      <link>http://localhost:1313/tags/sweep/</link>
-      <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/sweep/</guid>
+      <link>https://localhost:1313/tags/sweep/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/sweep/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Benchmark</title>
-      <link>http://localhost:1313/tags/benchmark/</link>
-      <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/benchmark/</guid>
+      <link>https://localhost:1313/tags/benchmark/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/benchmark/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Pprof</title>
-      <link>http://localhost:1313/tags/pprof/</link>
-      <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/pprof/</guid>
+      <link>https://localhost:1313/tags/pprof/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/pprof/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Profiler</title>
-      <link>http://localhost:1313/tags/profiler/</link>
-      <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
-      
-      <guid>http://localhost:1313/tags/profiler/</guid>
+      <link>https://localhost:1313/tags/profiler/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/profiler/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Cache</title>
-      <link>http://localhost:1313/tags/cache/</link>
-      <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
-      
-      <guid>http://localhost:1313/tags/cache/</guid>
+      <link>https://localhost:1313/tags/cache/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/cache/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>High Load</title>
-      <link>http://localhost:1313/tags/high-load/</link>
-      <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
-      
-      <guid>http://localhost:1313/tags/high-load/</guid>
+      <link>https://localhost:1313/tags/high-load/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/high-load/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>System Design</title>
-      <link>http://localhost:1313/tags/system-design/</link>
-      <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
-      
-      <guid>http://localhost:1313/tags/system-design/</guid>
+      <link>https://localhost:1313/tags/system-design/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://localhost:1313/tags/system-design/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
