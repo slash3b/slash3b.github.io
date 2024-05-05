@@ -1,278 +1,186 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>https://slash3b.github.io/posts/2022-07-25-networking-notes/</loc>
+    <loc>http://localhost:1313/tags/go/</loc>
+    <lastmod>2024-05-05T15:48:38+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</loc>
+    <lastmod>2024-05-05T15:48:38+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-05-05T15:48:38+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2024-05-05T15:48:38+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2024-05-05T15:48:38+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2022-07-25-networking-notes/</loc>
+    <lastmod>2023-06-24T17:29:38+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/networking/</loc>
+    <lastmod>2023-06-24T17:29:38+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</loc>
+    <lastmod>2022-11-13T01:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/memory-leak/</loc>
+    <lastmod>2022-11-13T01:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/time.after/</loc>
+    <lastmod>2022-11-13T01:00:00+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nvim/</loc>
     <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/go/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/vim/</loc>
     <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/networking/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2022-06-24-vim-notes/</loc>
     <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/nvim/</loc>
-    <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/</loc>
-    <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/</loc>
-    <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/</loc>
-    <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/vim/</loc>
-    <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2022-06-24-vim-notes/</loc>
-    <lastmod>2022-06-24T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/golang/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/golang/</loc>
     <lastmod>2022-06-06T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/solid/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/solid/</loc>
     <lastmod>2022-06-06T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2022-06-07-solid-go/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2022-06-07-solid-go/</loc>
     <lastmod>2022-06-06T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/garbage/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/garbage/</loc>
     <lastmod>2022-06-05T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/gc/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/gc/</loc>
     <lastmod>2022-06-05T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2022-06-05-notes-on-garbage-collection-in-go/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2022-06-05-notes-on-garbage-collection-in-go/</loc>
     <lastmod>2022-06-05T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/sweep/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/sweep/</loc>
     <lastmod>2022-06-05T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/benchmark/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/benchmark/</loc>
     <lastmod>2021-12-28T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/pprof/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/pprof/</loc>
     <lastmod>2021-12-28T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/profiler/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/profiler/</loc>
     <lastmod>2021-12-28T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2021-12-28-simple-case-of-golang-profiler-usage/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</loc>
     <lastmod>2021-12-28T17:29:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/cache/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/cache/</loc>
     <lastmod>2021-10-30T17:29:38+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/high-load/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/high-load/</loc>
     <lastmod>2021-10-30T17:29:38+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2021-10-30-notes-on-system-design/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2021-10-30-notes-on-system-design/</loc>
     <lastmod>2021-10-30T17:29:38+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/tags/system-design/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/system-design/</loc>
     <lastmod>2021-10-30T17:29:38+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2021-09-04-go-patterns/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2021-09-04-go-patterns/</loc>
     <lastmod>2021-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2021-06-26-go-in-action-notes/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2021-06-26-go-in-action-notes/</loc>
     <lastmod>2021-07-18T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-12-31-milestone-notes/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-12-31-milestone-notes/</loc>
     <lastmod>2020-12-31T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-12-26-building-microservices-notes/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-12-26-building-microservices-notes/</loc>
     <lastmod>2020-12-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-09-05-a-philosophy-of-software-design/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-09-05-a-philosophy-of-software-design/</loc>
     <lastmod>2020-09-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-05-08-design-data-intensive-applications/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-05-08-design-data-intensive-applications/</loc>
     <lastmod>2020-05-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-04-25-sql-fetch-doctrine-php/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-04-25-sql-fetch-doctrine-php/</loc>
     <lastmod>2020-04-25T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-03-14-detect-cycle-in-linked-list/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/</loc>
     <lastmod>2020-03-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-02-29-variance-php/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-02-29-variance-php/</loc>
     <lastmod>2020-02-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-02-08-acid-in-databases-concept/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-02-08-acid-in-databases-concept/</loc>
     <lastmod>2020-02-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2020-01-04-milestone-notes/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2020-01-04-milestone-notes/</loc>
     <lastmod>2020-01-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-09-28-my-chaotic-notes-on-rest-api/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-09-28-my-chaotic-notes-on-rest-api/</loc>
     <lastmod>2019-09-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-07-10-active-record-vs-data-mapper/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-07-10-active-record-vs-data-mapper/</loc>
     <lastmod>2019-07-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-06-08-proxy-pattern-in-php/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-06-08-proxy-pattern-in-php/</loc>
     <lastmod>2019-06-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-05-12-debud-unix-socket/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-05-30-ashamed/</loc>
+    <lastmod>2019-05-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-05-12-debud-unix-socket/</loc>
     <lastmod>2019-05-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-04-30-streams_redirection/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-04-30-streams_redirection/</loc>
     <lastmod>2019-04-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-04-13-inheritance-and-composition-in-php/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-04-13-inheritance-and-composition-in-php/</loc>
     <lastmod>2019-04-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-03-15-http-versions-difference/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-03-15-http-versions-difference/</loc>
     <lastmod>2019-03-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2019-02-17-visitor-design-pattern/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2019-02-17-visitor-design-pattern/</loc>
     <lastmod>2019-02-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2018-11-10-tcpdump-how-to/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2018-11-10-tcpdump-how-to/</loc>
     <lastmod>2018-11-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2018-08-02-mutation-testing-in-php/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2018-08-02-mutation-testing-in-php/</loc>
     <lastmod>2018-08-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2016-12-11-amazing-git-for-seasoned-developer/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2016-12-11-amazing-git-for-seasoned-developer/</loc>
     <lastmod>2018-06-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2018-05-20-how-to-sign-git-commit-with-gpg/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2018-05-20-how-to-sign-git-commit-with-gpg/</loc>
     <lastmod>2018-05-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2017-10-08-php7-new-features/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2017-12-16-graphql-php-symfony/</loc>
+    <lastmod>2017-12-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2017-10-08-php7-new-features/</loc>
     <lastmod>2017-10-08T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2017-08-30-additional-criteria-in-the-join-clause/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2017-08-30-additional-criteria-in-the-join-clause/</loc>
     <lastmod>2017-09-04T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2017-08-30-php-yield-tldr/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2017-08-30-php-yield-tldr/</loc>
     <lastmod>2017-08-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2017-07-30-php-variadic-functions/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2017-07-30-php-variadic-functions/</loc>
     <lastmod>2017-07-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2017-05-28-encoding-tldr/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2017-05-28-encoding-tldr/</loc>
     <lastmod>2017-05-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/posts/2017-01-14-pragmatic-programmer-synopsis/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/2017-01-14-pragmatic-programmer-synopsis/</loc>
     <lastmod>2017-01-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archives/</loc>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/archives/</loc>
-  </url>
-  
-  <url>
-    <loc>https://slash3b.github.io/categories/</loc>
-  </url>
-  
 </urlset>

@@ -1,192 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Variance in PHP | Random notes to myself</title>
-<meta name="keywords" content="">
-<meta name="description" content="Disclaimer: I might be wrong about variance. Buyer beware!
+<!doctype html><html lang=en dir=auto><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Variance in PHP | Random notes to myself</title>
+<meta name=keywords content><meta name=description content="Disclaimer: I might be wrong about variance. Buyer beware!
 Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.
 In general, a type constructor can be:
- Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well.">
-<meta name="author" content="">
-<link rel="canonical" href="https://slash3b.github.io/posts/2020-02-29-variance-php/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.41f2d211c00e636a3c229c52ef2d4299a66891ae66771098993b13bca7972ae6.css" integrity="sha256-QfLSEcAOY2o8IpxS7y1CmaZoka5mdxCYmTsTvKeXKuY=" rel="preload stylesheet" as="style">
-<script defer crossorigin="anonymous" src="/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js" integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG&#43;9vmJ0cTS&#43;ovo0FeA="
-    onload="hljs.initHighlightingOnLoad();"></script>
-<link rel="icon" href="https://slash3b.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://slash3b.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://slash3b.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://slash3b.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://slash3b.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --hljs-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-track {
-                background: 0 0;
-            }
-
-            .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
-            }
-        }
-
-    </style>
-</noscript><meta property="og:title" content="Variance in PHP" />
-<meta property="og:description" content="Disclaimer: I might be wrong about variance. Buyer beware!
+Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well."><meta name=author content><link rel=canonical href=http://localhost:1313/posts/2020-02-29-variance-php/><link crossorigin=anonymous href=/assets/css/stylesheet.bc1149f4a72aa4858d3a9f71462f75e5884ffe8073ea9d6d5761d5663d651e20.css integrity="sha256-vBFJ9KcqpIWNOp9xRi915YhP/oBz6p1tV2HVZj1lHiA=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script><link rel=icon href=http://localhost:1313/favicon.ico><link rel=icon type=image/png sizes=16x16 href=http://localhost:1313/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=http://localhost:1313/favicon-32x32.png><link rel=apple-touch-icon href=http://localhost:1313/apple-touch-icon.png><link rel=mask-icon href=http://localhost:1313/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=http://localhost:1313/posts/2020-02-29-variance-php/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="Variance in PHP"><meta property="og:description" content="Disclaimer: I might be wrong about variance. Buyer beware!
 Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.
 In general, a type constructor can be:
- Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://slash3b.github.io/posts/2020-02-29-variance-php/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2020-02-29T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-02-29T00:00:00&#43;00:00" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Variance in PHP"/>
-<meta name="twitter:description" content="Disclaimer: I might be wrong about variance. Buyer beware!
+Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well."><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/posts/2020-02-29-variance-php/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2020-02-29T00:00:00+00:00"><meta property="article:modified_time" content="2020-02-29T00:00:00+00:00"><meta property="og:site_name" content="Random notes to myself"><meta name=twitter:card content="summary"><meta name=twitter:title content="Variance in PHP"><meta name=twitter:description content="Disclaimer: I might be wrong about variance. Buyer beware!
 Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.
 In general, a type constructor can be:
- Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well."/>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [, 
-    {
-      "@type": "ListItem",
-      "position":  3 ,
-      "name": "Variance in PHP",
-      "item": "https://slash3b.github.io/posts/2020-02-29-variance-php/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Variance in PHP",
-  "name": "Variance in PHP",
-  "description": "Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\n Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well.",
-  "keywords": [
-    
-  ],
-  "articleBody": "Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\n Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well. Covariant: if the ordering of types is preserved (types are ordered from more specific to more generic). You can imagine hierarchy tree and follow it from leaves to the root (top most superclass). Contravariant: if it reverses the order (types are ordered from more generic to more specific). Traversing type hierarchy from the root to the leaves.  Here is an example of invariant return type in class hierarchy, note same return types:\n class A { function test() : self { return $this; } } class B extends A { function test() : A { return $this; } } var_dump((new B)-test()); In case you want to return self in B::test() PHP7.3 will return:\n Fatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18 Process exited with code 255. Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:\n return type might be more specific — contravariance parameter types might be less specific — covariance  I can not yet explain why both parameter and return types are not having both type of variance 🤔 You will be able to find much more info in original RFC linked below.\nAn example of covariance:\n class A { function test(stdClass $param) { return $param; } } class B extends A { function test(object $param) { return $param; } } var_dump((new B)-test(new ArrayObject)); In this example above we are being less specific expecting a more general type object instead of stdClass\nAnd contravariance looks like this:\n class A { function test(): A { return $this; } } class B extends A { function test(): B { return $this; } } var_dump((new B)-test()); Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. object retur type as it will be a covariant return type and you get an error:\n Fatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14 Resources:\nWhat’s New in PHP 7.4 (Features, Deprecations, Speed)\nPHP RFC: Covariant Returns and Contravariant Parameters\nWiki: Covariance and contravariance (computer science) Type constructor\n",
-  "wordCount" : "445",
-  "inLanguage": "en",
-  "datePublished": "2020-02-29T00:00:00Z",
-  "dateModified": "2020-02-29T00:00:00Z",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://slash3b.github.io/posts/2020-02-29-variance-php/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Random notes to myself",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://slash3b.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
-
-<body class="" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://slash3b.github.io" accesskey="h" title="Random notes to myself (Alt + H)">Random notes to myself</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-<article class="post-single">
-  <header class="post-header">
-    
-    <h1 class="post-title">
-      Variance in PHP
-    </h1>
-    <div class="post-meta"><span title='2020-02-29 00:00:00 +0000 UTC'>February 29, 2020</span>
-
-</div>
-  </header> 
-  <div class="post-content"><p><strong>Disclaimer</strong>: I might be wrong about variance. Buyer beware!</p>
-<p>Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.</p>
-<p>In general, a type constructor can be:</p>
-<ul>
-<li><strong>Invariant</strong>: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an <code>array</code> in some method of your super class — all sub-classes must comply and return <code>array</code> as well.</li>
-<li><strong>Covariant</strong>: if the ordering of types is preserved (types are ordered from more specific to more generic). You can imagine hierarchy tree and follow it from leaves to the root (top most superclass).</li>
-<li><strong>Contravariant</strong>: if it reverses the order (types are ordered from more generic to more specific). Traversing type hierarchy from the root to the leaves.</li>
-</ul>
-<p>Here is an example of invariant return type in class hierarchy, note <strong>same</strong> return types:</p>
-<pre><code>
+Invariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"http://localhost:1313/posts/"},{"@type":"ListItem","position":2,"name":"Variance in PHP","item":"http://localhost:1313/posts/2020-02-29-variance-php/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Variance in PHP","name":"Variance in PHP","description":"Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\nInvariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well.","keywords":[],"articleBody":"Disclaimer: I might be wrong about variance. Buyer beware!\nVariance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.\nIn general, a type constructor can be:\nInvariant: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an array in some method of your super class — all sub-classes must comply and return array as well. Covariant: if the ordering of types is preserved (types are ordered from more specific to more generic). You can imagine hierarchy tree and follow it from leaves to the root (top most superclass). Contravariant: if it reverses the order (types are ordered from more generic to more specific). Traversing type hierarchy from the root to the leaves. Here is an example of invariant return type in class hierarchy, note same return types:\nclass A { function test() : self { return $this; } } class B extends A { function test() : A { return $this; } } var_dump((new B)-\u003etest()); In case you want to return self in B::test() PHP7.3 will return:\nFatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18 Process exited with code 255. Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:\nreturn type might be more specific — contravariance parameter types might be less specific — covariance I can not yet explain why both parameter and return types are not having both type of variance 🤔 You will be able to find much more info in original RFC linked below.\nAn example of covariance:\nclass A { function test(stdClass $param) { return $param; } } class B extends A { function test(object $param) { return $param; } } var_dump((new B)-\u003etest(new ArrayObject)); In this example above we are being less specific expecting a more general type object instead of stdClass\nAnd contravariance looks like this:\nclass A { function test(): A { return $this; } } class B extends A { function test(): B { return $this; } } var_dump((new B)-\u003etest()); Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. object retur type as it will be a covariant return type and you get an error:\nFatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14 Resources:\nWhat’s New in PHP 7.4 (Features, Deprecations, Speed)\nPHP RFC: Covariant Returns and Contravariant Parameters\nWiki: Covariance and contravariance (computer science) Type constructor\n","wordCount":"445","inLanguage":"en","datePublished":"2020-02-29T00:00:00Z","dateModified":"2020-02-29T00:00:00Z","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:1313/posts/2020-02-29-variance-php/"},"publisher":{"@type":"Organization","name":"Random notes to myself","logo":{"@type":"ImageObject","url":"http://localhost:1313/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=http://localhost:1313/ accesskey=h title="Home (Alt + H)"><img src=http://localhost:1313/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button><ul class=lang-switch><li>|</li></ul></div></div><ul id=menu><li><a href=http://localhost:1313/archives/ title=archives><span>archives</span></a></li><li><a href=http://localhost:1313/tags/ title=tags><span>tags</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class=post-title>Variance in PHP</h1><div class=post-meta>&lt;span title='2020-02-29 00:00:00 +0000 UTC'>February 29, 2020&lt;/span>&amp;nbsp;·&amp;nbsp;3 min&amp;nbsp;·&amp;nbsp;445 words&nbsp;|&nbsp;<a href=https://github.com/slash3b/slash3b.github.io/content/posts/2020-02-29-variance-php.markdown rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><div class=post-content><p><strong>Disclaimer</strong>: I might be wrong about variance. Buyer beware!</p><p>Variance is a property of class hierarchies describing how the types of a type constructor affect subtypes. Type constructor is a thingy that builds new types from the old ones.</p><p>In general, a type constructor can be:</p><ul><li><strong>Invariant</strong>: if the type of the super-type constrain the type of the subtype. In plain english if you say you return an <code>array</code> in some method of your super class — all sub-classes must comply and return <code>array</code> as well.</li><li><strong>Covariant</strong>: if the ordering of types is preserved (types are ordered from more specific to more generic). You can imagine hierarchy tree and follow it from leaves to the root (top most superclass).</li><li><strong>Contravariant</strong>: if it reverses the order (types are ordered from more generic to more specific). Traversing type hierarchy from the root to the leaves.</li></ul><p>Here is an example of invariant return type in class hierarchy, note <strong>same</strong> return types:</p><pre tabindex=0><code>
 class A
 {
     function test() : self
@@ -204,22 +26,12 @@ class B extends A
 }
 
 var_dump((new B)-&gt;test());
-
-</code></pre><p>In case you want to return <code>self</code> in <code>B::test()</code> PHP7.3 will return:</p>
-<pre><code>
+</code></pre><p>In case you want to return <code>self</code> in <code>B::test()</code> PHP7.3 will return:</p><pre tabindex=0><code>
 Fatal error: Declaration of B::test(): B must be compatible with A::test(): A in /in/1pF3k on line 18
 
 Process exited with code 255.
-
-</code></pre><p>Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:</p>
-<ul>
-<li>return type might be more specific — contravariance</li>
-<li>parameter types might be less specific — covariance</li>
-</ul>
-<p>I can not yet explain why both parameter and return types are not having both type of variance 🤔
-You will be able to find much more info in original RFC linked below.</p>
-<p>An example of covariance:</p>
-<pre><code>
+</code></pre><p>Since PHP7.4 we have a covariance and contravariance in parameter and return types. It boils down to the following:</p><ul><li>return type might be more specific — contravariance</li><li>parameter types might be less specific — covariance</li></ul><p>I can not yet explain why both parameter and return types are not having both type of variance 🤔
+You will be able to find much more info in original RFC linked below.</p><p>An example of covariance:</p><pre tabindex=0><code>
 class A
 {
     function test(stdClass $param)
@@ -237,10 +49,7 @@ class B extends A
 }
 
 var_dump((new B)-&gt;test(new ArrayObject));
-
-</code></pre><p>In this example above we are being less specific expecting a more general type <code>object</code> instead of <code>stdClass</code></p>
-<p>And contravariance looks like this:</p>
-<pre><code>
+</code></pre><p>In this example above we are being less specific expecting a more general type <code>object</code> instead of <code>stdClass</code></p><p>And contravariance looks like this:</p><pre tabindex=0><code>
 class A
 {
     function test(): A
@@ -258,95 +67,11 @@ class B extends A
 }
 
 var_dump((new B)-&gt;test());
-
-</code></pre><p>Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. <code>object</code> retur type as it will be a covariant return type and you get an error:</p>
-<pre><code>
+</code></pre><p>Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. <code>object</code> retur type as it will be a covariant return type and you get an error:</p><pre tabindex=0><code>
 Fatal error: Declaration of B::test(): object must be compatible with A::test(): A in /tmp/preview on line 14
-
-
-</code></pre><p>Resources:<br>
-<a href="https://kinsta.com/blog/php-7-4">What’s New in PHP 7.4 (Features, Deprecations, Speed)</a><br>
-<a href="https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters">PHP RFC: Covariant Returns and Contravariant Parameters</a><br>
-<a href="https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)">Wiki: Covariance and contravariance (computer science)</a> <a href="https://en.wikipedia.org/wiki/Type_constructor">Type constructor</a></p>
-
-
-  </div>
-
-  <footer class="post-footer">
-    <ul class="post-tags">
-    </ul>
-  </footer>
-</article>
-    </main>
-    
-<footer class="footer">
-    <span>&copy; 2022 <a href="https://slash3b.github.io">Random notes to myself</a></span>
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-
-<script>
-    let menu = document.getElementById('menu')
-    if (menu) {
-        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+</code></pre><p>Resources:<br><a href=https://kinsta.com/blog/php-7-4>What’s New in PHP 7.4 (Features, Deprecations, Speed)</a><br><a href=https://wiki.php.net/rfc/covariant-returns-and-contravariant-parameters>PHP RFC: Covariant Returns and Contravariant Parameters</a><br><a href=https://en.wikipedia.org/wiki/Covariance_and_contravariance_(computer_science)>Wiki: Covariance and contravariance (computer science)</a> <a href=https://en.wikipedia.org/wiki/Type_constructor>Type constructor</a></p></div><footer class=post-footer><ul class=post-tags></ul><nav class=paginav><a class=prev href=http://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/><span class=title>« Prev</span><br><span>Detect cycle in singly linked list (python)</span>
+</a><a class=next href=http://localhost:1313/posts/2020-02-08-acid-in-databases-concept/><span class=title>Next »</span><br><span>ACID concept</span></a></nav></footer></article></main><footer class=footer><span>&copy; 2024 <a href=http://localhost:1313/>Random notes to myself</a></span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg>
+</a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
