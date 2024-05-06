@@ -1,6 +1,7 @@
 ---
 title: ""  
 date: 2023-06-24T17:29:38+02:00
+draft: true
 tags: ["networking", "go"]
 ---
 
