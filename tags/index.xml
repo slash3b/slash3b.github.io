@@ -4,152 +4,121 @@
     <title>Tags on Random notes to myself</title>
     <link>https://slash3b.github.io/tags/</link>
     <description>Recent content in Tags on Random notes to myself</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.125.6</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Nov 2022 01:00:00 +0200</lastBuildDate><atom:link href="https://slash3b.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate>
+    <atom:link href="https://slash3b.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>go</title>
+      <title>Go</title>
       <link>https://slash3b.github.io/tags/go/</link>
-      <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/go/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>memory leak</title>
+      <title>Memory Leak</title>
       <link>https://slash3b.github.io/tags/memory-leak/</link>
-      <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/memory-leak/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>time.After</title>
+      <title>Time.After</title>
       <link>https://slash3b.github.io/tags/time.after/</link>
-      <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/time.after/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>nvim</title>
+      <title>Nvim</title>
       <link>https://slash3b.github.io/tags/nvim/</link>
-      <pubDate>Fri, 24 Jun 2022 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/nvim/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>vim</title>
+      <title>Vim</title>
       <link>https://slash3b.github.io/tags/vim/</link>
-      <pubDate>Fri, 24 Jun 2022 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/vim/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>golang</title>
+      <title>Golang</title>
       <link>https://slash3b.github.io/tags/golang/</link>
-      <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/golang/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>SOLID</title>
       <link>https://slash3b.github.io/tags/solid/</link>
-      <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/solid/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>garbage</title>
+      <title>Garbage</title>
       <link>https://slash3b.github.io/tags/garbage/</link>
-      <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/garbage/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>GC</title>
       <link>https://slash3b.github.io/tags/gc/</link>
-      <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/gc/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>sweep</title>
+      <title>Sweep</title>
       <link>https://slash3b.github.io/tags/sweep/</link>
-      <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/sweep/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>benchmark</title>
+      <title>Benchmark</title>
       <link>https://slash3b.github.io/tags/benchmark/</link>
-      <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/benchmark/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>pprof</title>
+      <title>Pprof</title>
       <link>https://slash3b.github.io/tags/pprof/</link>
-      <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/pprof/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>profiler</title>
+      <title>Profiler</title>
       <link>https://slash3b.github.io/tags/profiler/</link>
-      <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/profiler/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cache</title>
+      <title>Cache</title>
       <link>https://slash3b.github.io/tags/cache/</link>
-      <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/cache/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>high load</title>
+      <title>High Load</title>
       <link>https://slash3b.github.io/tags/high-load/</link>
-      <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/high-load/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>system design</title>
+      <title>System Design</title>
       <link>https://slash3b.github.io/tags/system-design/</link>
-      <pubDate>Sat, 30 Oct 2021 17:29:38 +0300</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://slash3b.github.io/tags/system-design/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

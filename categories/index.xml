@@ -4,7 +4,8 @@
     <title>Categories on Random notes to myself</title>
     <link>https://slash3b.github.io/categories/</link>
     <description>Recent content in Categories on Random notes to myself</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://slash3b.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.125.6</generator>
+    <language>en-us</language>
+    <atom:link href="https://slash3b.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
