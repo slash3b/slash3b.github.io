@@ -23,19 +23,19 @@ params:
   # author: ["Me", "You"] # multiple authors
   # images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
+  defaultTheme: light # dark, light
+  disableThemeToggle: true
 
   ShowReadingTime: true
-  # ShowShareButtons: true
-  ShowPostNavLinks: true
-  # ShowBreadCrumbs: true
+  ShowShareButtons: false
+  ShowPostNavLinks: false
+  ShowBreadCrumbs: false
   ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   # UseHugoToc: true
   # disableSpecial1stPost: false
-  # disableScrollToTop: false
+  disableScrollToTop: true
   # comments: false
   # hidemeta: false
   # hideSummary: false
@@ -77,8 +77,8 @@ params:
   #   Content: Welcome to my blog
 
   socialIcons:
-    # - name: twitter
-    #   url: "https://twitter.com/"
+    - name: twitter
+      url: "https://twitter.com/slash3b"
     # - name: stackoverflow
     #   url: "https://stackoverflow.com"
     # - name: github
@@ -128,12 +128,13 @@ menu:
     #   weight: 30
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 # pygmentsUseClasses: true
+#
+# highlight examples
+# https://gohugo.io/getting-started/configuration-markup/#highlight
 markup:
   highlight:
-    noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    style: algol
+    codeFences: true
+    lineNos: true
+
 

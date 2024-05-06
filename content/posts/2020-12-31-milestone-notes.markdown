@@ -1,7 +1,6 @@
 ---
 layout: post
 date: 2020-12-31
-comments: true
 title: "Milestone notes"
 ---
 
