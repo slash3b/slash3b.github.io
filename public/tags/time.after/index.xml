@@ -15,7 +15,7 @@
       <guid>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</guid>
       <description>It was only an accident that I read a post on ArangoDB site and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have it in form of a blogpost.
 Here is how leak looked like:
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { messags := make(chan string) for { select { case msg := &amp;lt;- messages: // do smth with msg fmt.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { messags := make(chan string) for { select { case msg := &amp;lt;- messages: // do smth with msg fmt.</description>
     </item>
   </channel>
 </rss>

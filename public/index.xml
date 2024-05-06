@@ -13,9 +13,10 @@
       <link>https://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</link>
       <pubDate>Sun, 05 May 2024 15:48:38 +0300</pubDate>
       <guid>https://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</guid>
-      <description>Hello world.
-Links:
-foo </description>
+      <description>This snippet of code got me off guard.
+Having a somewhat decent experience with golang I could not explain what is it doing and it took me embarrassingly a lot of time to figure out a sound explanation for what was going on.
+After I figured out the answer, I think that my sleep deprivation just played tricks on me. Still let&amp;rsquo;s dig into this.
+Down below is the same snippet but with a slice of integers for simplicity:</description>
     </item>
     <item>
       <title></title>
@@ -31,7 +32,7 @@ foo </description>
       <guid>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</guid>
       <description>It was only an accident that I read a post on ArangoDB site and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have it in form of a blogpost.
 Here is how leak looked like:
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { messags := make(chan string) for { select { case msg := &amp;lt;- messages: // do smth with msg fmt.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { messags := make(chan string) for { select { case msg := &amp;lt;- messages: // do smth with msg fmt.</description>
     </item>
     <item>
       <title>VIM cheat sheet</title>
@@ -214,15 +215,6 @@ In computer programming, the proxy pattern is a software design pattern. A proxy
 Design Patterns. Elements of Reusable Object-Oriented Software:
 Provide a surrogate or placeholder for another object to control access to it.
 There are a few reasons to use Proxy pattern and control access to the underlying object:</description>
-    </item>
-    <item>
-      <title>Mixed feelings about being programmer in Moldova</title>
-      <link>https://localhost:1313/posts/2019-05-30-ashamed/</link>
-      <pubDate>Thu, 30 May 2019 00:00:00 +0000</pubDate>
-      <guid>https://localhost:1313/posts/2019-05-30-ashamed/</guid>
-      <description>This is just a personal rant on the current situation.
-Moldova is a third world country, Moldova is a very poor country. In the capital - Chishinau, on average you earn ~500 euros per month. That&amp;rsquo;s bearable but basically not enough. Not enough to feel yourself steady on your legs so to speak.
-On the other side if you are an IT &amp;ldquo;specialist&amp;rdquo;, lets use this vague term, then you can earn from ~1k euros per month.</description>
     </item>
     <item>
       <title>How to send request to UNIX socket</title>
