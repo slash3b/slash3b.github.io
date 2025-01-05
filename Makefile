@@ -1,5 +1,6 @@
 install:
-	go install github.com/gohugoio/hugo@latest
+	# at the time of writing — latest compatible version
+	go install github.com/gohugoio/hugo@0.123.0
 
 run:
 	hugo serve -DEF --disableFastRender --printMemoryUsage --tlsAuto

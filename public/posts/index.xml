@@ -4,7 +4,7 @@
     <title>Posts on Random notes to myself</title>
     <link>https://localhost:1313/posts/</link>
     <description>Recent content in Posts on Random notes to myself</description>
-    <generator>Hugo -- 0.125.6</generator>
+    <generator>Hugo -- 0.123.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate>
     <atom:link href="https://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
@@ -105,14 +105,6 @@ Reference types in Go:
 string slice map channel interface function The decision to use value or pointer receiver should not be based on whether method is mutating given value or not.</description>
     </item>
     <item>
-      <title>Milestone notes</title>
-      <link>https://localhost:1313/posts/2020-12-31-milestone-notes/</link>
-      <pubDate>Thu, 31 Dec 2020 00:00:00 +0000</pubDate>
-      <guid>https://localhost:1313/posts/2020-12-31-milestone-notes/</guid>
-      <description>How it went:
-I did manage to escape sucky job at Pentalog. What a relief! My wife Tatiana was looking through local job ad board and found an ad for Go. I managed to land it, yay! It is an interesting project and I like it. Teams seems to be strong and much saner. There is a lot of stuff to do. And I&amp;rsquo;m writing Golang which is amazing! It is a little dream that came true.</description>
-    </item>
-    <item>
       <title>Notes on Building Microservices by Sam Newman</title>
       <link>https://localhost:1313/posts/2020-12-26-building-microservices-notes/</link>
       <pubDate>Sat, 26 Dec 2020 00:00:00 +0000</pubDate>
@@ -176,14 +168,6 @@ Invariant: if the type of the super-type constrain the type of the subtype. In p
 ACID stands for Atomicity, Consistency, Isolation, and Durability
 It was first coined by Andreas Reuter and Theo Härder in 1983 in attempt to describe all that is necessary for the database to be fault-tolerant as much as possible.
 Atomicity Database should support transaction, namely you should be able to group you request statemets and execute them at once.</description>
-    </item>
-    <item>
-      <title>Milestone notes</title>
-      <link>https://localhost:1313/posts/2020-01-04-milestone-notes/</link>
-      <pubDate>Sat, 04 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://localhost:1313/posts/2020-01-04-milestone-notes/</guid>
-      <description>For this new year I plan to:
-find a better job where I will be appreciated as a professional Current job sucks, it boils down to this — I want to paint pictures and I hope one day to be able to create a masterpiece, but I&amp;rsquo;m forced to paint fences with guys who are totally happy to paint fences till the rest of their lives be better at algorithmic problems, I&amp;rsquo;m better now, but still suck.</description>
     </item>
     <item>
       <title>My chaotic notes on REST API</title>
