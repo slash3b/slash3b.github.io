@@ -4,7 +4,7 @@
     <title>Pprof on Random notes to myself</title>
     <link>https://localhost:1313/tags/pprof/</link>
     <description>Recent content in Pprof on Random notes to myself</description>
-    <generator>Hugo -- 0.123.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 28 Dec 2021 17:29:38 +0200</lastBuildDate>
     <atom:link href="https://localhost:1313/tags/pprof/index.xml" rel="self" type="application/rss+xml" />
@@ -13,10 +13,13 @@
       <link>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</link>
       <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid>
-      <description>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
-But it was not the fastest one.
-But then I though — how do I profile buildTree function and see what actually takes time in my program?
-Golang has an excellent set of tool available, just check an output of go tool. One of the items in a list you&amp;rsquo;ll see is pprof which is a Golang profiler.</description>
+      <description>&lt;p&gt;So I was solving &lt;a href=&#34;https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/&#34;&gt;Construct Binary Tree from Inorder and Postorder Traversal&lt;/a&gt;
+and I got myself more less working solution that got accepted.&lt;/p&gt;
+&lt;p&gt;But it was not the fastest one.&lt;/p&gt;
+&lt;p&gt;But then I though — how do I profile &lt;code&gt;buildTree&lt;/code&gt; function and see what actually takes time
+in my program?&lt;/p&gt;
+&lt;p&gt;Golang has an excellent set of tool available, just check an output of &lt;code&gt;go tool&lt;/code&gt;.
+One of the items in a list you&amp;rsquo;ll see is &lt;code&gt;pprof&lt;/code&gt; which is a Golang profiler.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

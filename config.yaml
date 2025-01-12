@@ -1,6 +1,7 @@
 baseURL: "https://slash3b.github.io"
 title: "Random notes to myself"
-paginate: 5
+pagination:
+  pagerSize: 10
 theme: PaperMod
 languageCode: "en-us"
 enableRobotsTXT: true
@@ -41,6 +42,15 @@ params:
   # hideSummary: false
   # showtoc: false
   # tocopen: false
+  social:
+    x: slash3b
+  favicon:
+    icon: "favicon/favicon.ico"  # Path to your favicon file (relative to static)
+    appleTouchIcon: "favicon/apple-touch-icon.png"  # Path to your Apple Touch Icon
+    androidIcon: "favicon/android-chrome-192x192.png"  # Path to your Android icon
+    androidIcon512: "favicon/android-chrome-512x512.png"  # Path to your larger Android icon
+    msTileImage: "favicon/mstile-144x144.png"  # Path to Microsoft tile image
+    safariPinnedTab: "favicon/safari-pinned-tab.svg"  # Path to Safari pinned tab icon
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -70,27 +80,6 @@ params:
         url: posts
       - name: Tags
         url: tags
-
-  # home-info mode
-  # homeInfoParams:
-  #   Title: "Hi there \U0001F44B"
-  #   Content: Welcome to my blog
-
-  socialIcons:
-    - name: twitter
-      url: "https://twitter.com/slash3b"
-    # - name: stackoverflow
-    #   url: "https://stackoverflow.com"
-    # - name: github
-    #   url: "https://github.com/"
-
-  # analytics:
-  #   google:
-  #     SiteVerificationTag: "XYZabc"
-  #   bing:
-  #     SiteVerificationTag: "XYZabc"
-  #   yandex:
-  #     SiteVerificationTag: "XYZabc"
 
   cover:
     hidden: true # hide everywhere but not in structured data
@@ -136,5 +125,11 @@ markup:
     style: algol
     codeFences: true
     lineNos: true
+  goldmark:
+    renderer:
+      unsafe: false
+
+ignoreLogs:
+  - 'warning-goldmark-raw-html'
 
 

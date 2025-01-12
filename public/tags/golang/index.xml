@@ -4,7 +4,7 @@
     <title>Golang on Random notes to myself</title>
     <link>https://localhost:1313/tags/golang/</link>
     <description>Recent content in Golang on Random notes to myself</description>
-    <generator>Hugo -- 0.123.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Jun 2022 17:29:38 +0200</lastBuildDate>
     <atom:link href="https://localhost:1313/tags/golang/index.xml" rel="self" type="application/rss+xml" />
@@ -13,28 +13,53 @@
       <link>https://localhost:1313/posts/2022-06-07-solid-go/</link>
       <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2022-06-07-solid-go/</guid>
-      <description>SOLID is a famous cargo-cult that is used to poke &amp;ldquo;bad&amp;rdquo; code during code review. Jokes aside there are some solid, pun intended, ideas within SOLID. This post is yet another attempt to dismantle this set of principles and understand them better.
-The SOLID stands for(pasted from wiki):
-S ingle-responsibility principle: &amp;ldquo;There should never be more than one reason for a class to change.&amp;ldquo;In other words, every class should have only one responsibility O pen–closed principle: &amp;ldquo;Software entities &amp;hellip; should be open for extension, but closed for modification.</description>
+      <description>&lt;p&gt;SOLID is a famous cargo-cult that is used to poke &amp;ldquo;bad&amp;rdquo; code during code review. Jokes aside there are some solid, pun
+intended, ideas within SOLID. This post is yet another attempt to dismantle this set of principles and understand them
+better.&lt;/p&gt;
+&lt;p&gt;The SOLID stands for(pasted from wiki):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt; ingle-responsibility principle: &amp;ldquo;There should never be more than one reason for a class to change.&amp;ldquo;In other words, every class should have only one responsibility&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt; pen–closed principle: &amp;ldquo;Software entities &amp;hellip; should be open for extension, but closed for modification.&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;L&lt;/strong&gt; iskov substitution principle: &amp;ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&amp;ldquo;See also design by contract.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; nterface segregation principle: &amp;ldquo;Many client-specific interfaces are better than one general-purpose interface.&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt; ependency inversion principle: &amp;ldquo;Depend upon abstractions, [not] concretions.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;s&#34;&gt;S&lt;/h3&gt;
+&lt;h5 id=&#34;single-responsibility&#34;&gt;single responsibility&lt;/h5&gt;
+&lt;p&gt;Out of all these, only first one makes sense right away. If you are not a complete beginner, you won&amp;rsquo;t create a
+struct that does shipping calculation, checks weather condition, sends push notification and orders pizza. Don&amp;rsquo;t you?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Notes on Garbage Collection in Golang</title>
       <link>https://localhost:1313/posts/2022-06-05-notes-on-garbage-collection-in-go/</link>
       <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2022-06-05-notes-on-garbage-collection-in-go/</guid>
-      <description>Garbage Collection is a process of freeing memory that is allocated and contains some data that is not being used.
-Notes:
-by doing escape analysis GC mechanism decides what goes to heap and what stays on stack use -gcflags &#39;-m&#39; flag to get escape analysis info, e.g. go run -gcflags &#39;-m&#39; main.go another way to look into what GC is doing during runtime is to run program with GODEBUG=gctrace=1 GC runs consurrently with main program running main running program is called &amp;ldquo;mutator&amp;rdquo; Golang Garbage Collection uses &amp;ldquo;tricolor algorithm&amp;rdquo; otherwise known as tricolor mark and sweep algorithm.</description>
+      <description>&lt;p&gt;Garbage Collection is a process of freeing memory that is allocated and contains some data that is not being used.&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;by doing &lt;strong&gt;escape analysis&lt;/strong&gt; GC mechanism decides what goes to heap and what stays on stack&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;-gcflags &#39;-m&#39;&lt;/code&gt; flag to get escape analysis info, e.g. &lt;code&gt;go run -gcflags &#39;-m&#39; main.go&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;another way to look into what GC is doing during runtime is to run program with &lt;code&gt;GODEBUG=gctrace=1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;GC runs consurrently with main program running&lt;/li&gt;
+&lt;li&gt;main running program is called &amp;ldquo;mutator&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Golang Garbage Collection uses &amp;ldquo;tricolor algorithm&amp;rdquo; otherwise known as tricolor mark and sweep algorithm.&lt;/li&gt;
+&lt;li&gt;GC represents data in the heap as graph of elements/objects&lt;/li&gt;
+&lt;li&gt;channels are also garbage collected when they become unreachable, even if channel is not closed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sources:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Simple case of profiler usage in golang</title>
       <link>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</link>
       <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid>
-      <description>So I was solving Construct Binary Tree from Inorder and Postorder Traversal and I got myself more less working solution that got accepted.
-But it was not the fastest one.
-But then I though — how do I profile buildTree function and see what actually takes time in my program?
-Golang has an excellent set of tool available, just check an output of go tool. One of the items in a list you&amp;rsquo;ll see is pprof which is a Golang profiler.</description>
+      <description>&lt;p&gt;So I was solving &lt;a href=&#34;https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/&#34;&gt;Construct Binary Tree from Inorder and Postorder Traversal&lt;/a&gt;
+and I got myself more less working solution that got accepted.&lt;/p&gt;
+&lt;p&gt;But it was not the fastest one.&lt;/p&gt;
+&lt;p&gt;But then I though — how do I profile &lt;code&gt;buildTree&lt;/code&gt; function and see what actually takes time
+in my program?&lt;/p&gt;
+&lt;p&gt;Golang has an excellent set of tool available, just check an output of &lt;code&gt;go tool&lt;/code&gt;.
+One of the items in a list you&amp;rsquo;ll see is &lt;code&gt;pprof&lt;/code&gt; which is a Golang profiler.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

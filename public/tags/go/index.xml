@@ -4,7 +4,7 @@
     <title>Go on Random notes to myself</title>
     <link>https://localhost:1313/tags/go/</link>
     <description>Recent content in Go on Random notes to myself</description>
-    <generator>Hugo -- 0.123.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate>
     <atom:link href="https://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
@@ -13,26 +13,88 @@
       <link>https://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</link>
       <pubDate>Sun, 05 May 2024 15:48:38 +0300</pubDate>
       <guid>https://localhost:1313/posts/2024-05-05-go-slices-mind-twister/</guid>
-      <description>This snippet of code got me off guard.
-Having a somewhat decent experience with golang I could not explain what is it doing and it took me embarrassingly a lot of time to figure out a sound explanation for what was going on.
-After I figured out the answer, I think that my sleep deprivation just played tricks on me. Still let&amp;rsquo;s dig into this.
-Down below is the same snippet but with a slice of integers for simplicity:</description>
+      <description>&lt;p&gt;This &lt;a href=&#34;https://gist.github.com/janosdebugs/f0a3b91a0a070ffb067de4dc22a93c64&#34;&gt;snippet&lt;/a&gt; of code got me off guard.&lt;br&gt;
+Having a somewhat decent experience with golang I could not explain what is it doing and it took me embarrassingly a lot of time to figure out a sound explanation for what was going on.&lt;/p&gt;
+&lt;p&gt;After I figured out the answer, I think that my sleep deprivation just played tricks on me. Still let&amp;rsquo;s dig into this.&lt;/p&gt;
+&lt;p&gt;Down below is the same snippet but with a slice of integers for simplicity:&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>https://localhost:1313/posts/2022-07-25-networking-notes/</link>
       <pubDate>Sat, 24 Jun 2023 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2022-07-25-networking-notes/</guid>
-      <description>Bandwidth — amount of data we can send over a period of time Latency — time it takes to send a request and receive a response</description>
+      <description>&lt;p&gt;Bandwidth — amount of data we can send over a period of time
+Latency — time it takes to send a request and receive a response&lt;/p&gt;</description>
     </item>
     <item>
       <title>Case of a leaking timer in go</title>
       <link>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</link>
       <pubDate>Sun, 13 Nov 2022 01:00:00 +0200</pubDate>
       <guid>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</guid>
-      <description>It was only an accident that I read a post on ArangoDB site and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have it in form of a blogpost.
-Here is how leak looked like:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;runtime&amp;#34; &amp;#34;time&amp;#34; ) func main() { messags := make(chan string) for { select { case msg := &amp;lt;- messages: // do smth with msg fmt.</description>
+      <description>&lt;p&gt;It was only an accident that I read a &lt;a href=&#34;https://www.arangodb.com/2020/09/a-story-of-a-memory-leak-in-go-how-to-properly-use-time-after&#34;&gt;post on ArangoDB site&lt;/a&gt;
+and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have
+it in form of a blogpost.&lt;/p&gt;
+&lt;p&gt;Here is how leak looked like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
+&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 1
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 2
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 3
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 4
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 5
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 6
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 7
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 8
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt; 9
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;10
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;11
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;12
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;13
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;14
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;15
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;16
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;17
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;18
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;19
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;20
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;21
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;22
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;23
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;24
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;25
+&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;26
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;package&lt;/span&gt; main
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;import&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;runtime&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;time&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold;font-style:italic;text-decoration:underline&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        messags := &lt;span style=&#34;font-weight:bold;font-style:italic&#34;&gt;make&lt;/span&gt;(&lt;span style=&#34;font-weight:bold;font-style:italic;text-decoration:underline&#34;&gt;chan&lt;/span&gt; &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;string&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;for&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;select&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; msg := &amp;lt;- messages:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth with msg
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;&lt;/span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(msg)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;return&lt;/span&gt; msg
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; &amp;lt;-time.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;After&lt;/span&gt;(time.Second * 3):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth else
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;&lt;/span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;3 sec timer fired&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; &amp;lt;-time.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;After&lt;/span&gt;(time.Second * 30):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;30 sec timer fired&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;return&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;what-is-wrong-with-it&#34;&gt;What is wrong with it?&lt;/h3&gt;
+&lt;p&gt;There is a lot:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

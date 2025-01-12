@@ -4,7 +4,7 @@
     <title>SOLID on Random notes to myself</title>
     <link>https://localhost:1313/tags/solid/</link>
     <description>Recent content in SOLID on Random notes to myself</description>
-    <generator>Hugo -- 0.123.0</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Jun 2022 17:29:38 +0200</lastBuildDate>
     <atom:link href="https://localhost:1313/tags/solid/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,21 @@
       <link>https://localhost:1313/posts/2022-06-07-solid-go/</link>
       <pubDate>Mon, 06 Jun 2022 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2022-06-07-solid-go/</guid>
-      <description>SOLID is a famous cargo-cult that is used to poke &amp;ldquo;bad&amp;rdquo; code during code review. Jokes aside there are some solid, pun intended, ideas within SOLID. This post is yet another attempt to dismantle this set of principles and understand them better.
-The SOLID stands for(pasted from wiki):
-S ingle-responsibility principle: &amp;ldquo;There should never be more than one reason for a class to change.&amp;ldquo;In other words, every class should have only one responsibility O pen–closed principle: &amp;ldquo;Software entities &amp;hellip; should be open for extension, but closed for modification.</description>
+      <description>&lt;p&gt;SOLID is a famous cargo-cult that is used to poke &amp;ldquo;bad&amp;rdquo; code during code review. Jokes aside there are some solid, pun
+intended, ideas within SOLID. This post is yet another attempt to dismantle this set of principles and understand them
+better.&lt;/p&gt;
+&lt;p&gt;The SOLID stands for(pasted from wiki):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt; ingle-responsibility principle: &amp;ldquo;There should never be more than one reason for a class to change.&amp;ldquo;In other words, every class should have only one responsibility&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt; pen–closed principle: &amp;ldquo;Software entities &amp;hellip; should be open for extension, but closed for modification.&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;L&lt;/strong&gt; iskov substitution principle: &amp;ldquo;Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.&amp;ldquo;See also design by contract.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; nterface segregation principle: &amp;ldquo;Many client-specific interfaces are better than one general-purpose interface.&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt; ependency inversion principle: &amp;ldquo;Depend upon abstractions, [not] concretions.&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;s&#34;&gt;S&lt;/h3&gt;
+&lt;h5 id=&#34;single-responsibility&#34;&gt;single responsibility&lt;/h5&gt;
+&lt;p&gt;Out of all these, only first one makes sense right away. If you are not a complete beginner, you won&amp;rsquo;t create a
+struct that does shipping calculation, checks weather condition, sends push notification and orders pizza. Don&amp;rsquo;t you?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
