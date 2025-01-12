@@ -4,7 +4,7 @@
     <title>Networking on Random notes to myself</title>
     <link>https://localhost:1313/tags/networking/</link>
     <description>Recent content in Networking on Random notes to myself</description>
-    <generator>Hugo -- 0.125.6</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 24 Jun 2023 17:29:38 +0200</lastBuildDate>
     <atom:link href="https://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
@@ -13,7 +13,8 @@
       <link>https://localhost:1313/posts/2022-07-25-networking-notes/</link>
       <pubDate>Sat, 24 Jun 2023 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2022-07-25-networking-notes/</guid>
-      <description>Bandwidth — amount of data we can send over a period of time Latency — time it takes to send a request and receive a response</description>
+      <description>&lt;p&gt;Bandwidth — amount of data we can send over a period of time
+Latency — time it takes to send a request and receive a response&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

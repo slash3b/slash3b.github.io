@@ -4,7 +4,7 @@
     <title>Sweep on Random notes to myself</title>
     <link>https://slash3b.github.io/tags/sweep/</link>
     <description>Recent content in Sweep on Random notes to myself</description>
-    <generator>Hugo -- 0.125.6</generator>
+    <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 05 Jun 2022 17:29:38 +0200</lastBuildDate>
     <atom:link href="https://slash3b.github.io/tags/sweep/index.xml" rel="self" type="application/rss+xml" />
@@ -13,9 +13,19 @@
       <link>https://slash3b.github.io/posts/2022-06-05-notes-on-garbage-collection-in-go/</link>
       <pubDate>Sun, 05 Jun 2022 17:29:38 +0200</pubDate>
       <guid>https://slash3b.github.io/posts/2022-06-05-notes-on-garbage-collection-in-go/</guid>
-      <description>Garbage Collection is a process of freeing memory that is allocated and contains some data that is not being used.
-Notes:
-by doing escape analysis GC mechanism decides what goes to heap and what stays on stack use -gcflags &#39;-m&#39; flag to get escape analysis info, e.g. go run -gcflags &#39;-m&#39; main.go another way to look into what GC is doing during runtime is to run program with GODEBUG=gctrace=1 GC runs consurrently with main program running main running program is called &amp;ldquo;mutator&amp;rdquo; Golang Garbage Collection uses &amp;ldquo;tricolor algorithm&amp;rdquo; otherwise known as tricolor mark and sweep algorithm.</description>
+      <description>&lt;p&gt;Garbage Collection is a process of freeing memory that is allocated and contains some data that is not being used.&lt;/p&gt;
+&lt;p&gt;Notes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;by doing &lt;strong&gt;escape analysis&lt;/strong&gt; GC mechanism decides what goes to heap and what stays on stack&lt;/li&gt;
+&lt;li&gt;use &lt;code&gt;-gcflags &#39;-m&#39;&lt;/code&gt; flag to get escape analysis info, e.g. &lt;code&gt;go run -gcflags &#39;-m&#39; main.go&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;another way to look into what GC is doing during runtime is to run program with &lt;code&gt;GODEBUG=gctrace=1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;GC runs consurrently with main program running&lt;/li&gt;
+&lt;li&gt;main running program is called &amp;ldquo;mutator&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;Golang Garbage Collection uses &amp;ldquo;tricolor algorithm&amp;rdquo; otherwise known as tricolor mark and sweep algorithm.&lt;/li&gt;
+&lt;li&gt;GC represents data in the heap as graph of elements/objects&lt;/li&gt;
+&lt;li&gt;channels are also garbage collected when they become unreachable, even if channel is not closed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sources:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
