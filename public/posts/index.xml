@@ -9,31 +9,14 @@
     <lastBuildDate>Sun, 12 Jan 2025 15:48:38 +0300</lastBuildDate>
     <atom:link href="https://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Go assembly notes</title>
+      <title>Few notes on Go assembly</title>
       <link>https://localhost:1313/posts/2025-01-12-golang-assembly-notes/</link>
       <pubDate>Sun, 12 Jan 2025 15:48:38 +0300</pubDate>
       <guid>https://localhost:1313/posts/2025-01-12-golang-assembly-notes/</guid>
-      <description>&lt;p&gt;mention a few words about go pseudo assembly&lt;/p&gt;
-&lt;p&gt;Trying to compile and disassembly code of the whole project makes no sense. Use small snippets of code.&lt;/p&gt;
-&lt;p&gt;example code in &lt;code&gt;main.go&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
-&lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;1
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;2
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;3
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;4
-&lt;/span&gt;&lt;span style=&#34;white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f&#34;&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;;width:100%&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-golang&#34; data-lang=&#34;golang&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;package&lt;/span&gt; main
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;font-weight:bold;font-style:italic;text-decoration:underline&#34;&gt;func&lt;/span&gt; &lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;main&lt;/span&gt;() {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;font-weight:bold;font-style:italic&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;use &lt;code&gt;go tool compile&lt;/code&gt; to get object files.&lt;br&gt;
-&lt;code&gt;go tool compile main.go&lt;/code&gt;&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;Note #1&lt;/strong&gt;: If you do not know assembly, here is a well written introduction to assembly: &lt;a href=&#34;https://github.com/hackclub/some-assembly-required&#34;&gt;https://github.com/hackclub/some-assembly-required&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note #2&lt;/strong&gt;: Trying to compile and disassembly code of the whole project makes no sense. Use small snippets of code. Seems to be obvious, eh?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note #3&lt;/strong&gt;: Go uses pseudo assembly. From that assembly go can build/link/compile for any architecture.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note #4&lt;/strong&gt;: Use &lt;code&gt;go tool compile&lt;/code&gt; to compile package code to the object file. Use &lt;code&gt;go tool objdump&lt;/code&gt; to see what gets into the binary. Do not forget that you can always view documentation for these commands with &lt;code&gt;go doc cmd/compile&lt;/code&gt; or &lt;code&gt;go doc cmd/objdump&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go slices mind-twister</title>
