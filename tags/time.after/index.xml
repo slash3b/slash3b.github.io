@@ -4,7 +4,7 @@
     <title>Time.After on Random notes to myself</title>
     <link>https://slash3b.github.io/tags/time.after/</link>
     <description>Recent content in Time.After on Random notes to myself</description>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.142.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 13 Nov 2022 01:00:00 +0200</lastBuildDate>
     <atom:link href="https://slash3b.github.io/tags/time.after/index.xml" rel="self" type="application/rss+xml" />
@@ -61,12 +61,12 @@ it in form of a blogpost.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;for&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;select&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; msg := &amp;lt;- messages:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth with msg
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;&lt;/span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(msg)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth with msg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(msg)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;return&lt;/span&gt; msg
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; &amp;lt;-time.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;After&lt;/span&gt;(time.Second * 3):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth else
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;&lt;/span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;3 sec timer fired&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;3 sec timer fired&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; &amp;lt;-time.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;After&lt;/span&gt;(time.Second * 30):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;30 sec timer fired&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;return&lt;/span&gt;

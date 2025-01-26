@@ -4,10 +4,20 @@
     <title>Random notes to myself</title>
     <link>https://slash3b.github.io/</link>
     <description>Recent content on Random notes to myself</description>
-    <generator>Hugo -- 0.140.2</generator>
+    <generator>Hugo -- 0.142.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2024 15:48:38 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2025 15:48:38 +0300</lastBuildDate>
     <atom:link href="https://slash3b.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Few notes on Go assembly</title>
+      <link>https://slash3b.github.io/posts/2025-01-12-golang-assembly-notes/</link>
+      <pubDate>Sun, 12 Jan 2025 15:48:38 +0300</pubDate>
+      <guid>https://slash3b.github.io/posts/2025-01-12-golang-assembly-notes/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Note #1&lt;/strong&gt;: If you do not know assembly, here is a well written introduction to assembly: &lt;a href=&#34;https://github.com/hackclub/some-assembly-required&#34;&gt;https://github.com/hackclub/some-assembly-required&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note #2&lt;/strong&gt;: Trying to compile and disassembly code of the whole project makes no sense. Use small snippets of code. Seems to be obvious, eh?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note #3&lt;/strong&gt;: Go uses pseudo assembly. From that assembly go can build/link/compile for any architecture.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note #4&lt;/strong&gt;: Use &lt;code&gt;go tool compile&lt;/code&gt; to compile package code to the object file. Use &lt;code&gt;go tool objdump&lt;/code&gt; to see what gets into the binary. Do not forget that you can always view documentation for these commands with &lt;code&gt;go doc cmd/compile&lt;/code&gt; or &lt;code&gt;go doc cmd/objdump&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Go slices mind-twister</title>
       <link>https://slash3b.github.io/posts/2024-05-05-go-slices-mind-twister/</link>
@@ -71,12 +81,12 @@ it in form of a blogpost.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;for&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;select&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; msg := &amp;lt;- messages:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth with msg
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;&lt;/span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(msg)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth with msg&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(msg)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;return&lt;/span&gt; msg
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; &amp;lt;-time.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;After&lt;/span&gt;(time.Second * 3):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth else
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888;font-style:italic&#34;&gt;&lt;/span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;3 sec timer fired&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;color:#888;font-style:italic&#34;&gt;// do smth else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;3 sec timer fired&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;case&lt;/span&gt; &amp;lt;-time.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;After&lt;/span&gt;(time.Second * 30):
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        fmt.&lt;span style=&#34;color:#666;font-weight:bold;font-style:italic&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#666;font-style:italic&#34;&gt;&amp;#34;30 sec timer fired&amp;#34;&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        &lt;span style=&#34;font-weight:bold;text-decoration:underline&#34;&gt;return&lt;/span&gt;

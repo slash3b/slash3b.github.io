@@ -230,12 +230,12 @@ it in form of a blogpost.</p><p>Here is how leak looked like:</p><div class=high
 </span></span><span style=display:flex><span>        <span style=font-weight:700;text-decoration:underline>for</span> {
 </span></span><span style=display:flex><span>                <span style=font-weight:700;text-decoration:underline>select</span> {
 </span></span><span style=display:flex><span>                <span style=font-weight:700;text-decoration:underline>case</span> msg := &lt;- messages:
-</span></span><span style=display:flex><span>                        <span style=color:#888;font-style:italic>// do smth with msg
-</span></span></span><span style=display:flex><span><span style=color:#888;font-style:italic></span>                        fmt.<span style=color:#666;font-weight:700;font-style:italic>Println</span>(msg)
+</span></span><span style=display:flex><span>                        <span style=color:#888;font-style:italic>// do smth with msg</span>
+</span></span><span style=display:flex><span>                        fmt.<span style=color:#666;font-weight:700;font-style:italic>Println</span>(msg)
 </span></span><span style=display:flex><span>                        <span style=font-weight:700;text-decoration:underline>return</span> msg
 </span></span><span style=display:flex><span>                <span style=font-weight:700;text-decoration:underline>case</span> &lt;-time.<span style=color:#666;font-weight:700;font-style:italic>After</span>(time.Second * 3):
-</span></span><span style=display:flex><span>                        <span style=color:#888;font-style:italic>// do smth else
-</span></span></span><span style=display:flex><span><span style=color:#888;font-style:italic></span>                        fmt.<span style=color:#666;font-weight:700;font-style:italic>Println</span>(<span style=color:#666;font-style:italic>&#34;3 sec timer fired&#34;</span>)
+</span></span><span style=display:flex><span>                        <span style=color:#888;font-style:italic>// do smth else</span>
+</span></span><span style=display:flex><span>                        fmt.<span style=color:#666;font-weight:700;font-style:italic>Println</span>(<span style=color:#666;font-style:italic>&#34;3 sec timer fired&#34;</span>)
 </span></span><span style=display:flex><span>                <span style=font-weight:700;text-decoration:underline>case</span> &lt;-time.<span style=color:#666;font-weight:700;font-style:italic>After</span>(time.Second * 30):
 </span></span><span style=display:flex><span>                        fmt.<span style=color:#666;font-weight:700;font-style:italic>Println</span>(<span style=color:#666;font-style:italic>&#34;30 sec timer fired&#34;</span>)
 </span></span><span style=display:flex><span>                        <span style=font-weight:700;text-decoration:underline>return</span>
