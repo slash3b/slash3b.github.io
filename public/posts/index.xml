@@ -10,9 +10,9 @@
     <atom:link href="https://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Bugs Graveyard</title>
-      <link>https://localhost:1313/posts/2025-10-25-my-bugs/</link>
+      <link>https://localhost:1313/posts/2025-11-25-my-bugs/</link>
       <pubDate>Tue, 25 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://localhost:1313/posts/2025-10-25-my-bugs/</guid>
+      <guid>https://localhost:1313/posts/2025-11-25-my-bugs/</guid>
       <description>&lt;p&gt;This is a collection of subtle bugs I&amp;rsquo;ve encountered in Go that took time to understand.
 Each entry documents the issue, a reproducible example, and the root cause&lt;/p&gt;</description>
     </item>
