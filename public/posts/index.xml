@@ -13,10 +13,8 @@
       <link>https://localhost:1313/posts/2025-10-25-my-bugs/</link>
       <pubDate>Sat, 25 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2025-10-25-my-bugs/</guid>
-      <description>&lt;h4 id=&#34;1-http-call-to-3rd-party-api-responds-with-error-from-our-local-database&#34;&gt;1. HTTP call to 3rd party API responds with error from our local database&lt;/h4&gt;
-&lt;p&gt;Diagnosis: I see a weird error in the logs, it looks like something like this:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;error happened GET https://example.com, &amp;lt;service database error&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;where you can see endpoint url and denoted with angle brackets an error from our own database. What the heck? How come we get an error from our own database when we call an endpoint?!&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is a collection of subtle bugs I&amp;rsquo;ve encountered in Go that took time to understand.
+Each entry documents the issue, a reproducible example, and the root cause&lt;/p&gt;</description>
     </item>
     <item>
       <title>Few notes on Go assembly</title>

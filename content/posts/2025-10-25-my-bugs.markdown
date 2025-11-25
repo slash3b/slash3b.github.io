@@ -5,14 +5,19 @@ comments: false
 title: My Bugs Graveyard
 ---
 
-#### 1. HTTP call to 3rd party API responds with error from our local database
+This is a collection of subtle bugs I've encountered in Go that took time to understand. 
+Each entry documents the issue, a reproducible example, and the root cause 
 
-Diagnosis: I see a weird error in the logs, it looks like something like this:
+<!--more-->
+
+### 1. HTTP call to 3rd party API responds with error from our local database
+
+Diagnosis: I see a weird error in the logs, it looks like this:
 ```
 error happened GET https://example.com, <service database error>
 
 ```
-where you can see endpoint url and denoted with angle brackets an error from our own database. What the heck? How come we get an error from our own database when we call an endpoint?!
+where you can see endpoint URL and denoted with angle brackets an error from our own database. What the heck? How come we get an error from our own database when we call an endpoint?!
 
 Below you will find a completely reproducible example:
 
@@ -57,21 +62,22 @@ func main() {
 
 ```
 
-and the output will be:
+The output will be:
 ```
 client.Do error: Get "http://127.0.0.1:41339": mongodb_error_poison
 ```
 
-how come? what is going on? any guesses?
-turns out the following is happening:
-errgroup.Wait will cancel the context as soon as any of gorouitines return an error.
-internally errgroup will use a special `context.WithCancelCause` context which returns context itself
-and cancel that **accepts an error** as a cause.  
+How come? What is going on? Any guesses?
 
-now as soon as context is cancelled `http.DefaultClient.Do(req)` with request that has our context immediately return error.
-but method `Do` has this comment:
+It turns out the following is happening:
+`errgroup.Wait()` will cancel the context as soon as any of goroutines return an error.
+Internally, `errgroup` will use a special `context.WithCancelCause()` context which returns the context itself
+and a cancel function that **accepts an error** as a cause.
+
+Now, as soon as the context is cancelled, `http.DefaultClient.Do(req)` with a request that has our context immediately returns an error.
+But the method `Do()` has this comment:
 `// Any returned error will be of type [*url.Error].`
-and the `url.Error` looks like this 
+and the `url.Error` struct looks like this:
 ```
 // Error reports an error and the operation and URL that caused it.
 type Error struct {
@@ -80,141 +86,6 @@ type Error struct {
         Err error
 }
 ```
-long story short that cause from context, which is an error,  will be assigned to `Err` field in `url.Error`
-and this is how database error bubbled up was returned from http call.
 
-
-```golang
-
-package main
-
-import (
-	"context"
-	"fmt"
-	"net/http"
-	"net/http/httptest"
-	"time"
-
-	"golang.org/x/sync/errgroup"
-)
-
-func main() {
-	// 1. Setup a slow server that sleeps longer than the "poison" delay
-	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		//fmt.Println("[Server] Received request, sleeping...")
-		time.Sleep(2 * time.Second) // Sleep longer than the error trigger
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("OK"))
-		// fmt.Println("[Server] Request completed (should not be seen if context cancels client)")
-	}))
-	defer server.Close()
-
-	ctx := context.Background()
-	g, ctx := errgroup.WithContext(ctx)
-
-	// 2. Routine 1: The "Poison" - fails quickly
-	g.Go(func() error {
-		fmt.Println("[Poison] Waiting to trigger error...")
-		time.Sleep(500 * time.Millisecond)
-		fmt.Println("[Poison] TRIGGERING ERROR: an error poisoned the workflow!")
-		return fmt.Errorf("mongodb_error_poison")
-	})
-
-	// 3. Routine 2: The "Victim" - tries to fetch data with retries
-	g.Go(func() error {
-		return fetchDataBuggy(ctx, server.URL)
-	})
-
-	// Wait for completion
-	if err := g.Wait(); err != nil {
-		fmt.Printf("\n[Main] Workflow finished with error: %v\n", err)
-	} else {
-		fmt.Println("\n[Main] Workflow finished successfully")
-	}
-}
-
-// fetchDataBuggy reproduces the issue where we retry on context cancellation
-// because we don't check ctx.Err() explicitly when client.Do returns an error.
-func fetchDataBuggy(ctx context.Context, url string) error {
-	client := &http.Client{
-		Timeout: 10 * time.Second, // Long enough timeout
-	}
-
-	maxRetries := 5
-
-	for i := 0; i < maxRetries; i++ {
-		fmt.Printf("[Client] Attempt %d starting...\n", i+1)
-
-		req, _ := http.NewRequestWithContext(ctx, http.MethodGet, url, nil)
-		
-		// When the context is cancelled by the [Poison] routine, 
-		// client.Do returns an error.
-		_, err := client.Do(req)
-		
-		if err != nil {
-			// --- THE BUG IS HERE ---
-			// We treat this error as a network glitch and retry.
-			// But the error is actually due to context cancellation!
-			
-			fmt.Printf("[Client] Attempt %d failed. Error type: %T. Error: %v\n", i+1, err, err)
-			
-			// To prove the point, let's check if context is actually cancelled
-			if ctx.Err() != nil {
-				fmt.Printf("[Client] (Debug) Context IS cancelled: %v. But we are retrying anyway!\n", ctx.Err())
-			}
-
-			// Simple backoff
-			retryWait := 500 * time.Millisecond
-			fmt.Printf("[Client] Sleeping %v before retry...\n\n", retryWait)
-			
-			// We sleep. If context is cancelled, time.Sleep returns immediately? 
-			// No, time.Sleep takes a Duration, it doesn't know about context.
-			// So we actually pause execution here.
-			time.Sleep(retryWait)
-			
-			continue
-		}
-		
-		fmt.Println("[Client] Success!")
-		return nil
-	}
-
-	return fmt.Errorf("max retries exceeded")
-}
-
-```
-
-An output will look like so:
-
-```
-slash3b@Xtal /t/tmp.NRGeUVBS7A> go run main.go
-[Client] Attempt 1 starting...
-[Poison] Waiting to trigger error...
-[Poison] TRIGGERING ERROR: an error poisoned the workflow!
-[Client] Attempt 1 failed. Error type: *url.Error. Error: Get "http://127.0.0.1:45689": mongodb_error_poison
-[Client] (Debug) Context IS cancelled: context canceled. But we are retrying anyway!
-[Client] Sleeping 500ms before retry...
-
-[Client] Attempt 2 starting...
-[Client] Attempt 2 failed. Error type: *url.Error. Error: Get "http://127.0.0.1:45689": mongodb_error_poison
-[Client] (Debug) Context IS cancelled: context canceled. But we are retrying anyway!
-[Client] Sleeping 500ms before retry...
-
-[Client] Attempt 3 starting...
-[Client] Attempt 3 failed. Error type: *url.Error. Error: Get "http://127.0.0.1:45689": mongodb_error_poison
-[Client] (Debug) Context IS cancelled: context canceled. But we are retrying anyway!
-[Client] Sleeping 500ms before retry...
-
-[Client] Attempt 4 starting...
-[Client] Attempt 4 failed. Error type: *url.Error. Error: Get "http://127.0.0.1:45689": mongodb_error_poison
-[Client] (Debug) Context IS cancelled: context canceled. But we are retrying anyway!
-[Client] Sleeping 500ms before retry...
-
-[Client] Attempt 5 starting...
-[Client] Attempt 5 failed. Error type: *url.Error. Error: Get "http://127.0.0.1:45689": mongodb_error_poison
-[Client] (Debug) Context IS cancelled: context canceled. But we are retrying anyway!
-[Client] Sleeping 500ms before retry...
-
-
-[Main] Workflow finished with error: mongodb_error_poison
-```
+Long story short. The "cause" from the context, which is an error, will be assigned to the `Err` field in `url.Error`.
+This is how the database error bubbled up from the context and was returned from the HTTP call.
