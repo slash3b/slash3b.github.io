@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://localhost:1313/posts/</loc>
+    <lastmod>2025-10-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://localhost:1313/</loc>
+    <lastmod>2025-10-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://localhost:1313/posts/2025-10-14-what-makes-a-good-micro-service/</loc>
+    <lastmod>2025-10-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://localhost:1313/posts/2025-10-25-my-bugs/</loc>
+    <lastmod>2025-10-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://localhost:1313/tags/assembly/</loc>
     <lastmod>2025-01-12T15:48:38+03:00</lastmod>
   </url><url>
@@ -9,12 +21,6 @@
     <lastmod>2025-01-12T15:48:38+03:00</lastmod>
   </url><url>
     <loc>https://localhost:1313/tags/go/</loc>
-    <lastmod>2025-01-12T15:48:38+03:00</lastmod>
-  </url><url>
-    <loc>https://localhost:1313/posts/</loc>
-    <lastmod>2025-01-12T15:48:38+03:00</lastmod>
-  </url><url>
-    <loc>https://localhost:1313/</loc>
     <lastmod>2025-01-12T15:48:38+03:00</lastmod>
   </url><url>
     <loc>https://localhost:1313/tags/</loc>
