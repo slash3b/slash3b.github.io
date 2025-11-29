@@ -4,6 +4,11 @@ date: "2025-01-12T15:48:38+03:00"
 tags: ["go", "assembly"]
 ---
 
+A collection of practical notes and references for understanding Go's assembly language and pseudo-assembly compilation process.
+
+<!--more-->
+
+
 **Note #1**: If you do not know assembly, here is a well written introduction to assembly: https://github.com/hackclub/some-assembly-required
 
 **Note #2**: Trying to compile and disassembly code of the whole project makes no sense. Use small snippets of code. Seems to be obvious, eh?

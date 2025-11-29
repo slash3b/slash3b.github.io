@@ -21,10 +21,7 @@ Each entry documents the issue, a reproducible example, and the root cause&lt;/p
       <link>https://localhost:1313/posts/2025-01-12-golang-assembly-notes/</link>
       <pubDate>Sun, 12 Jan 2025 15:48:38 +0300</pubDate>
       <guid>https://localhost:1313/posts/2025-01-12-golang-assembly-notes/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Note #1&lt;/strong&gt;: If you do not know assembly, here is a well written introduction to assembly: &lt;a href=&#34;https://github.com/hackclub/some-assembly-required&#34;&gt;https://github.com/hackclub/some-assembly-required&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note #2&lt;/strong&gt;: Trying to compile and disassembly code of the whole project makes no sense. Use small snippets of code. Seems to be obvious, eh?&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note #3&lt;/strong&gt;: Go uses pseudo assembly. From that assembly go can build/link/compile for any architecture.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note #4&lt;/strong&gt;: Use &lt;code&gt;go tool compile&lt;/code&gt; to compile package code to the object file. Use &lt;code&gt;go tool objdump&lt;/code&gt; to see what gets into the binary. Do not forget that you can always view documentation for these commands with &lt;code&gt;go doc cmd/compile&lt;/code&gt; or &lt;code&gt;go doc cmd/objdump&lt;/code&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;A collection of practical notes and references for understanding Go&amp;rsquo;s assembly language and pseudo-assembly compilation process.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Go slices mind-twister</title>
