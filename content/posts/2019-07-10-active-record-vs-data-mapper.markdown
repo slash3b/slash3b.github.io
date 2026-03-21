@@ -23,11 +23,11 @@ ORM disadvantages:
 
 # Active record
 
-According to [Martin Fowler](https://martinfowler.com/eaaCatalog/activeRecord.html) Active Directory is:  
+According to [Martin Fowler](https://martinfowler.com/eaaCatalog/activeRecord.html) Active Record is:
 > An object that wraps a row in a database table or view, encapsulates the database 
 access, and adds domain logic on that data. Object carries both data and behavior.
 
-My interpretaion in plain english:  
+My interpretation in plain English:
 > Active Record implies that an entity represents a table from database and each 
 instance of an entity represents one row from the table, also that entity contains 
 not only data **but** also all methods/operations to deal with that data. So it 
@@ -56,14 +56,14 @@ In Ruby on Rails it could be like this:
 u = User.create(name: "john", password: "doe")
 ```
 
-Here is another exaple using [Eloquent ORM](https://laravel.com/docs/5.0/eloquent):
+Here is another example using [Eloquent ORM](https://laravel.com/docs/5.0/eloquent):
 
 Define entity like so:
 ```
 class User extends Model {}
 ```
 and that is basically it. You can fire `User::all()` in order to get all users.  
-The entity does not have fields mapping becase they *are* alredy defined in the database.
+The entity does not have fields mapping because they *are* already defined in the database.
 
 So the major benefits of AR are:
 - simplicity
@@ -78,10 +78,10 @@ Disadvantages are:
 From wikipedia:
 > A Data Mapper is a Data Access Layer that performs bidirectional transfer of data between a persistent data store (often a relational database) and an in-memory data representation (the domain layer). The goal of the pattern is to keep the in-memory representation and the persistent data store independent of each other and the data mapper itself.
 
-That is a long definition and it definitely says something but I need a bit more succint and clear definition, otherwise my brain wont remember it. So I like this by Martin Fowler:
+That is a long definition and it definitely says something but I need a bit more succinct and clear definition, otherwise my brain wont remember it. So I like this by Martin Fowler:
 > The Data Mapper is a layer of software that separates the in-memory objects from the database. Its responsibility is to transfer data between the two and also to isolate them from each other. 
 
-For instance here an example of Doctine2 Entity:
+For instance here is an example of Doctrine2 Entity:
 
 ```
 <?php
@@ -120,7 +120,7 @@ class Product
     // ... getter and setter methods
 }
 ```
-Note how it lacks CRUD and domain methods, also mapping definition is done via annotaions.
+Note how it lacks CRUD and domain methods, also mapping definition is done via annotations.
 
 Examples of Data Mapper:
 - Java Hibernate

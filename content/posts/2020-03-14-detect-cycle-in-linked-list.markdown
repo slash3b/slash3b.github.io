@@ -5,9 +5,9 @@ comments: true
 title: "Detect cycle in singly linked list (python)"
 ---
 
-As I'm improving my data structures knowledge and understanding I'm trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.
+As I'm improving my data structures knowledge and understanding I'm trying to solve different puzzles. One of them is to detect a cycle in a singly-linked list.
 
-Singly-linked list consits of nodes that reference one another. A node could look like this:
+Singly-linked list consists of nodes that reference one another. A node could look like this:
 ```
 
 class Node:
@@ -53,7 +53,7 @@ Now how would you go about solving this? And solving efficiently, namely `O(n)` 
 
 There is an elegant algorithm that is called "Floyd's cycle-finding algorithm" and it was coined by computer scientist [Robert W. Floyd](https://en.wikipedia.org/wiki/Robert_W._Floyd).
 
-Here is algorithm description carefully paster from wiki:  
+Here is algorithm description carefully pasted from wiki:  
 > Floyd's cycle-finding algorithm is a pointer algorithm that uses only two pointers, which move through the sequence at different speeds. It is also called the "tortoise and the hare algorithm", alluding to Aesop's fable of The Tortoise and the Hare. 
 
 My wife [Tatiana Timoshina](https://onboard.studio/) made this nice animation: 

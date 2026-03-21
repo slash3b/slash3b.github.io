@@ -5,13 +5,13 @@ comments: true
 title: "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems"
 ---
 
-Designing Data-Intensive Applications by Martin Kleppmann is an amazing journey into the world of distributed systems. It is a must read, especially if you are like me — self-taught programmer. I think it will be usefull even if you do not plan to work with distributed systems, it is just interesting per se.   
-I really learned a lot, than you Martin!   
+Designing Data-Intensive Applications by Martin Kleppmann is an amazing journey into the world of distributed systems. It is a must read, especially if you are like me — self-taught programmer. I think it will be useful even if you do not plan to work with distributed systems, it is just interesting per se.
+I really learned a lot, thank you Martin!
 
 I have a feeling that I managed to digest and remember around 5% of the information, and the book contains a lot of good stuff, I mean **a lot**. So for myself I decided to get table of book contents and augment it with little hints and notes that will be helpful in case I want to remember something quickly. 
 
-> Computing is pop culture. [...] Pop culture holds a disdain for history. Pop culture is all about identity and feeling like you're participating. It has nothing to do with cooperation, the past or the furute — it's living in the present. I think the same is true of most people who write code for money. They have no idea where [their culture came from].
-> Alan Kay, in interview with Dr. Dobb's journal(2012) 
+> Computing is pop culture. [...] Pop culture holds a disdain for history. Pop culture is all about identity and feeling like you're participating. It has nothing to do with cooperation, the past or the future — it's living in the present. I think the same is true of most people who write code for money. They have no idea where [their culture came from].
+> Alan Kay, in interview with Dr. Dobb's journal (2012)
 
 
 **Table of Contents**
@@ -35,7 +35,7 @@ I have a feeling that I managed to digest and remember around 5% of the informat
   - Summary   
 
 #### Highlights and exerpts:   
-Many applications today are data-intensive and not compute-intensive. Scalability is the term we use to describe a system's ability to cope with increased load. Load paramenters — e.g. requests per second, number of simultaneous user online, the ration of reads to writes in a database. Percentiles — e.g. with a sorted list of responses, you can see that if the 95th percentile response time is 1.5 seconds, that means 95 out of 100 requests take less than 1.5 seconds and 5 out of 100 requests take 1.5 seconds or more. Percentiles are used in Service Level Objectives and Service Level Agreements. 
+Many applications today are data-intensive and not compute-intensive. Scalability is the term we use to describe a system's ability to cope with increased load. Load parameters — e.g. requests per second, number of simultaneous user online, the ration of reads to writes in a database. Percentiles — e.g. with a sorted list of responses, you can see that if the 95th percentile response time is 1.5 seconds, that means 95 out of 100 requests take less than 1.5 seconds and 5 out of 100 requests take 1.5 seconds or more. Percentiles are used in Service Level Objectives and Service Level Agreements. 
  - Making a system simpler does not necessarily mean reducing its functionality; it can also mean removing accidental complexity. Reliability means making systems work correctly, even when faults occur. 
  - Scalability means having strategies for keeping performance good, even when load increases.
  - Maintainability it's about making life better for the engineering and operations teams who need to work with the system.
@@ -63,7 +63,7 @@ Many applications today are data-intensive and not compute-intensive. Scalabilit
   - Summary
 
 #### Highlights and exerpts:   
-Historically data was represented as a tree. Later on with neccessity to represent relations between records relation model was invented. Today we have tree "main directions" to store data:
+Historically data was represented as a tree. Later on with the necessity to represent relations between records, the relational model was invented. Today we have three "main directions" to store data:
 - "relational" — in case you have a relations between records
 - "graph" covers cases when everything is related to everything, think Twitter connections between people
 - "document" good when you have a fewer relations between documents or none at all
@@ -102,7 +102,7 @@ OLTP can be divided in two sub-categories:
  - update-in-place model, which treats the disk as a set of fixed-size pages than can be updated.
 
 Log-structured storage engines are a comparatively recent development. Their key idea is that they systematically turn
-random-access writes into sequential writes on disk, which enables higher write throughtput due to performance
+random-access writes into sequential writes on disk, which enables higher write throughput due to performance
 characteristics of hard drives and SSDs.
 
 #### Other notes:
@@ -110,12 +110,12 @@ Compaction means throwing away duplicate keys in the log, and keeping only the m
 
 A database index is an additional structure, traditionally — B-tree, that has to be updated when we write to the
 database. Hence we have a tradeoff here, namely — index speed up read requests but slows down write requests.    
-Bitcast is the default storage engine of Riak, it is roughtly an append-only storage that tracks every record offset.
+Bitcask is the default storage engine of Riak, it is roughly an append-only storage that tracks every record offset.
 Compaction means throwing away duplicate keys in the log, and keeping only the most recent update for each key.   
 
-It ... seems likely that in ther foreseeable future relational databases will continue to be used alongside a broad viriety of nonrelational datastore — an idea that is called *polyglot persistence*.   
-... However if your application does use many-to-many relations, the document model becomes less appealing.   
-When you most likely have many interconnected entities, where everything migh relate to everything — graph database is a good choice.  
+It ... seems likely that in the foreseeable future relational databases will continue to be used alongside a broad variety of nonrelational datastores — an idea that is called *polyglot persistence*.
+... However if your application does use many-to-many relations, the document model becomes less appealing.
+When you most likely have many interconnected entities, where everything might relate to everything — a graph database is a good choice.  
 
 ---   
 <br>   
@@ -295,7 +295,7 @@ need a kind of quorum/agreement between a number of nodes on what to do with fai
 If you can avoid building distributed system it is strongly advised to do so.  
 
 There is also a question if it is possible to give hard real-time response guarantees and bounded delays in network and
-the answer is yer but it will be very expensive.
+the answer is yes but it will be very expensive.
 
 ---   
 <br>   
@@ -324,16 +324,16 @@ Linearizability — a popular consistency model. It is goal is to make replicate
 single copy and to make all operations act on it atomically. This model tends to be slow, especially in environment with
 large network delays.  
 
-Also important concept was explored — causality, which imposes an ordering on events in the system (what happened before
-what, besed on cause and effect). But consistency model is not always work and that led us to _consensus_.
+Also an important concept was explored — causality, which imposes an ordering on events in the system (what happened before
+what, based on cause and effect). But the consistency model does not always work and that led us to _consensus_.
 
 Achieving consensus means deciding something is such a way that all nodes agree on what was decided and such that the
 decision is irevocable.
 
 Notes:   
-Distributed transaction is database transaction that involve more that one node.  
-The most common algorithm for distrinbuted transactions is _two-phase commit_ (2PC), it is implemented in many
-databases, message systems and application serivers. Exists better consensus algorigthms, such as Zab(ZooKeeper) and
+Distributed transaction is a database transaction that involves more than one node.  
+The most common algorithm for distributed transactions is _two-phase commit_ (2PC), it is implemented in many
+databases, message systems and application servers. There exist better consensus algorithms, such as Zab(ZooKeeper) and
 [Raft](http://thesecretlivesofdata.com/raft/)(etcd — distributed key-value storage).
 
 ---   
@@ -395,7 +395,7 @@ databases, message systems and application serivers. Exists better consensus alg
 - Index
 
 
-Resourse:   
+Resource:
 [Design Data Intesive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable-ebook/dp/B06XPJML5D/ref=sr_1_1?crid=24WFQ31Q3MIOA&dchild=1&keywords=design+data+intensive+applications&qid=1585083016&sprefix=design+data+in%2Caps%2C277&sr=8-1) 
 
 

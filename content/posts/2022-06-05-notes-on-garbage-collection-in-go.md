@@ -10,7 +10,7 @@ Notes:
 - by doing __escape analysis__ GC mechanism decides what goes to heap and what stays on stack
 - use `-gcflags '-m'` flag to get escape analysis info, e.g. `go run -gcflags '-m' main.go` 
 - another way to look into what GC is doing during runtime is to run program with `GODEBUG=gctrace=1`
-- GC runs consurrently with main program running 
+- GC runs concurrently with main program running
 - main running program is called "mutator" 
 - Golang Garbage Collection uses "tricolor algorithm" otherwise known as tricolor mark and sweep algorithm. 
 - GC represents data in the heap as graph of elements/objects

@@ -8,7 +8,7 @@ title: "Discovery of an advanced JOIN clause in MySQL"
 _A little disclaimer: this is just a short self-initialized-probably-never-released postmortem note._
 
 Today at work I was silly enough not to ask help from my colleagues, I've decided to deal with the problem myself and came up with a shitty solution.   
-During code review horrible hackery was revaled and I was taugh to live a simple life.
+During code review horrible hackery was revealed and I was taught to live a simple life.
 
 Lets consider the following - there are two tables:
 

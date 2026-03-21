@@ -6,7 +6,7 @@ tags: ["memory leak", "go", "time.After"]
 
 It was only an accident that I read a [post on ArangoDB site](https://www.arangodb.com/2020/09/a-story-of-a-memory-leak-in-go-how-to-properly-use-time-after)
 and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have 
-it in form of a blogpost.
+it in the form of a blog post.
 
 Here is how leak looked like:
 ```golang
@@ -60,7 +60,7 @@ There is a lot:
 That means that on first iteration we create **2 timers**.
 
 #### Now, depending on the logic, here is what we have:
-- note: a great catch here is that 30s times is always leaking. It never has a chance to fire!
+- note: a great catch here is that the 30s timer is always leaking. It never has a chance to fire!
 - ever spinning loop,   
 in case `messages` are not sent at all,   
 _two new timers created on each iteration_ with only 3s timer firing  

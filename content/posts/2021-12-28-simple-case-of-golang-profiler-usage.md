@@ -6,14 +6,14 @@ tags: ["golang", "profiler", "pprof", "benchmark"]
 
 
 So I was solving [Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/) 
-and I got myself more less working solution that got accepted.
+and I got myself a more-or-less working solution that got accepted.
 
 But it was not the fastest one.
 
-But then I though — how do I profile `buildTree` function and see what actually takes time
+But then I thought — how do I profile `buildTree` function and see what actually takes time
 in my program?
 
-Golang has an excellent set of tool available, just check an output of `go tool`.
+Golang has an excellent set of tool available, just check the output of `go tool`.
 One of the items in a list you'll see is `pprof` which is a Golang profiler. 
 
 `pprof` requires [graphviz](https://www.graphviz.org/download/) to be installed.
@@ -127,7 +127,7 @@ Now, you can view profiler data as simple as:
 slash3b@Kerrisk ~/G/awesomeProject1> go tool pprof -http=":8000" cpu_profile.pprof
 Serving web UI on http://localhost:8000
 ```
-Web UI is really easy to use and it has a lot to offer — top, flame graph, diassembly, source code view and so much
+Web UI is really easy to use and it has a lot to offer — top, flame graph, disassembly, source code view and so much
 more. Exploration of UI I'll leave as an exercise to the reader. 
 
 What if I just want a bit simpler information like, `top`?
@@ -162,7 +162,7 @@ Showing top 10 nodes out of 23
 ```
 
 As you might notice `findRoot` and `findIndex` are taking all the time to execute 🤔
-Solution is definitely soboptimal and I yet has to figure how to improve it.
+Solution is definitely suboptimal and I have yet to figure out how to improve it.
 I'd go with hash map for both inorder and postorder sequences... but I need maps to have the same 
 sequence of elements which is not quite possible. Hash maps in golang have pseudo-random order which 
 kind of breaks it for me.

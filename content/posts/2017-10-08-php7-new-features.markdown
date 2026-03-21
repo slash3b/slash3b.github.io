@@ -12,7 +12,7 @@ Beware though, it is not 100% full, but 85-90% I think, I did omit some not-so-i
 ## Changes introduced in 7.0
 
 **Scalar type declarations**  
-An option to make PHP more stict on typing. We have the following types:
+An option to make PHP more strict on typing. We have the following types:
 - int
 - float
 - string
@@ -28,11 +28,11 @@ Up to PHP7.1 the types are:
 - bool
 - float
 - int
-- stiring
+- string
 - iterable
 
 **Null coalescing operator**   
-It is an eleagant way to get rid of isset():
+It is an elegant way to get rid of isset():
 
     $test = $_POST['surprise'] ?? 'nothing';
 
@@ -43,7 +43,7 @@ So in case post variable does not exists or it is null, we'll get the value afte
     echo $x <=> $b;
 
 
-Will return 0 in case variables are equal, -1 if $b is more\equal to the be and 1 if vise versa.
+Will return 0 if variables are equal, -1 if $x is less than $b, and 1 if $x is greater than $b.
 
 **Anonymous classes:**  
 
@@ -86,7 +86,7 @@ It is `assert` enhancement, previously you could use it like this:
 which would be validated to true or false roughly speaking. But in PHP7 `assert()` is a language construct so the first parameter - assertion can be an expression and the second parameter can be now of type `throwable` so we can throw Exception.
 
 **Group use declaration**  
-We can them like this:
+We can use them like this:
 
     use some\namespace\{ClassA, ClassB, ClassC as C};
 
@@ -141,7 +141,7 @@ Well, constants can now be `private`, `protected` and `public`
 
 **iterable pseudo-type**  
 New return type, similar to `callable()` - `iterable`  
-Of course it can be user for array or object implemeting `Traversable` interface
+Of course it can be used for array or object implementing `Traversable` interface
 
 **Multi catch exception handling**  
 Catch block may now have multiple exceptions specified with pipe `|` character like this
@@ -195,7 +195,7 @@ It can be used as type hint and as return type as well:
 No need to write extension name along with file extension, _.so_ in Unix case.  
 
 **Abstract method override**   
-Now we are able to create child abstact class and override parent's abstract methods:
+Now we are able to create a child abstract class and override parent's abstract methods:
 
 
     abstract class A
@@ -229,11 +229,11 @@ All `password_...`functions have a bunch of ARGON2 constants available to them.
     }
 
 
-**Trailing comma is alowed in grouped namespaces**  
+**Trailing comma is allowed in grouped namespaces**
 
 **Things deprecated:**  
 {: style="color:red;" }
-- unquoted strings in php7.2+ will emir E_WARNING instead of E_NOTICE
+- unquoted strings in php7.2+ will emit E_WARNING instead of E_NOTICE
 - `__autload()` deprecated in favor of superior `spl_autoload_register()`
 - useless `(unset)` cast
 - `create_function()`

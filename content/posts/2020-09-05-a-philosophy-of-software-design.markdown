@@ -17,14 +17,14 @@ book and only then this text below __might__ make sense to you. Or not.
 you can probably implement it in a computer program. Any system inevitably becomes complex over time — as it grows and
 more and more people work on it. Complexity growth makes it next to impossible to hold a clear and complete picture of
 a system in one's head.  
-Bottom line is — complexity will grow anyway but it is your reponsibility and duty to hold that growth as much as you
+Bottom line is — complexity will grow anyway but it is your responsibility and duty to hold that growth as much as you
 can.   
 
 There are two ways to fight complexity:
 - make code more simple and obvious
-- incapsulation of a complexity using _modular design_ 
+- encapsulation of complexity using _modular design_
 
-Sofware design is never done, it happens through the lifetime of a software. You should always think about system desing
+Software design is never done, it happens through the lifetime of a software. You should always think about system design
 and ways to improve it.
 
 #### Chapter 2. The nature of complexity  
@@ -34,7 +34,7 @@ maintain the system. Another view at complexity is a cost of development — it 
 simple features, usually you have to change lots of files to do it and overall it is a bit chaotic.  
 
 Symptoms of complexity:
-- change amplification. Seemingly simple change requres change in a lot of different places 
+- change amplification. Seemingly simple change requires change in a lot of different places
 - cognitive load. A developer has to know a lot about the system in order to complete a task 
 - unknown unknowns. It is not obvious which part of the code should be modified to complete a task
 
@@ -42,8 +42,8 @@ Complexity is caused by:
 - dependencies. When a given piece code can not be understood and modified independently. Often that kind of code is
   tightly coupled with other modules, in that case you always have to think about coupled modules and modify them as
   well most likely.
-- obscurity. Important information is not obvious, e.g. it is not clear what method does by its name so you have to scan
-  throug its body to figure that out.
+- obscurity. Important information is not obvious, e.g. it is not clear what a method does by its name so you have to scan
+  through its body to figure that out.
 
 #### Chapter 3. Working code is not enough  
 
@@ -55,9 +55,9 @@ consequences. In this case you do not plan for future you are coming up with a q
 this environment complexity accumulates quickly.
 
 Strategic programming means that you have to get more time to think about design of a particular solution. It will
-definitely has its toll in the beginning but will pay off in a long run with clear and simple design that is easy to work.
+definitely take its toll in the beginning but will pay off in the long run with a clear and simple design that is easy to work with.
 
-The first step on a path to a become a better programming is to realize — working code is not enough. It is simply no
+The first step on the path to becoming a better programmer is to realize — working code is not enough. It is simply not
 enough to "make things work". You should double check if any unnecessary complexities has been introduced and eliminate
 them.  
 
@@ -65,12 +65,12 @@ Strategic programming requires investment mindset. Instead of just shipping feat
 improve design of your system. You should strive to do it every time you touch the code.
 
 #### Chapter 4. Modules should be deep   
-Modular desing allows a programmer to face a portion of design complexity of the system. Author distinguish two types of
-modules with shallow and deep design. Shallow desing provide lots of method to work with, it gives us "bloated"
-interface that hide not so much functionality. On the other side well designed deep modules effectively hide complexity
-and provide a lot of benefit using slim interface.
-There is a brillian example of file I/O provided by UNIX operating system that gives us 4 simple but yet very powerfull
-system call to work with. 
+Modular design allows a programmer to face a portion of design complexity of the system. The author distinguishes two types of
+modules with shallow and deep design. Shallow design provides lots of methods to work with, it gives us a "bloated"
+interface that hides not so much functionality. On the other side well-designed deep modules effectively hide complexity
+and provide a lot of benefit using a slim interface.
+There is a brilliant example of file I/O provided by the UNIX operating system that gives us 4 simple but very powerful
+system calls to work with.
 
 #### Chapter 5. Information hiding
 The basic idea of information hiding is for the module to conceal information that represents design decisions inside.
@@ -145,8 +145,8 @@ Error/exception handling is one of the worst sources of complexity. Exceptions/e
 and usually programmer tries to throw all kinds of different exceptions. Most of the times exceptions are handled
 poorly and code that tends to handle exceptions is bloated trying to consider all possible exception cases. 
 
-One of the ways to combat exceptions and errors is to get rid of the them at all. Consider this example — you are using
-menthod "Delete" to remove a node from linked list. In case node is not present in the list you might be tempted to
+One of the ways to combat exceptions and errors is to get rid of them entirely. Consider this example — you are using
+the method "Delete" to remove a node from a linked list. In case node is not present in the list you might be tempted to
 throw Exception telling about it to the user. Instead return a successful result as if it was deleted.  
 
 Another technique is called exception masking and it means you should not throw exception but try to correct the
@@ -156,13 +156,13 @@ requested again.
 Third way to solve it by exception aggregation, in this case you have one place to catch and handle exceptions instead
 of doing it all over your code base.  
 
-Another interesting way is to just crash an application. Some types of errors render any handling next to useless so it
-makes sense in case of an error to pring debug info and just cransh an application. 
+Another interesting way is to just crash the application. Some types of errors render any handling next to useless so it
+makes sense in case of an error to print debug info and just crash the application.
 
 #### Chapter 11. Design it twice   
 
 For each major design decision you want to consider few different options, you should "measure" and design twice.  
-Try to get different appoaches attacking problem at hand from different angles. It will 
+Try to get different approaches attacking the problem at hand from different angles.
 
 #### Chapter 12. Why write comments the four excuses  
 
@@ -176,7 +176,7 @@ One of the best benefits of comments is abstractions — it includes a lot of no
 provide a simple, high-level overview of the code. It should be possible to understand what method does by reading a
 comment and method name. 
 
-Pick convetion for commenting and stick to it. Convention will ensure consistency and readability of your comments.
+Pick a convention for commenting and stick to it. Convention will ensure consistency and readability of your comments.
 
 In order to write a good comment, you may/should:
 - use different words in the comment from those in the method signature/entity/etc..
@@ -197,7 +197,7 @@ Naming is hard but important, good name decreases complexity, remove any misunde
 
 #### Chapter 15. Write the comment first  
 
-This short chapter boils down to neccessity to write comments first since it is an excellent design tool. It may be
+This short chapter boils down to the necessity to write comments first since it is an excellent design tool. It may be
 sub-optimal to start writing code. Write comments first and use them to shape your understandng of what is going to be
 implemented. 
 
@@ -237,7 +237,7 @@ pattern in such places where a patter does not fit or does not fill well. It is 
 nail.  
 
 That over-application is also true for almost everything else. I've seen "clean architecture" applied to the simple CRUD
-application which made it over-engeneered right of the bat. It is like you finally understood some fucking DDD or
+application which made it over-engineered right out of the bat. It is like you finally understood some fucking DDD or
 whatnot and now you have to apply it at all cost to prove something to yourself or others.  
 
 #### Chapter 20. Designing for performance  

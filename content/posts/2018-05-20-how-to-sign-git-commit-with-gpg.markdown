@@ -7,7 +7,7 @@ title: 'How to sign your commit with GPG'
 
 First step - creating the key itself.
 
-Note that I'm using Fedora and for some rason I have to use `gpg2` though `gpg` is available also for some reason.  
+Note that I'm using Fedora and for some reason I have to use `gpg2` though `gpg` is available also for some reason.  
 Generate your key:  
 
 `gpg2 --full-gen-key`  
@@ -31,7 +31,7 @@ uid                          Hubot
 ssb   4096R/42B317FD4BA89E7A 2016-03-10
 ```
 
-The id you need is in the 'sec' line, right after bits lenght - **i3AA5C34371567BD2**  
+The id you need is in the 'sec' line, right after bits length - **i3AA5C34371567BD2**
 
 Run this command `git config --global user.signingkey i3AA5C34371567BD2` which tells git about your key.  Next time you want to sign your commit just run `git commit -S -m your commit message`.  
 

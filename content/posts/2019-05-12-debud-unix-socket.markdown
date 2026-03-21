@@ -5,14 +5,14 @@ comments: true
 title: "How to send request to UNIX socket"
 ---
 
-This is one of those notes to myself, so I can remmber it better or find it later more easy.
+This is one of those notes to myself, so I can remember it better or find it later more easily.
 
-I was recently strugging with permission problem for the unix socket, the mistake was quite silly - I did not turn permission bit on for the folder with socket file. And before I found the solution I tried to debug socket and I found that you can curl socket with 
+I was recently struggling with a permission problem for the unix socket, the mistake was quite silly - I did not turn the permission bit on for the folder with the socket file. And before I found the solution I tried to debug the socket and I found that you can curl a socket with
 ```
 curl --unix-socket /full/path/to/the/socket/socket.sock host_name
 ```
 
-In my case the socket file was created by gunicorn and host name did not have any meaning, dunno why, you could put there blah and it worked just fine. So curl should return you the proper respons. But I was wondern how one could send request to the socket manually and I found this handy snippet
+In my case the socket file was created by gunicorn and host name did not have any meaning, dunno why, you could put there blah and it worked just fine. So curl should return you the proper response. But I was wondering how one could send a request to the socket manually and I found this handy snippet
 
 
 <script src="https://gist.github.com/nuxlli/7553996.js"></script>

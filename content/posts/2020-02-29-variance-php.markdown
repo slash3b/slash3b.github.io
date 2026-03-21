@@ -108,7 +108,7 @@ var_dump((new B)->test());
 
 ```
 
-Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. `object` retur type as it will be a covariant return type and you get an error:
+Note that B return type is more specific and that hierarchy works just fine. But you can not use e.g. `object` return type as it will be a covariant return type and you get an error:
 
 
 ```

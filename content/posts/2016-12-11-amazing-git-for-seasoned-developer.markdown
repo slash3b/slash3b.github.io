@@ -8,7 +8,7 @@ title: Amazing GIT for seasoned developer.
 At first, like so many others I didn't use git to full extent, the tool belt of `git add, git commit, git push, git pull` 
 allowed me to survive through the day. At some point I realized that I need to enforce my GIT knowledge.
 
-In short GIT has an insanely rich eco system of different tools designed to do only one thing but do it very good.
+In short GIT has an insanely rich ecosystem of different tools designed to do only one thing but do it very well.
 This is not a post but rather a set of things I would like to remember about GIT.
 
 Do you know that there is a way to trace function or a piece of code?
@@ -17,7 +17,7 @@ In order to see code snippet evolution you have to use this command, specifying 
     git log -L  2,20:src/AdminBundle/Controller/AccountController.php
 
 
-If you want to trace fuction history you may use:
+If you want to trace function history you may use:
 
     git log -L  :funcname:src/AdminBundle/Controller/AccountController.php
 
@@ -50,7 +50,7 @@ Instead of writing n'th time about difference between HEAD~ and HEAD^, I will pa
 
 More info may be found in the [documentation](https://git-scm.com/book/en/v2/Git-Tools-Revision-Selection)
 
-Imagine that for some reason you have to merge the same piece of code over and over again. In this case GIT can simplify your life a bit, you  should turn on `git rerere` which stands for reuse recorded resolution. Basically it would record khow you did merge and next time will do that for you.
+Imagine that for some reason you have to merge the same piece of code over and over again. In this case GIT can simplify your life a bit, you  should turn on `git rerere` which stands for reuse recorded resolution. Basically it would record how you did the merge and next time will do that for you.
 
 You can always create an alias for some 'missing' commands like this:
 `git config --global alias.unstage 'reset HEAD --'`
@@ -76,16 +76,16 @@ I was always curious what are those signs that appear in the files in case of a 
 
 `git branch --merged` shows all the branches that were merged, you can use `--no-merged` as well.
 
-Lets turn to more adavanced stuff.
+Lets turn to more advanced stuff.
 In short all commands in git can be divided in two groups:
  - the ones you use every day, e.g. `git add`, `git commit` and etc. are called 'porcelain'
  - other low-level commands like `git cat-file`, `git commit-tree` and etc. are called 'plumbing' commands
 
 Lets have a look at some of plumbing commands.
 First command is `hash-object`:
-with `echo 'test content' | git hash-object -w --stdin` you'll get hash sum of the content you passed to the hash-object command. So the hash sum is d670460b4b4aece5915caf5c68d12f560a9fe3e4, first two letters are the name of subdirectory and the least files are the name of created file - .git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4.
+with `echo 'test content' | git hash-object -w --stdin` you'll get hash sum of the content you passed to the hash-object command. So the hash sum is d670460b4b4aece5915caf5c68d12f560a9fe3e4, first two letters are the name of subdirectory and the remaining characters are the name of the created file - .git/objects/d6/70460b4b4aece5915caf5c68d12f560a9fe3e4.
 
-By doing `git cat-file -p <blob>` you can get every recoded state of the file.
+By doing `git cat-file -p <blob>` you can get every recorded state of the file.
 
 With `git cat-file -p master^{tree}` we get the tree which is pointed to by the latest commit. Git tree is essentially the snapshot which contains references to all blobs and sub-trees.
 Basically all the magic goes through these commands - `git update-index` adds the files to the staging area and `git write-tree` creates the tree.
@@ -98,7 +98,7 @@ Suppose you did `git hard --reset <SHA-1>` for a few commits, and you want it ba
 The easiest way is to use `git reflog` to get the list of your recent actions or `git log -g` which gives you the more ample info.
 Once you get lost commit SHA you can checkout it or create some 'recovery-branch' and that is it!
 
-There is another powerfull command `git fsck --full` which checks git database for intergrity.
+There is another powerful command `git fsck --full` which checks git database for integrity.
 
 Do you have something to add ? Please comment below.
 

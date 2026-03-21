@@ -10,8 +10,8 @@ title: "join-fetched queries in doctrine for lost dummies"
 So it was not clear from the start and search engine results might confuse you even further. Here it goes — 
 JOIN FETCH is not an SQL feature and it does not relate to FETCH keyword in [t-sql](https://docs.microsoft.com/en-us/sql/t-sql/language-elements/fetch-transact-sql?view=sql-server-ver15) or any other sql dialect that uses it.
 
-Note: hydration is the process of turning fetched rows from the database into object/entities. Embarrased to admit that
-I did not knew exactly what it is.
+Note: hydration is the process of turning fetched rows from the database into object/entities. Embarrassed to admit that
+I did not know exactly what it is.
 
 Down below I'm going to show some examples and outputs based on a very simple database structure that includes two tables — Customer and Product. Customer can have many Products so it is one-to-many relation.
 

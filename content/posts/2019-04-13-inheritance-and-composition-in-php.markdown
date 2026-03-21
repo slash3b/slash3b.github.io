@@ -7,11 +7,11 @@ title: "Composition vs. Inheritance in PHP, tl;dr version"
 
 After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:
 
-So inheritance is awesome way to reuse code between objects but it comes at cost.
+So inheritance is an awesome way to reuse code between objects but it comes at a cost.
 
-- When class inherit from parent class there is no way to not implement methods/reduce parent's code. You have to implement everything according to parent class  
-- You need to make sure you are compatible with parent's class in case override something  
-- Child class may know about parent's methods implementation, in case they are not private, which breaks incapsulation
+- When a class inherits from a parent class there is no way to not implement methods/reduce parent's code. You have to implement everything according to the parent class
+- You need to make sure you are compatible with the parent's class in case you override something
+- Child class may know about parent's methods implementation, in case they are not private, which breaks encapsulation
 - Inheritance means deep coupling between parent and child classes  
 
 
@@ -33,7 +33,7 @@ class Violin extends MusicalInstrument
 
 ```
 
-In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from muptiple classes simultaneously and sometimes you do **not** want to inherit everything from parent class. That is when composition helps. For example:
+In this case you inherit everything from parent class and there is nothing wrong with it if that is what you want. But PHP does not support multi-inheritance - you can not inherit from multiple classes simultaneously and sometimes you do **not** want to inherit everything from parent class. That is when composition helps. For example:
 
 
 ```

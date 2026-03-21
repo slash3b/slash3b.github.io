@@ -14,7 +14,7 @@ Here is the presentation:
 <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vT-UcEE3Y6YwRb6FLX3Q1Ep7_TMJEFVPm816lHYw6-cyWs-mX23wk0VufYGwD1tZ9oR9r16Kv4YJQBV/embed?start=false&loop=false&delayms=3000" frameborder="0" width="480" height="299" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
 What it lacks is the live example of how it is done. So I'm going to just short list here an example.  
-For this code intro I'm going to use PHP7.2. The only PHP class we have is this one below, and it is pretty much naive but is usefull for our example:
+For this code intro I'm going to use PHP7.2. The only PHP class we have is this one below, and it is pretty much naive but is useful for our example:
 ```
 <?php
 declare(strict_types=1);
@@ -54,7 +54,7 @@ class WeirdCalculator
 }
 ```
 
-We also have test class that covers all out "codebase" so to speak.
+We also have test class that covers all our "codebase" so to speak.
 
 ```
 <?php
@@ -160,7 +160,7 @@ index db16273..9f1393e 100644
 ```
 
 If you run infection again, MSI score will be up to 71% which is much better.  
-This is how mutation testing help us to improve our testing suite. We did check the test suite quality and it turned out to be not so great and then Infection showed us all the weak spots and we fixed some of them and test quality improved a lot! You may play with the examples above just to get deeper understanging of what is going on.  
+This is how mutation testing help us to improve our testing suite. We did check the test suite quality and it turned out to be not so great and then Infection showed us all the weak spots and we fixed some of them and test quality improved a lot! You may play with the examples above just to get a deeper understanding of what is going on.  
 
 Also note that sometime some of the mutations do not make sense, so it is not necessary to strive for 100% MSI.
 

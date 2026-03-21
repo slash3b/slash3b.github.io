@@ -10,12 +10,12 @@ I'm working with gives me correct representation I always turn to the terminal a
 
 Every process has *at least* three communication channels a.k.a. streams attached to it:
 - STDIN. Standard input with file descriptor `0`
-- STDOUT. Standard output with file decriptor `1`
+- STDOUT. Standard output with file descriptor `1`
 - STDERR. Standard error with file descriptor `2`
 
-Usually when we work with streams we use file descriptor numbers. 
+Usually when we work with streams we use file descriptor numbers.
 
-> Note: if you want to learn more or something is not clear, definetely check post by @thewizardlucas,
+> Note: if you want to learn more or something is not clear, definitely check post by @thewizardlucas,
 link in the Resources section.
 
 Redirect `STDOUT` to some file:  
@@ -41,8 +41,8 @@ Another way to redirect `STDERR` **to** `STDOUT` is to use `2>&1` in the end of 
     cat smth /proc/sys/kernel/hostname > /tmp/test 2>&1
 ```
 
-... here your shell will first analyze what is going on and only then command will be launched. 
-So shell does this analysys from left to right and first it sees redirection to the file, 
+... here your shell will first analyze what is going on and only then the command will be launched.
+So shell does this analysis from left to right and first it sees redirection to the file, 
 then it sees `STDERR` to `STDOUT` redirection and does that, only then the whole line is "launched".
 
 Direct `STDOUT` to `STDIN` of another program:

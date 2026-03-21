@@ -4,7 +4,7 @@ date: 2021-07-18
 title: "Notes on 'Go in action' book"
 ---
 
-Slice takes 24 bit of memory — 8 bit for pointer, 8 for len and 8 for capacity.  
+Slice takes 24 bytes of memory — 8 bytes for pointer, 8 for len and 8 for capacity.  
 Passing a slice between functions is okay, since it is copied BUT in the copied version we still have the correct pointer. 
 
 Reference types in Go:
@@ -36,7 +36,7 @@ Methods Receivers 	Values
 (t *T)			*T
 ```
 
-Exporting and unexporting indentifiers.
+Exporting and unexporting identifiers.
 
 Identifiers are exported or unexported, not values. That means that it is possible to export "unexported" value. 
 The short variable declaration operator is capable of inferring the type and creating a variable of the unexported type. 
@@ -50,9 +50,9 @@ Concurrency is not parallelism. Parallelism can only be achieved when multiple p
 
 Based on the internal algorithms of the scheduler, a running goroutine can be stopped and rescheduled to run again before it finishes its work. The scheduler does this to prevent any single goroutine from holding the logical processor hostage. It will stop the currently running goroutine and give another runnable goroutine a chance to run.
 
-Suprisingly useful and light package "sync/atomic" to work with primitives while running goroutines. e.g. simple `atomic.StoreInt64()` can be used as a signal for all goroutines to stop work and return. 
+Surprisingly useful and light package "sync/atomic" to work with primitives while running goroutines. e.g. simple `atomic.StoreInt64()` can be used as a signal for all goroutines to stop work and return. 
 
-Being able to receive on a closed channel is a very usefull since it allows to dry channel and not lost any data. 
+Being able to receive on a closed channel is very useful since it allows you to drain the channel and not lose any data. 
 
 Concurrency patterns. 
 

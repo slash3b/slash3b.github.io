@@ -195,7 +195,7 @@ func main() {
     }()
 
     for i := 0; i < 5; i++ {
-        fmt.Printf("--> reseived result %d from `out` channel \n", <-out)
+        fmt.Printf("--> received result %d from `out` channel \n", <-out)
     }
 
     fmt.Println("END")
@@ -216,10 +216,10 @@ func worker(id int, in <-chan int, out chan<- int) {
 
 ### Rate limiter
 
-simple rate limiter using a buffered channel 
+simple rate limiter using a buffered channel
 wrap handler with a func that tries to add to channel
-and defers release. If lenght of buffered channel is 10
-then when we have 10 ongoing requests will be pending 
+and defers release. If length of buffered channel is 10
+then when we have 10 ongoing requests will be pending
 
 ```
 rateLimiterMiddleware := func(f func(http.ResponseWriter, *http.Request)) func(http.ResponseWriter, *http.Request) {
@@ -241,8 +241,8 @@ rateLimiterMiddleware := func(f func(http.ResponseWriter, *http.Request)) func(h
 Apart from well know way to work with concurrent code in Go, sync primitives and channels, 
 there are other two: *data confinement* and *data immutability*.   
 
-Data immutability is a simple and yet powerfull techique. Every goroutine operates on its own
-copy of a data. This leads to easied data management and low cognitive load.       
+Data immutability is a simple and yet powerful technique. Every goroutine operates on its own
+copy of the data. This leads to easier data management and low cognitive load.       
 
 Data confinement makes data implicitly available only to one process/goroutine at a time.    
 Data confinements comes in two flavors: ad-hoc and lexical.    

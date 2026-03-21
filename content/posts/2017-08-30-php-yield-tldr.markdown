@@ -4,10 +4,10 @@ date:   2017-08-30
 comments: true
 title: "PHP yield tl;dr"
 ---
-_If you would like to run some php code samples, your own machine is fine, but I would recomment you to use [3v4l.org](3v4l.org) as a way to execute the code with ~200 different PHP version. That is pretty awesome._
+_If you would like to run some php code samples, your own machine is fine, but I would recommend you to use [3v4l.org](3v4l.org) as a way to execute the code with ~200 different PHP version. That is pretty awesome._
 
-So for some time I avoided the `yeild` and all generator related stuff, honestly I did not get it from the first time and from the second time too... as usual It took some time
-and perseverence from my side to grok that.
+So for some time I avoided the `yield` and all generator related stuff, honestly I did not get it from the first time and from the second time too... as usual it took some time
+and perseverance from my side to grok that.
 
 Before we begin here is some specs from the local machine, I'm showing what seems reasonable so bear with me:
 
@@ -62,7 +62,7 @@ You can also do something like this:
     }
 
 While the `grabArray()` will store the whole array in the memory and then obediently return this huge array, the `yieldArray()` will return the object instance of the `Generator` class.
-Generator is a special type of class which can **not** be instantiated with the _new_ keyword, it extents `Iterator` interface and can be traversed with the usual
+Generator is a special type of class which can **not** be instantiated with the _new_ keyword, it extends `Iterator` interface and can be traversed with the usual
 foreach.
 
 Also you can notice a huge difference in consumed RAM (tested files with function above may be found [here](https://github.com/slash3b/sand`box/tree/master/php`yield`blog`post)):
@@ -72,18 +72,18 @@ Also you can notice a huge difference in consumed RAM (tested files with functio
     ~ $ php yield_test.php
     2Mb
 
-_later on I found out that the paragraph below is almost the same as in the "couroutines" article by Nikita Popov. Does it mean I understood it that good or I just subconsciously stole it?_
+_later on I found out that the paragraph below is almost the same as in the "coroutines" article by Nikita Popov. Does it mean I understood it that good or I just subconsciously stole it?_
 
 It happens because the `yieldArray()` is not executed fully, instead it returns `Generator` instance when it stumbles on the first `yield` keyword.
 Returned generator has a "state" and "remembers" current state of the function, more on that later. 
 
 Lets take into account some other important generator features:
-- `yeild()` can take key-value pairs, just like this `yield $key => $value`
-- in order to yeild null just `yield;` it 
+- `yield` can take key-value pairs, just like this `yield $key => $value`
+- in order to yield null just `yield;` it
 - generators are one-way only highway, you can't get the previous value from the generator
 - generators can not be cloned and when it is closed the `valid()` method will return false
 
-In php7, we have a possibility to yeild form another generator, array, Iterator, well... anything that can be pushed into the genereator.
+In php7, we have a possibility to yield from another generator, array, Iterator, well... anything that can be pushed into the generator.
 
     <?php
     function secondGen()
@@ -127,7 +127,7 @@ I preserved it with author's comments but added a couple of lines in the end, fo
     // and next() executes what is left in the function
     $gen->next();
 
-And this will resut in:
+And this will result in:
         
         start
         middle

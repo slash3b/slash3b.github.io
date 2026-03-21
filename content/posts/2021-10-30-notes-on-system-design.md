@@ -17,8 +17,8 @@ database, cache it and return result
 - **GeoDNS** is a patch for BIND DNS server software that allows for geographical split horizon 
 
 A few words about caching strategy.
-Your caching strategy depends on your data access patterns. Is your system write heavy, read heavy, results are always
-  should be unique ?
+Your caching strategy depends on your data access patterns. Is your system write heavy, read heavy, should results
+  always be unique?
 
 Caching strategies:
 - **cache-aside** — cache sits "aside" and application interacts directly with cache and database layers. Most common
@@ -47,7 +47,7 @@ _chapter 3_
 
 4 steps for effective system design interview
 - understand the problem and establish design scope. Get all the basic params and features of a system to be designed  
-- propose high-level desing and get an appoval for it, so you can move forward with design  
+- propose high-level design and get an approval for it, so you can move forward with design
 - deep dive into details — identify bottlenecks, system performance, resource estimation 
 - wrap up, propose some other possible solutions, talk to your interviewer etc.. 
 
@@ -89,8 +89,8 @@ A ring is an array, which end is connected to the beginning, thus making it a ri
 ```
 If it is a ring, then moving clock wise from key value will give you server it is assigned to. 
 
-A techinique called virtual nodes helps to spread keys evently, in cases then servers are added or
-removed. A bunch of virtual nodes represent a cache server, and virtual nodes are evently spread on the ring.
+A technique called virtual nodes helps to spread keys evenly, in cases when servers are added or
+removed. A bunch of virtual nodes represent a cache server, and virtual nodes are evenly spread on the ring.
 
 
 ---
@@ -112,16 +112,16 @@ Theorem states, that you can have any two of features above, but not all of them
 Thus you can have:
 - CP, Consistency + Partition tolerance
 - AP, Availability + Partition tolerance 
-- CA, Consistenty + Availability
+- CA, Consistency + Availability
 
-In a real world network partitions will happen, so Consitency + Availability combination can not happen in real
-world because you always need Partition tolerance. So that leaves us with wether CP or AP. When discussing design
-approach you either may choose availability, which means stale reads but working writes, or you can choose consitency,
-which means no writes but correct reads. 
+In a real world network partitions will happen, so Consistency + Availability combination can not happen in real
+world because you always need Partition tolerance. So that leaves us with whether CP or AP. When discussing design
+approach you either may choose availability, which means stale reads but working writes, or you can choose consistency,
+which means no writes but correct reads.
 
 Building blocks of a system:
-- data partition. Use consistent hashing, which gives you equal distrinbution of data between servers and also gives you
-  heterogenity, meaning a server with bigger capacity will have more virtual nodes placed on a hash ring
+- data partition. Use consistent hashing, which gives you equal distribution of data between servers and also gives you
+  heterogeneity, meaning a server with bigger capacity will have more virtual nodes placed on a hash ring
 - data replication, replication might be done by just replicating to the first 3 nodes you find on hash ring moving
   clock wise 
 - consistency, with number of servers (N), writes quorum (W) and read quorum (R) you can tune your system parameters as
@@ -142,7 +142,7 @@ Key idea is: **each node and each client keeps track of maximum value it has see
 - each node has a unique identifier
 - each node and every client includes its own version of max value they have seen so far
 - value with greater counter value is bigger
-- if counter values are equal then node with greated node id is bigger timestamp 
+- if counter values are equal then node with greater node id is bigger timestamp
 
 ```
            Lamport timestamp: (counter, node id)
@@ -178,7 +178,7 @@ Requirement:
 - unique
 - numeric only
 
-UUID is a great solution, but it is 128 bits length. For us Twitter Showflake ID generator fits perfectly.
+UUID is a great solution, but it is 128 bits in length. For us Twitter Snowflake ID generator fits perfectly.
 
 It is simple and efficient and looks like this:
 
@@ -201,7 +201,7 @@ URL shortener
 
 Types of redirect — 301 and 302 http statuses.
 301 means permanent redirect, which means browser will cache it and next time will hit long url directly. 
-302 meand temporary redirect so that the browser hits short url every time.
+302 means temporary redirect so that the browser hits short url every time.
 
 301 reduces server load
 302 allows to have better tracking and analytics 
@@ -245,12 +245,12 @@ _chapter 11_
 News feed system
 
 Feed system includes fanout service. That is when a fried, e.g. posts something to the feed, all frieds should
-receive/see that post in their feeds. For this fanout service is used. This kind of service delivers data to all
+receive/see that post in their feeds. For this a fanout service is used. This kind of service delivers data to all
 interested parties. There are two types of fanout services: fanout on write and fanout on read.
 
-Fanout on write, writes/updates feed of all the friends/people interested in. Pros: updates feeds immediately, that is
+Fanout on write writes/updates the feed of all friends/people interested. Pros: updates feeds immediately, that is
 feeds are being pre-computed and feed delivery is fast. Cons: pre-computation takes time and might be inefficient since
-some of the people are reading their feeds rarely. Pre-computation might take a lot of time when user have many friends
+some of the people are reading their feeds rarely. Pre-computation might take a lot of time when a user has many friends
 — this is called hotkey problem. 
 
 Fanout on read means feed is updated when user requests it. Pros: no extra pre-computation required. Cons: feed request might be executing slowly.
@@ -261,8 +261,8 @@ _chapter 12_
 
 Chat system 
 
-Ways to simulate full-duplex connection: polling, long polling.  
-Polling is simple and a well-known techinque — you just ask server periodically about new messages. Client opens
+Ways to simulate full-duplex connection: polling, long polling.
+Polling is simple and a well-known technique — you just ask the server periodically about new messages. Client opens
 connection, asking for any info for it, and closes it. And then again opens it. 
 Long polling is a bit more complex — client keeps connection open until server does have some info/messages. Client
 gets the messages, closes connection and immediately opens up a new connection.  
@@ -302,7 +302,7 @@ Design Youtube
 
 Video streaming flow.
 Streaming protocol — is a standardized way to control data transfer for video streaming. There are a few streaming
-protocols to chose from: MPEG-DASH, Apple HLS, microsoft smooth streaming, Adobe HDS.
+protocols to choose from: MPEG-DASH, Apple HLS, Microsoft Smooth Streaming, Adobe HDS.
 
 There are many types of encoding formats, but most of them consist of two parts — container and codec.
 You can tell container by file extension, e.g. .avi, .mpeg, .mkv and etc. A container is like a box that contains video,
@@ -310,8 +310,8 @@ audio and metadata altogether. Codec is a compression and decompression algorith
 container not loosing any quality.  
 
 Safety optimization — pre-signed URL. Client, first, does request to e.g. `/upload` endpoint that does auth checks and
-returns pre-signed URL, which client uses to upload a file. Amazon S3 call is pre-signed URL, while Microsoft Asure
-calls it Shared Access Signature. 
+returns pre-signed URL, which client uses to upload a file. Amazon S3 calls it a pre-signed URL, while Microsoft Azure
+calls it Shared Access Signature.
 
 Cost saving optimization. 
 - Not everything should be stored in CDN. CDN on a large scale is expensive. We can store in CDN only the most popular videos.

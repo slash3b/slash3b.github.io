@@ -7,7 +7,7 @@ draft: true
 
 ---
 
-_Disclaimer: this post is my own understanding of graphQL and how it may be implemented with Symfony. I'm quite sure this is not a "best practice" guide and this post may contain erros, so please remember this. I do not encourage anybody to build API the way it is described here. I would be really glad if you would leave your opinion in the comments below. Thanks for reading!_
+_Disclaimer: this post is my own understanding of graphQL and how it may be implemented with Symfony. I'm quite sure this is not a "best practice" guide and this post may contain errors, so please remember this. I do not encourage anybody to build API the way it is described here. I would be really glad if you would leave your opinion in the comments below. Thanks for reading!_
 
 <br>
 First, for those who are like me do not have a computer science degree, lets find out what graph is. 
@@ -33,10 +33,10 @@ Here is a simple REST request model, whenever we need to fetch/modify data we ne
 to another endpoint/resource and etc. Each time we need data we do yet another request which is not really efficient.    
 <br><br>
 <br><br>
-Graph QL on the other hand is able to fetch all the necessary data at once and __only the data we need__, collecting everything we reqeuested for and outputting it in one response.
+GraphQL on the other hand is able to fetch all the necessary data at once and __only the data we need__, collecting everything we requested for and outputting it in one response.
 <img src="/assets/images/simplified_graphql_request_response_model.svg"> 
 
-GraphQL uses type system to describe underluing data we can work with and ensure helpful error reporting. As the client specify what data needed we do not have to stick with version mangement for GraphQL endpoint, in other words GraphQL endpoints are versionless. You can add new fields without worrying - existing clients will still receive data.   
+GraphQL uses a type system to describe the underlying data we can work with and ensure helpful error reporting. As the client specifies what data is needed we do not have to stick with version management for the GraphQL endpoint, in other words GraphQL endpoints are versionless. You can add new fields without worrying - existing clients will still receive data.   
 
 So finally it looks something like this(gif stolen from the [graphql.org](http://graphql.org/)):
 <img src="/assets/images/t01c93357a8f0c51329.gif"> 

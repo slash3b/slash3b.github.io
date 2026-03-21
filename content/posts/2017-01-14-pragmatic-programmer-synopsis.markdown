@@ -9,7 +9,7 @@ title: Pragmatic Programmer synopsis
 Here are all the tips from the book Pragmatic Programmer. It was published in October, 1999 and since then became one the best known books about software engineering.
 Just as I started to write this post, I found that Jeff Atwood already [wrote](https://blog.codinghorror.com/a-pragmatic-quick-reference) about this post.
 But I like to finish what I started, so let there be yet another post praising this great book.
-The list is mostly copy-paste, some day I'll have time to add my own comments to each Tip, though most if the Tips are pretty self-explanatory.
+The list is mostly copy-paste, some day I'll have time to add my own comments to each Tip, though most of the Tips are pretty self-explanatory.
 
 * Tip 1: Care about your craft
 * Tip 2: Think!
@@ -36,7 +36,7 @@ intelligence gathering that takes place before a single tracer bullet is fired.)
 We're not suggesting that your end users actually program in these languages. Instead, you're giving yourself a tool
 that lets you work closer to their domain.)
 * Tip 18: Estimate to Avoid Surprises 
-* Tip 19: Iterate the Schedule with the Code (This may not be popular with management, who typically want a single, hard-and-fast number before the projecteven starts. You'll have to help them understand that the team, their productivity, and the environment will determine the schedule. By formalizing this, and refining the schedule as part of each iteration, you'll be giving them the mostaccurate scheduling estimates you can.) What to Say When Asked for an Estimate - You say "I'll get back to you."
+* Tip 19: Iterate the Schedule with the Code (This may not be popular with management, who typically want a single, hard-and-fast number before the project even starts. You'll have to help them understand that the team, their productivity, and the environment will determine the schedule. By formalizing this, and refining the schedule as part of each iteration, you'll be giving them the mostaccurate scheduling estimates you can.) What to Say When Asked for an Estimate - You say "I'll get back to you."
 * Tip 20: Keep Knowledge in Plain Text
 * Tip 21: Use the Power of Command Shells
 * Tip 22: Use a Single Editor Well
@@ -137,7 +137,7 @@ collection, and making a point of reading it.
 * Tip 56: Listen to Nagging Doubts—Start When You're Ready
 * Tip 57:	Some Things Are Better Done than Described
 * Tip 58: Don't Be a Slave to Formal Methods
-* Tip 59: Expensive Too Do Not Produce Better Designs
+* Tip 59: Expensive Tools Do Not Produce Better Designs
 * Tip 60: Organize Around Functionality, Not Job Functions
 * Tip 61: Don't Use Manual Procedures
 * Tip 62: Test Early. Test Often. Test Automatically.
