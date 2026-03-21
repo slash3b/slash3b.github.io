@@ -48,7 +48,7 @@ Latency — time it takes to send a request and receive a response&lt;/p&gt;</de
       <guid>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</guid>
       <description>&lt;p&gt;It was only an accident that I read a &lt;a href=&#34;https://www.arangodb.com/2020/09/a-story-of-a-memory-leak-in-go-how-to-properly-use-time-after&#34;&gt;post on ArangoDB site&lt;/a&gt;
 and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have
-it in form of a blogpost.&lt;/p&gt;
+it in the form of a blog post.&lt;/p&gt;
 &lt;p&gt;Here is how leak looked like:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;
@@ -130,7 +130,7 @@ Also contains my own knowledge.&lt;/p&gt;
 &lt;code&gt;_&lt;/code&gt; jump to the beginning of the line&lt;br&gt;
 &lt;code&gt;:N&lt;/code&gt; where N is a number line. Will move you to that line number&lt;br&gt;
 &lt;code&gt;gi&lt;/code&gt; places you in INSERT mode you were last time
-&lt;code&gt;zz&lt;/code&gt; move current line the the center
+&lt;code&gt;zz&lt;/code&gt; move current line to the center
 &lt;code&gt;s&lt;/code&gt; delete single character and enter INSERT mode&lt;/p&gt;</description>
     </item>
     <item>
@@ -165,7 +165,7 @@ struct that does shipping calculation, checks weather condition, sends push noti
 &lt;li&gt;by doing &lt;strong&gt;escape analysis&lt;/strong&gt; GC mechanism decides what goes to heap and what stays on stack&lt;/li&gt;
 &lt;li&gt;use &lt;code&gt;-gcflags &#39;-m&#39;&lt;/code&gt; flag to get escape analysis info, e.g. &lt;code&gt;go run -gcflags &#39;-m&#39; main.go&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;another way to look into what GC is doing during runtime is to run program with &lt;code&gt;GODEBUG=gctrace=1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;GC runs consurrently with main program running&lt;/li&gt;
+&lt;li&gt;GC runs concurrently with main program running&lt;/li&gt;
 &lt;li&gt;main running program is called &amp;ldquo;mutator&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;Golang Garbage Collection uses &amp;ldquo;tricolor algorithm&amp;rdquo; otherwise known as tricolor mark and sweep algorithm.&lt;/li&gt;
 &lt;li&gt;GC represents data in the heap as graph of elements/objects&lt;/li&gt;
@@ -179,11 +179,11 @@ struct that does shipping calculation, checks weather condition, sends push noti
       <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid>
       <description>&lt;p&gt;So I was solving &lt;a href=&#34;https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/&#34;&gt;Construct Binary Tree from Inorder and Postorder Traversal&lt;/a&gt;
-and I got myself more less working solution that got accepted.&lt;/p&gt;
+and I got myself a more-or-less working solution that got accepted.&lt;/p&gt;
 &lt;p&gt;But it was not the fastest one.&lt;/p&gt;
-&lt;p&gt;But then I though — how do I profile &lt;code&gt;buildTree&lt;/code&gt; function and see what actually takes time
+&lt;p&gt;But then I thought — how do I profile &lt;code&gt;buildTree&lt;/code&gt; function and see what actually takes time
 in my program?&lt;/p&gt;
-&lt;p&gt;Golang has an excellent set of tool available, just check an output of &lt;code&gt;go tool&lt;/code&gt;.
+&lt;p&gt;Golang has an excellent set of tool available, just check the output of &lt;code&gt;go tool&lt;/code&gt;.
 One of the items in a list you&amp;rsquo;ll see is &lt;code&gt;pprof&lt;/code&gt; which is a Golang profiler.&lt;/p&gt;</description>
     </item>
     <item>
@@ -203,8 +203,8 @@ database, cache it and return result&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A few words about caching strategy.
-Your caching strategy depends on your data access patterns. Is your system write heavy, read heavy, results are always
-should be unique ?&lt;/p&gt;</description>
+Your caching strategy depends on your data access patterns. Is your system write heavy, read heavy, should results
+always be unique?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Golang concurrency tricks and patterns</title>
@@ -232,7 +232,7 @@ no goroutine ever blocks.&lt;/p&gt;
       <link>https://localhost:1313/posts/2021-06-26-go-in-action-notes/</link>
       <pubDate>Sun, 18 Jul 2021 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2021-06-26-go-in-action-notes/</guid>
-      <description>&lt;p&gt;Slice takes 24 bit of memory — 8 bit for pointer, 8 for len and 8 for capacity.&lt;br&gt;
+      <description>&lt;p&gt;Slice takes 24 bytes of memory — 8 bytes for pointer, 8 for len and 8 for capacity.&lt;br&gt;
 Passing a slice between functions is okay, since it is copied BUT in the copied version we still have the correct pointer.&lt;/p&gt;
 &lt;p&gt;Reference types in Go:&lt;/p&gt;
 &lt;ul&gt;
@@ -279,8 +279,8 @@ book and only then this text below &lt;strong&gt;might&lt;/strong&gt; make sense
       <link>https://localhost:1313/posts/2020-05-08-design-data-intensive-applications/</link>
       <pubDate>Fri, 08 May 2020 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2020-05-08-design-data-intensive-applications/</guid>
-      <description>&lt;p&gt;Designing Data-Intensive Applications by Martin Kleppmann is an amazing journey into the world of distributed systems. It is a must read, especially if you are like me — self-taught programmer. I think it will be usefull even if you do not plan to work with distributed systems, it is just interesting per se.&lt;br&gt;
-I really learned a lot, than you Martin!&lt;/p&gt;
+      <description>&lt;p&gt;Designing Data-Intensive Applications by Martin Kleppmann is an amazing journey into the world of distributed systems. It is a must read, especially if you are like me — self-taught programmer. I think it will be useful even if you do not plan to work with distributed systems, it is just interesting per se.
+I really learned a lot, thank you Martin!&lt;/p&gt;
 &lt;p&gt;I have a feeling that I managed to digest and remember around 5% of the information, and the book contains a lot of good stuff, I mean &lt;strong&gt;a lot&lt;/strong&gt;. So for myself I decided to get table of book contents and augment it with little hints and notes that will be helpful in case I want to remember something quickly.&lt;/p&gt;</description>
     </item>
     <item>
@@ -291,16 +291,16 @@ I really learned a lot, than you Martin!&lt;/p&gt;
       <description>&lt;h1 id=&#34;what-is-join-fetch-exactly&#34;&gt;what is JOIN FETCH exactly?&lt;/h1&gt;
 &lt;p&gt;So it was not clear from the start and search engine results might confuse you even further. Here it goes —
 JOIN FETCH is not an SQL feature and it does not relate to FETCH keyword in &lt;a href=&#34;https://docs.microsoft.com/en-us/sql/t-sql/language-elements/fetch-transact-sql?view=sql-server-ver15&#34;&gt;t-sql&lt;/a&gt; or any other sql dialect that uses it.&lt;/p&gt;
-&lt;p&gt;Note: hydration is the process of turning fetched rows from the database into object/entities. Embarrased to admit that
-I did not knew exactly what it is.&lt;/p&gt;</description>
+&lt;p&gt;Note: hydration is the process of turning fetched rows from the database into object/entities. Embarrassed to admit that
+I did not know exactly what it is.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Detect cycle in singly linked list (python)</title>
       <link>https://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/</link>
       <pubDate>Wed, 11 Mar 2020 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2020-03-14-detect-cycle-in-linked-list/</guid>
-      <description>&lt;p&gt;As I&amp;rsquo;m improving my data structures knowledge and understanding I&amp;rsquo;m trying to solve different puzzles. One of them is to detect cycle in a sigly-linked list.&lt;/p&gt;
-&lt;p&gt;Singly-linked list consits of nodes that reference one another. A node could look like this:&lt;/p&gt;
+      <description>&lt;p&gt;As I&amp;rsquo;m improving my data structures knowledge and understanding I&amp;rsquo;m trying to solve different puzzles. One of them is to detect a cycle in a singly-linked list.&lt;/p&gt;
+&lt;p&gt;Singly-linked list consists of nodes that reference one another. A node could look like this:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;
 class Node:
     def __init__(self, value=None):
@@ -334,7 +334,7 @@ class Node:
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Atomicity&lt;/strong&gt; &lt;br&gt;
-Database should support transaction, namely you should be able to group you request statemets and execute them at once. The very important feature here is &lt;em&gt;abortability&lt;/em&gt; — ability to rollback any changes done in case we have an error in transaction somewhere along the way.&lt;/p&gt;</description>
+Database should support transactions, namely you should be able to group your request statements and execute them at once. The very important feature here is &lt;em&gt;abortability&lt;/em&gt; — ability to rollback any changes done in case we have an error in transaction somewhere along the way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My chaotic notes on REST API</title>
@@ -344,13 +344,13 @@ Database should support transaction, namely you should be able to group you requ
       <description>&lt;p&gt;REST is paradigm or architectural style that defines your API.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;One of the most important and yet simple REST consept is resouce/endpoint, I really like resource term so I&amp;rsquo;m going to use it here. In REST paradigm URL is a resource, e.g. — &lt;a href=&#34;http://example.org/test/foo&#34;&gt;http://example.org/test/foo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One of the most important and yet simple REST concept is resource/endpoint, I really like resource term so I&amp;rsquo;m going to use it here. In REST paradigm URL is a resource, e.g. — &lt;a href=&#34;http://example.org/test/foo&#34;&gt;http://example.org/test/foo&lt;/a&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;You should strive not to use verbs in URL. The only verbs you need are HTTP verbs — GET, HEAD, POST, PUT, PATCH, OPTIONS, TRACE.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Subresource in REST looks like this — &lt;code&gt;/posts/{id}/author&lt;/code&gt;. With GET verb it means — fetch me an author of this particular book. It makes no sense to continue a subresouce with additional nesting. If you have situation like this TRY to move that to separate endpoint. Although the correct answer is always — &amp;ldquo;it depends&amp;rdquo; : ) &lt;br&gt;
+&lt;p&gt;Subresource in REST looks like this — &lt;code&gt;/posts/{id}/author&lt;/code&gt;. With GET verb it means — fetch me an author of this particular post. It makes no sense to continue a subresource with additional nesting. If you have situation like this TRY to move that to separate endpoint. Although the correct answer is always — &amp;ldquo;it depends&amp;rdquo; : ) &lt;br&gt;
 If you are developing something vast and complex e.g. &lt;a href=&#34;https://developer.github.com/v3/&#34;&gt;github api&lt;/a&gt; than you can/should use longer URLs to fit in all the domain logic.&lt;/p&gt;</description>
     </item>
     <item>
@@ -388,8 +388,8 @@ If you are developing something vast and complex e.g. &lt;a href=&#34;https://de
       <link>https://localhost:1313/posts/2019-05-12-debud-unix-socket/</link>
       <pubDate>Sun, 12 May 2019 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2019-05-12-debud-unix-socket/</guid>
-      <description>&lt;p&gt;This is one of those notes to myself, so I can remmber it better or find it later more easy.&lt;/p&gt;
-&lt;p&gt;I was recently strugging with permission problem for the unix socket, the mistake was quite silly - I did not turn permission bit on for the folder with socket file. And before I found the solution I tried to debug socket and I found that you can curl socket with&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is one of those notes to myself, so I can remember it better or find it later more easily.&lt;/p&gt;
+&lt;p&gt;I was recently struggling with a permission problem for the unix socket, the mistake was quite silly - I did not turn the permission bit on for the folder with the socket file. And before I found the solution I tried to debug the socket and I found that you can curl a socket with&lt;/p&gt;</description>
     </item>
     <item>
       <title>Stream redirection tl;dr</title>
@@ -401,7 +401,7 @@ I&amp;rsquo;m working with gives me correct representation I always turn to the 
 &lt;p&gt;Every process has &lt;em&gt;at least&lt;/em&gt; three communication channels a.k.a. streams attached to it:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;STDIN. Standard input with file descriptor &lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;STDOUT. Standard output with file decriptor &lt;code&gt;1&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;STDOUT. Standard output with file descriptor &lt;code&gt;1&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;STDERR. Standard error with file descriptor &lt;code&gt;2&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Usually when we work with streams we use file descriptor numbers.&lt;/p&gt;</description>
@@ -412,11 +412,11 @@ I&amp;rsquo;m working with gives me correct representation I always turn to the 
       <pubDate>Sat, 13 Apr 2019 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2019-04-13-inheritance-and-composition-in-php/</guid>
       <description>&lt;p&gt;After reading a numerous resources on what is composition in terms of OOP and how it plays versus inheritance, I came up with following understanding:&lt;/p&gt;
-&lt;p&gt;So inheritance is awesome way to reuse code between objects but it comes at cost.&lt;/p&gt;
+&lt;p&gt;So inheritance is an awesome way to reuse code between objects but it comes at a cost.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;When class inherit from parent class there is no way to not implement methods/reduce parent&amp;rsquo;s code. You have to implement everything according to parent class&lt;/li&gt;
-&lt;li&gt;You need to make sure you are compatible with parent&amp;rsquo;s class in case override something&lt;/li&gt;
-&lt;li&gt;Child class may know about parent&amp;rsquo;s methods implementation, in case they are not private, which breaks incapsulation&lt;/li&gt;
+&lt;li&gt;When a class inherits from a parent class there is no way to not implement methods/reduce parent&amp;rsquo;s code. You have to implement everything according to the parent class&lt;/li&gt;
+&lt;li&gt;You need to make sure you are compatible with the parent&amp;rsquo;s class in case you override something&lt;/li&gt;
+&lt;li&gt;Child class may know about parent&amp;rsquo;s methods implementation, in case they are not private, which breaks encapsulation&lt;/li&gt;
 &lt;li&gt;Inheritance means deep coupling between parent and child classes&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Composition is just another way to inherit other classes
@@ -542,7 +542,7 @@ $realPerson-&amp;gt;accept($realVisitor);
 &lt;p&gt;Here is the presentation:&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;What it lacks is the live example of how it is done. So I&amp;rsquo;m going to just short list here an example.&lt;br&gt;
-For this code intro I&amp;rsquo;m going to use PHP7.2. The only PHP class we have is this one below, and it is pretty much naive but is usefull for our example:&lt;/p&gt;</description>
+For this code intro I&amp;rsquo;m going to use PHP7.2. The only PHP class we have is this one below, and it is pretty much naive but is useful for our example:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Amazing GIT for seasoned developer.</title>
@@ -551,7 +551,7 @@ For this code intro I&amp;rsquo;m going to use PHP7.2. The only PHP class we hav
       <guid>https://localhost:1313/posts/2016-12-11-amazing-git-for-seasoned-developer/</guid>
       <description>&lt;p&gt;At first, like so many others I didn&amp;rsquo;t use git to full extent, the tool belt of &lt;code&gt;git add, git commit, git push, git pull&lt;/code&gt;
 allowed me to survive through the day. At some point I realized that I need to enforce my GIT knowledge.&lt;/p&gt;
-&lt;p&gt;In short GIT has an insanely rich eco system of different tools designed to do only one thing but do it very good.
+&lt;p&gt;In short GIT has an insanely rich ecosystem of different tools designed to do only one thing but do it very well.
 This is not a post but rather a set of things I would like to remember about GIT.&lt;/p&gt;</description>
     </item>
     <item>
@@ -560,7 +560,7 @@ This is not a post but rather a set of things I would like to remember about GIT
       <pubDate>Sun, 20 May 2018 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2018-05-20-how-to-sign-git-commit-with-gpg/</guid>
       <description>&lt;p&gt;First step - creating the key itself.&lt;/p&gt;
-&lt;p&gt;Note that I&amp;rsquo;m using Fedora and for some rason I have to use &lt;code&gt;gpg2&lt;/code&gt; though &lt;code&gt;gpg&lt;/code&gt; is available also for some reason.&lt;br&gt;
+&lt;p&gt;Note that I&amp;rsquo;m using Fedora and for some reason I have to use &lt;code&gt;gpg2&lt;/code&gt; though &lt;code&gt;gpg&lt;/code&gt; is available also for some reason.&lt;br&gt;
 Generate your key:&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;gpg2 --full-gen-key&lt;/code&gt;&lt;br&gt;
 First two questions - choose default answers, but for key expiration date it is up to you,&lt;br&gt;
@@ -573,7 +573,7 @@ I chose &amp;lsquo;0 = key does not expire&amp;rsquo; option.&lt;/p&gt;
       <link>https://localhost:1313/posts/2017-12-16-graphql-php-symfony/</link>
       <pubDate>Sat, 16 Dec 2017 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2017-12-16-graphql-php-symfony/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this post is my own understanding of graphQL and how it may be implemented with Symfony. I&amp;rsquo;m quite sure this is not a &amp;ldquo;best practice&amp;rdquo; guide and this post may contain erros, so please remember this. I do not encourage anybody to build API the way it is described here. I would be really glad if you would leave your opinion in the comments below. Thanks for reading!&lt;/em&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this post is my own understanding of graphQL and how it may be implemented with Symfony. I&amp;rsquo;m quite sure this is not a &amp;ldquo;best practice&amp;rdquo; guide and this post may contain errors, so please remember this. I do not encourage anybody to build API the way it is described here. I would be really glad if you would leave your opinion in the comments below. Thanks for reading!&lt;/em&gt;&lt;/p&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;In wikipedia we may find the following explanation:&lt;/p&gt;</description>
@@ -587,7 +587,7 @@ I chose &amp;lsquo;0 = key does not expire&amp;rsquo; option.&lt;/p&gt;
 &lt;p&gt;Beware though, it is not 100% full, but 85-90% I think, I did omit some not-so-important features. I would be so glad if this article helped to save your time.&lt;/p&gt;
 &lt;h2 id=&#34;changes-introduced-in-70&#34;&gt;Changes introduced in 7.0&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Scalar type declarations&lt;/strong&gt;&lt;br&gt;
-An option to make PHP more stict on typing. We have the following types:&lt;/p&gt;</description>
+An option to make PHP more strict on typing. We have the following types:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Discovery of an advanced JOIN clause in MySQL</title>
@@ -596,7 +596,7 @@ An option to make PHP more stict on typing. We have the following types:&lt;/p&g
       <guid>https://localhost:1313/posts/2017-08-30-additional-criteria-in-the-join-clause/</guid>
       <description>&lt;p&gt;&lt;em&gt;A little disclaimer: this is just a short self-initialized-probably-never-released postmortem note.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Today at work I was silly enough not to ask help from my colleagues, I&amp;rsquo;ve decided to deal with the problem myself and came up with a shitty solution.&lt;br&gt;
-During code review horrible hackery was revaled and I was taugh to live a simple life.&lt;/p&gt;
+During code review horrible hackery was revealed and I was taught to live a simple life.&lt;/p&gt;
 &lt;p&gt;Lets consider the following - there are two tables:&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;SELECT * FROM docs
 
@@ -623,9 +623,9 @@ SELECT * FROM docvalues
       <link>https://localhost:1313/posts/2017-08-30-php-yield-tldr/</link>
       <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2017-08-30-php-yield-tldr/</guid>
-      <description>&lt;p&gt;&lt;em&gt;If you would like to run some php code samples, your own machine is fine, but I would recomment you to use &lt;a href=&#34;3v4l.org&#34;&gt;3v4l.org&lt;/a&gt; as a way to execute the code with ~200 different PHP version. That is pretty awesome.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;So for some time I avoided the &lt;code&gt;yeild&lt;/code&gt; and all generator related stuff, honestly I did not get it from the first time and from the second time too&amp;hellip; as usual It took some time
-and perseverence from my side to grok that.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;em&gt;If you would like to run some php code samples, your own machine is fine, but I would recommend you to use &lt;a href=&#34;3v4l.org&#34;&gt;3v4l.org&lt;/a&gt; as a way to execute the code with ~200 different PHP version. That is pretty awesome.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So for some time I avoided the &lt;code&gt;yield&lt;/code&gt; and all generator related stuff, honestly I did not get it from the first time and from the second time too&amp;hellip; as usual it took some time
+and perseverance from my side to grok that.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PHP variadic functions</title>
@@ -643,11 +643,11 @@ var_dump(variadic(1,2,3,4)); //  and you get it in form of the array [1,2,3,4]
 The first one gets you all the args in array form and the second you might&amp;rsquo;ve guessed just gives you a number of args.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Encoging tl;dr</title>
+      <title>Encoding tl;dr</title>
       <link>https://localhost:1313/posts/2017-05-28-encoding-tldr/</link>
       <pubDate>Sun, 28 May 2017 00:00:00 +0000</pubDate>
       <guid>https://localhost:1313/posts/2017-05-28-encoding-tldr/</guid>
-      <description>&lt;p&gt;Well, this is my own version of TLDR for an amazing post by &lt;a href=&#34;https://twitter.com/deceze&#34;&gt;David C. Zentgraf&lt;/a&gt;. As a self-starter I always struggle to find a good source of information which would give me ample view on the subject and the post writtend by David revealed the whole world of encoding to me.&lt;/p&gt;
+      <description>&lt;p&gt;Well, this is my own version of TLDR for an amazing post by &lt;a href=&#34;https://twitter.com/deceze&#34;&gt;David C. Zentgraf&lt;/a&gt;. As a self-starter I always struggle to find a good source of information which would give me an ample view on the subject and the post written by David revealed the whole world of encoding to me.&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Every text is just a sequence of bytes. Period.
 There are 128 symbols defined in ASCII table and out of 8 bits ASCII uses only 7.&lt;/p&gt;</description>
@@ -660,7 +660,7 @@ There are 128 symbols defined in ASCII table and out of 8 bits ASCII uses only 7
       <description>&lt;p&gt;Here are all the tips from the book Pragmatic Programmer. It was published in October, 1999 and since then became one the best known books about software engineering.
 Just as I started to write this post, I found that Jeff Atwood already &lt;a href=&#34;https://blog.codinghorror.com/a-pragmatic-quick-reference&#34;&gt;wrote&lt;/a&gt; about this post.
 But I like to finish what I started, so let there be yet another post praising this great book.
-The list is mostly copy-paste, some day I&amp;rsquo;ll have time to add my own comments to each Tip, though most if the Tips are pretty self-explanatory.&lt;/p&gt;</description>
+The list is mostly copy-paste, some day I&amp;rsquo;ll have time to add my own comments to each Tip, though most of the Tips are pretty self-explanatory.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

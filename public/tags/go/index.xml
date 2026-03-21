@@ -40,7 +40,7 @@ Latency — time it takes to send a request and receive a response&lt;/p&gt;</de
       <guid>https://localhost:1313/posts/2022-11-13-go-memory-leak-timer/</guid>
       <description>&lt;p&gt;It was only an accident that I read a &lt;a href=&#34;https://www.arangodb.com/2020/09/a-story-of-a-memory-leak-in-go-how-to-properly-use-time-after&#34;&gt;post on ArangoDB site&lt;/a&gt;
 and found the same leak in one of our projects at work. So this is going to be quite short, but nevertheless I want for have
-it in form of a blogpost.&lt;/p&gt;
+it in the form of a blog post.&lt;/p&gt;
 &lt;p&gt;Here is how leak looked like:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;
 &lt;table style=&#34;border-spacing:0;padding:0;margin:0;border:0;&#34;&gt;&lt;tr&gt;&lt;td style=&#34;vertical-align:top;padding:0;margin:0;border:0;&#34;&gt;

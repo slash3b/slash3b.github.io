@@ -27,7 +27,7 @@ Also contains my own knowledge.&lt;/p&gt;
 &lt;code&gt;_&lt;/code&gt; jump to the beginning of the line&lt;br&gt;
 &lt;code&gt;:N&lt;/code&gt; where N is a number line. Will move you to that line number&lt;br&gt;
 &lt;code&gt;gi&lt;/code&gt; places you in INSERT mode you were last time
-&lt;code&gt;zz&lt;/code&gt; move current line the the center
+&lt;code&gt;zz&lt;/code&gt; move current line to the center
 &lt;code&gt;s&lt;/code&gt; delete single character and enter INSERT mode&lt;/p&gt;</description>
     </item>
   </channel>

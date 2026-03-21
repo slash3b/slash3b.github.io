@@ -25,8 +25,8 @@ database, cache it and return result&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A few words about caching strategy.
-Your caching strategy depends on your data access patterns. Is your system write heavy, read heavy, results are always
-should be unique ?&lt;/p&gt;</description>
+Your caching strategy depends on your data access patterns. Is your system write heavy, read heavy, should results
+always be unique?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

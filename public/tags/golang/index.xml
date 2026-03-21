@@ -40,7 +40,7 @@ struct that does shipping calculation, checks weather condition, sends push noti
 &lt;li&gt;by doing &lt;strong&gt;escape analysis&lt;/strong&gt; GC mechanism decides what goes to heap and what stays on stack&lt;/li&gt;
 &lt;li&gt;use &lt;code&gt;-gcflags &#39;-m&#39;&lt;/code&gt; flag to get escape analysis info, e.g. &lt;code&gt;go run -gcflags &#39;-m&#39; main.go&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;another way to look into what GC is doing during runtime is to run program with &lt;code&gt;GODEBUG=gctrace=1&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;GC runs consurrently with main program running&lt;/li&gt;
+&lt;li&gt;GC runs concurrently with main program running&lt;/li&gt;
 &lt;li&gt;main running program is called &amp;ldquo;mutator&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;Golang Garbage Collection uses &amp;ldquo;tricolor algorithm&amp;rdquo; otherwise known as tricolor mark and sweep algorithm.&lt;/li&gt;
 &lt;li&gt;GC represents data in the heap as graph of elements/objects&lt;/li&gt;
@@ -54,11 +54,11 @@ struct that does shipping calculation, checks weather condition, sends push noti
       <pubDate>Tue, 28 Dec 2021 17:29:38 +0200</pubDate>
       <guid>https://localhost:1313/posts/2021-12-28-simple-case-of-golang-profiler-usage/</guid>
       <description>&lt;p&gt;So I was solving &lt;a href=&#34;https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/&#34;&gt;Construct Binary Tree from Inorder and Postorder Traversal&lt;/a&gt;
-and I got myself more less working solution that got accepted.&lt;/p&gt;
+and I got myself a more-or-less working solution that got accepted.&lt;/p&gt;
 &lt;p&gt;But it was not the fastest one.&lt;/p&gt;
-&lt;p&gt;But then I though — how do I profile &lt;code&gt;buildTree&lt;/code&gt; function and see what actually takes time
+&lt;p&gt;But then I thought — how do I profile &lt;code&gt;buildTree&lt;/code&gt; function and see what actually takes time
 in my program?&lt;/p&gt;
-&lt;p&gt;Golang has an excellent set of tool available, just check an output of &lt;code&gt;go tool&lt;/code&gt;.
+&lt;p&gt;Golang has an excellent set of tool available, just check the output of &lt;code&gt;go tool&lt;/code&gt;.
 One of the items in a list you&amp;rsquo;ll see is &lt;code&gt;pprof&lt;/code&gt; which is a Golang profiler.&lt;/p&gt;</description>
     </item>
   </channel>
